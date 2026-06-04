@@ -1,4 +1,0 @@
-* Matrizes
-+ Matriz: disposição de números em linhas e colunas
-  + Geralmente denotadas por letras maíúsculas
-  + Seus componentes (elementos) por 
