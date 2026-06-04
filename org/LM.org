@@ -1,0 +1,227 @@
+#+TITLE: Lógica Matemática
+#+AUTHOR: Felipe Costa Canteiro
+\newpage
+* Introdução e história
++ Lógica: ciência que estuda os princípios de inferência
+  + Determinar em que condições certas coisas se seguem ou não de outras
++ Lógica Matemática: relacionada à computação
+  + Dividida em 4 áreas:
+    + Teoria da prova
+    + Teoria dos modelos
+    + Teoria axiomática dos conjuntos
+    + Computabilidade
+** História
++ A lógica foi criada por Aristóteles
+\newpage
+* Cálculo Proposicional 
++ Utiliza fórmulas lógicas
+** Conectores Lógicos
++ \neg: negação
+  "não é verdade que"
++ \vee: disjunção
+  + "ou"
++ \wedge: conjunção
+  + "e"
++ \rightarrow: implicação
+  + "se ... então ..."
+  + A \rightarrow B
+    + A: antecedente
+    + B: consequente
++ \leftrightarrow: bicondicional
+  + "se, e somente se,"
+
+Qualquer fórmula pode ser construída utilizando apenas \neg e \vee 
+  + \(A \wedge B \equiv \neg (\neg A \vee \neg B)\)
+  + \(A \rightarrow B \equiv \neg A \vee B\)
+  + \(A \leftrightarrow B \equiv (A \rightarrow B) \wedge (B \rightarrow A)\)
+*** Ordem de precedência
++ \neg
++ \vee
++ \wedge
++ \rightarrow
++ \leftrightarrow
+** Metafórmulas
++ Fórmulas que representaç qualquer outra fórmula
++ O símbolo \(=_{def}\) é utilizado para associar uma fórmula a uma meta fórmula
+  + \(\varphi =_{def} (A \rightarrow \neg B) \wedge \neg A\) ** Subfórmula + Toda fórmula é subfórmula de si mesma + Toda subfórmula de A é subfórmula de \neg A + Toda subfórmula de A ou de B é subfórmula de A \vee B, A \wedge B, A \rightarrow B, A \leftrightarrow B
+** Mapeamento de fórmulas para o cálculo proposicional
++ Nem sempre é possível mapear fórmulas
++ O cálculo proposicional não é adequado ao mapeamento de frases do cotidiano
+** Semântica do calculo proposicional
++ Usamo *V* para verdadeiro e *F* para falso
++ Função verdade: \(f \wedge (A,B)\) (exemplo com a conjunção)
+  + \(f \wedge (V,V) = V\)
+  + \(f \wedge (V,F) = F\)
+  + \(f \wedge (F,V) = F\)
+  + \(f \wedge (F,F) = F\)
++ Tabela verdade
+  |---+---+-------|
+  | A | B | A \wedge B |
+  |---+---+-------|
+  | V | V | V     |
+  | V | F | F     |
+  | F | V | F     |
+  | F | F | F     |
+  |---+---+-------|
+  + É possível criar tabelas verdade abreviadas
+    + Abaixo dos conectores vão os valores da subfórmula
+      #+DOWNLOADED: https://i.imgur.com/66uJUa3.png @ 2024-08-01 14:33:21
+      [[file:Lógica_Matemática/2024-08-01_14-33-21_66uJUa3.png]]
+*** Tautologia, contradição e contingência
++ *Tautologia*: para quaisquer atribuições de valores para as suas variáveis, o valor da fórmula é verdadeiro
+  \(\models \varphi\)
++ *Contradição*: para quaisquer atribuições de valores para as suas variáveis, o valor da fórmula é falso
+  \(\models \neg \varphi\)
++ *Contingência*: uma fórmula que não é tautologia ou contradição
+  \(\not\models \varphi\)
+*** Consequência lógica
++ Se \(\vdash A \rightarrow B\) dizemos que A implica logicamente B ou que B é uma consequência lógica de A
+  + *Princípio da explosão*: \(\vdash A \neg A \rightarrow \varphi \)
+    + Qualquer fórmulas \varphi é uma consequência lógica de \(A \wedge \neg A\)
+*** Equivalência lógica
++ Se \(\vdash A \leftrightarrow B\) dizemos que A é logicamente equivalente a B
++ Escrevemos A \equiv B
+*** Como produzir tautologias
+1. \(\vdash \varphi \Rightarrow \vdash \varphi \vee \psi\) para qualquer \psi
+2. \(\vdash \varphi \Rightarrow \vdash \psi \rightarrow \varphi\) e \(\vdash \neg \varphi \rightarrow \psi\) para quaisquer \varphi e \psi
+3. \(\vdash A \wedge B \rightarrow A\)
+4. \(\vdash A \rightarrow A \vee B\)
+5. \(\vdash A \wedge B \rightarrow A \vee B\)
+*** Sequências
++ *Sequência*: é uma n-tupla \(s = (s_0, s_1, ... s_{n-1})\) na qual \(s_i \in \{V, F\}\) 
+  + n \geq 0
+  + \(s \in \{V, F\}^n \)
+  + Corresponde a uma linha da tabela-verdade
+  + Pode ser um argumento para uma função de verdade
+    + Exemplo
+      |---+---+---|
+      | A | B | \varphi |
+      |---+---+---|
+      | V | V | F |
+      | V | F | F |
+      | F | V | V |
+      | F | F | V |
+      |---+---+---|
+      + A função de verdade \(f_{\varphi}\) para \varphi é tal que se \(s = (V,V), f_{\varphi}(s) = F\)
+        + Porque \(f_{\varphi} (s) = Fi\)
++ Uma sequência \(s = (s_0, s_1, ... s_{n-1})\) satisfaz uma fórmula \varphi se, quando a variável (V_i) assume o valor \(s_i (i = 0..n-1)\), o falr de \varphi é V
+  + \(s \vdash \varphi\)
+*** Propopsições e definiçoes usando tautologias
+Se \(\vdash A \rightarrow B\) e \(\vdash A\), então \(\vdash B\)
++ Dizemos que uma sequência /s/ satisfaz um conjunto \Gamma de fórmulas se /s/ satisfaz cada \(\varphi \in  \Gamma\)
+  + Exemplo: \(s = (V, F, V)\) satisfaz
+    + \(\Gamma = \{V_1 \rightarrow V_0, \neg (V_0 \wedge V_1 \wedge V_2), \neg V_1 \wedge V_0 \wedge V_2\}\)
++ Dizemos que uma fórmula \varphi é uma *consequência lógica* de um conjunto de fórmulas \Gamma se toda sequência que satisfaz \Gamma também satisfaz \varphi
+  + \(\Gamma \vdash \varphi\)
+*** Principais equivalências lógicas
++ Comutatividade: \(A \vee B \equiv B \vee A\)
++ Comutatividade: \(A \wedge B \equiv B \wedge A\)
++ Associatividade: \((A \vee B) \vee C \equiv A \vee (B \vee C)\)
++ Associatividade: \((A \wedge B) \wedge C \equiv A \wedge (B \wedge C)\)
++ De Morgan: \(\neg (A \vee B) \equiv \neg A \wedge \neg B\)
++ De Morgan: \(\neg (A \wedge B) \equiv \neg A \vee \neg B\)
++ Contrapositiva: \(A \rightarrow B \equiv \neg B \rightarrow \neg A\)
++ Bicondicional: \(A \leftrightarrow B \equiv B \leftrightarrow A\)
++ Distributiva:  \(A \wedge (B \vee C) \equiv (A \wedge B) \vee (A \wedge C)\)
++ Distributiva:  \(A \vee (B \wedge C) \equiv (A \vee B) \wedge (A \vee C)\)
++ \(A \rightarrow (B \rightarrow C) \equiv (A \wedge B) \rightarrow C\)
++ \((A \wedge B) \vee \neg B \equiv A \vee \neg B\)
++ \((A \vee B) \wedge \neg B \equiv A \wedge \neg B\)
++ \((A \leftrightarrow B) \leftrightarrow C \equiv A \leftrightarrow (B \leftrightarrow C)\)
++ \(A \leftrightarrow B \equiv (A \wedge B) \vee (\neg A \wedge \neg B)\)
++ \(A \vee (A \wedge B) \equiv A\)
++ \(A \wedge (A \vee B) \equiv A\)
++ \(\neg (A \leftrightarrow B) \equiv A \leftrightarrow \neg B\)
+*** Equivalências lógicas com tautologias e contradições
++ \(\top\) representa uma constante que é sempre *verdadeira*
++ \(\perp\) representa uma constante que é sempre *falsa*
++ \(\top \wedge A \equiv A\)
++ \(\top \vee A \equiv \top\)
++ \(\perp \wedge A \equiv \perp\)
++ \(\perp \vee A \equiv A\)
+*** Literal
++ Uma variável ou a negação de uma variável
+*** Conjunções e disjunções
++ Disjunção é uma sequência de 2 ou mais fórmulas separadas por \vee 
++ Conjunção é uma sequência de 2 ou mais fórmulas separadas por \wedge 
+*** Forma Normal Disjuntiva (FND)
++ Uma fórmula \varphi está na *Forma Normal Disjuntiva* se está no formato
+
+  \(\varphi = \bigvee^n_{i=1} (\bigwedge^m_{j=1} L_{ij})\)
+
+  onde \(L_{ij}\) é um [[Literal][literal]]
+
++ Toda fórmula \varphi é logicamente equivalente a uma fórmula na FND
+**** FND a partir de uma tabela verdade
+1. Obter todas as conjunções \varphi com valor *V*
+2. Separá-las por uma disjunção
+*** Forma Normal Conjuntiva (FNC)
++ Uma fórmula \varphi está na *Forma Normal Disjuntiva* se está no formato
+
+  \(\varphi = \bigwedge^n_{i=1} (\bigvee^m_{j=1} L_{ij})\)
+
+  onde \(L_{ij}\) é um [[Literal][literal]]
+**** FNC a partir de uma tabela verdade
+1. Obter todas as disjunções \varphi com valor *F*
+2. Negar os termos verdadeiros
+3. Separá-las por uma conjunção
+*** Negação conjunta e negação alternativa
++ *nor* (\downarrow): negação conjunta
+  \(A \downarrow B \equiv \neg (A \vee B)\)
+  + \(\neg A \equiv A \downarrow A\)
+  + \(A \wedge B \equiv ((A \downarrow A) \downarrow (B \downarrow B))\)
++ *nand* (\uparrow): negação alternativa
+  + \(A \uparrow B \equiv \neg (A \wedge B)\)
+#+DOWNLOADED: https://i.imgur.com/hl8sZgH.png @ 2024-08-01 17:24:05
+[[file:Lógica_Matemática/2024-08-01_17-24-05_hl8sZgH.png]]
+** Sintaxe do cálculo proposicional
++ Consiste de regras de dedução
++ É composta por
+  + Um *alfabeto* de símbolos
+  + Sequências bem definidas de símbolos deste alfabeto (*fórmulas*)
+  + [[Axiomas]] subconjunto de fórmulas
+  + [[Regras de inferência][Regras]] para produzir novas fórmulas a partir de outras
+*** Axiomas
++ Um axioma representa infinitos axiomas
+  + \(\neg A \vee A\)
+  #+ATTR_LATEX: :environment longtable :align |c|c|
+  |-------------------------+-------------------------|
+  | Axiomas Válidos         | Não São Axiomas Válidos |
+  |-------------------------+-------------------------|
+  | \(\neg V_0 \vee V_0\)         | \(V_0 \vee \neg V_0\)         |
+  | \(\neg A \vee A\)             | \(\neg V_0 \vee \neg \neg V_0\)     |
+  | \(\neg (A \rightarrow B) \vee (A \rightarrow B)\) | \(A \rightarrow A\)               |
+  | \(\neg \neg A \vee \neg A\)         |                         |
+  |-------------------------+-------------------------|
+*** Regras de inferência
++ Regra da expansão: \(\frac{A}{A \vee B}\)
++ Regra da eliminação: \(\frac{A \vee A}{A}\)
++ Regra da associatividade: \(\frac{A \vee (B \vee C)}{(A \vee B) \vee C}\)
++ Regra do corte: \(\frac{(A \vee B)\ \ \ \ (\neg A \vee C)}{B \vee C}\)
++ Regras deduzidas: 
+  + Modus ponens: \(\frac{(A) \ \ \ \ (A \rightarrow B)}{A}\)
+  + Comutatividade: \(\frac{(A \vee B) \ \ \ \ (\neg A \vee A)}{B \vee A}\)
+*** Teoremas e Provas
++ Definição de teorema:
+  + Axioma; ou
+  + Uma fórmula obtida de uma regra a partir de um ou dois teoremas
++ Definição de prova: uma sequência de fórmulas \(A_1, A_2, ... A_n\) tal que para cada 1 \leq i \leq n, \(A_i\) é:
+  + Um axioma; ou
+  + Deduzida a partir das regras usando \(A_j\) e/ou \(A_k\) sendo \(j, k <  i\)
+*** Consequência sintática
++ Uma fórmula \varphi é uma consequência de um conjunto de \Gamma de fórmulas se, e somente se há uma sequência \(A_1, A_2,... A_n\) de fórmulas tal que \(\varphi = A_n\) e, para cada \(1 \leq i \leq n,\ A_i\) é
+  + Um axioma; ou
+  + Pertencente a \Gamma; ou
+  + Deduzida a partir das regras usando \(A_j\) e/ou \(A_k\) sendo \(j, k <  i\)
++ Se \varphi é consequência sintática de \Gamma, escrevemos
+  + \(\Gamma \vdash \varphi\)
++ Se \varphi não é consequência sintática de \Gamma, escrevemos
+  + \(\Gamma \not\vdash \varphi\)
++ Abreviaturas
+  + \(A, B \vdash C\) para \(\{A, B\} \vdash C\)
+  + \(\Gamma, A \vdash B\) para \(\Gamma \cup \{A\} \vdash B\) 
+*** Teorema da dedução
++ Se
+  \(\Gamma A \vdash B \Rightarrow \Gamma \vdash A \rightarrow B\)
++ Como pode-se provar que se \(\Gamma \vdash A \rightarrow B\), então \(\Gamma, A \vdash B\), temos
+  \(\Gamma, A \vdash B \Leftrightarrow \Gamma \vdash A \rightarrow B\)

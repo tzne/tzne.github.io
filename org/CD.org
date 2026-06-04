@@ -1,0 +1,33 @@
+#+TITLE: Circuitos Digitais
+#+AUTHOR: Felipe Canteiro
+#+export_file_name: ../html/CD
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/html-theme-readtheorg.setup
+#+OPTIONS: date:nil
+#+LANGUAGE: pt-br
+* Índice :TOC:noexport:
+- [[#introdução][Introdução]]
+  - [[#espaços-de-valores][Espaços de valores]]
+  - [[#profundidade-de-bits][Profundidade de bits]]
+  - [[#digitalização][Digitalização]]
+
+* Introdução
++ Quantificação: processo da divisão de um sinal analógico numa série de saídas discretas, cada uma com uma amplitude constante
++ Bit: dígito binário
+  + b minúsculo
++ Byte: 8bits
+  + B maiúsculo
+** Espaços de valores
++ COnjunto de todas as combinações possíveis de valoires ou códigos para determinado número de dígitos
+** Profundidade de bits
++ Resolução de cores
+  + Número de bits por pixel
+    + 1 bit: 2 cores
+    + 8 bits: 256 cores
+    + 24 bits: RGB
+    + 32 bits: CMYK (Cyan, Magenta, Yellow, Black)
+    + 36 bits: RGB de 12 bits por cor
+    + 48 bits: CMYK de 12 bits por cor
+** Digitalização
++ Processo de conversão de uma informação em um código digital
+  + Quantificação: grandezas analógicas com representação discreta
+  + Codificação: letras, símbolos, instruções

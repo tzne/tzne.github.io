@@ -1,0 +1,517 @@
+#+TITLE: Introdução à Programação
+#+AUTHOR: Felipe Canteiro
+#+export_file_name: ../html/IP
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/html-theme-readtheorg.setup
+#+OPTIONS: date:nil
+#+LANGUAGE: pt-br
+* Índice :toc:noexport:
+- [[#introdução][Introdução]]
+- [[#algoritmos][Algoritmos]]
+- [[#variáveis][Variáveis]]
+  - [[#nomenclatura][Nomenclatura]]
+  - [[#conversão-de-tipos][Conversão de tipos]]
+- [[#vetores][Vetores]]
+  - [[#exercício][Exercício]]
+- [[#matrizes][Matrizes]]
+  - [[#exercício-1][Exercício]]
+- [[#redefinição-de-tipos-registros-e-tipos-enumerados][Redefinição de tipos, registros e tipos enumerados]]
+  - [[#redefinição-de-tipos][Redefinição de tipos]]
+  - [[#registros][Registros]]
+  - [[#tipos-enumerados][Tipos enumerados]]
+  - [[#exercícios][Exercícios]]
+- [[#funções-e-procedimentos][Funções e procedimentos]]
+  - [[#funções-e-procedimentos-1][Funções e procedimentos]]
+  - [[#escopo][Escopo]]
+  - [[#registros-e-arranjos][Registros e arranjos]]
+  - [[#exercícios-1][Exercícios]]
+- [[#strings][Strings]]
+  - [[#biblioteca-stringh][Biblioteca string.h]]
+  - [[#biblioteca-ctypeh][Biblioteca ctype.h]]
+  - [[#matrizes-de-strings][Matrizes de strings]]
+  - [[#função-getchar][Função ~getchar~]]
+
+* Introdução
++ Ciência da computação: ciência que estuda as técnicas, metodologias e instrumentos computacionais, que automatiza processos e desenvolve soluções baseadas no uso do processamento digital
+* Algoritmos
++ Sequência finita de instruções bem definidas e não ambíguas para resolver um problema ou realizar algum objetivo
++ Programa: sequência de instruções em alguma linguagem compreendida pelo computador
+* Variáveis
++ Locais na memória onde se armazenam informações
+  + Apenas um dado por vez
++ Em C, as variáveis devem ser declaradas antes de serem utilizadas
++ Existem apenas em tempo de execução
+  + São perdidas ao fim do programa
++ Toda variáveel tem um nome e um tipo
+  + *int*: ~%d~
+    + *short unsigned int*: ~%u~
+    + *short signed int*: ~%d~
+    + *signed int*: ~%d~
+    + *unsigned int*: ~%u~
+    + *long signed int*: ~%ld~
+    + *long unsigned int*: ~%lu~
+  + *float*: ~%f~
+    + *double*: ~%lf~
+    + *long double*: ~%LF~
+  + *char*: ~%c~
+    + *signed char*: ~%c~
+    + *unsigned char*: ~%c~
++ Por segurança, é aconselhado a inicializar as variáveis antes de utilizá-las
+** Nomenclatura
++ Deve começar com uma letra ou /underscore/ (_)
++ Não pode começar com um número
++ Pode conter letras maiúsculas, minúsculas, números e /underscore/
++ Por convenção, não são escritos inteiros em LETRAS MAIÚSCULAS
+  + Padrão reservado para constantes
++ Caracteres proibidos
+  + {
+  + }
+  + +
+  + =
+  + *
+  + /
+  + \
+  + ;
+  + .
+  + ,
+  + ?
+  + Acentos
++ Identificadores são /case-sensitive/
++ Não pode ser uma palavra reservada da linguagem C
++ Devem ser claros
+** Conversão de tipos
++ Conversão implícita: capacidade do destino deve ser maior que a origem
+  #+begin_src C
+    int a;
+    short b;
+    a = b;
+  #+end_src
++ Conversão expícita: não modifica o tipo da variável, apenas da expressão
+  #+begin_src C
+    a = (int) ( (float) b / (float) c); 
+  #+end_src
+* Vetores
++ Coleção de variáveis de mesmo tipo
++ Acesso pelo índice
++ Tamanho pré-definido
+  + Após a compilação, não pode ser alterado
++ Declaração:
+  #+begin_src C
+    tipo identificador[tamanho];
+
+    char cadeia[50];
+    float pares[100];
+    float notas[5] = {10.0, 4.1, 7.3, 8.2, 2.7};
+    int posicoes[3] = {2, 4}; // completa os outros espaços com 0
+    int posicoes[] = {2, 4};  // cria um vetor de tamanho 2
+  #+end_src 
++ Primeira posição é 0
+
+** Exercício
++ Escreva um programa para receber as notas de p1, p2 e L de n alunos ( 0 < n <= 10)
++ Calcule e exiba
+  + a média simples de p1, p2 e L
+  + a média de cada aluno, sendo que M = (2p1 + 3p2 + 5L)/10
+  + a quantidade de alunos aprovados, reprovados e que ficaram de SAC
+#+begin_src C
+  
+#include <stdio.h>
+
+#define MAX 10
+
+int main() {
+  float p1[MAX], p2[MAX], l[MAX], media_p1=0, media_p2=0, media_lista=0,
+    media_aluno[MAX];
+  unsigned int n, aprovados=0, reprovados=0, sac=0;
+
+  scanf("%d", &n);
+  for (int i = 0; i < n; i++) {
+    printf("Insira as notas do %d° aluno: ", i+1);
+    scanf("%f %f %f", &p1[i], &p2[i], &l[i]);
+
+    media_p1 += p1[i];
+    media_p2 += p2[i];
+    media_lista += l[i];
+  }
+
+  media_p1 /= n;
+  media_p2 /= n;
+  media_lista /= n;
+
+  printf("Média P1: %4.1f\n", media_p1);
+  printf("Média P2: %4.1f\n", media_p2);
+  printf("Média lista: %4.1f\n", media_lista);
+
+  for (int i = 0; i < n; i++) {
+    media_aluno[i] = (2*p1[i] + 3*p2[i] + 5*l[i]) / 10;
+
+    printf("Média aluno %d: %4.1f\n", i+1, media_aluno[i]);
+
+    if (media_aluno[i] < 5) {
+      reprovados++;
+    } else if (media_aluno[i] < 6) {
+      sac++;
+    } else {
+      aprovados++;
+    }
+  }
+
+  printf("Aprovados: %d\n", aprovados);
+  printf("SAC: %d\n", sac);
+  printf("Reprovados: %d\n", reprovados);
+  
+  return 0;
+}
+#+end_src 
+* Matrizes
++ Vetor com duas ou mais dimensões
++ Declaração: ~tipo nome[linhas][colunas]~
+  #+begin_src C
+    float salas[20][30];
+  #+end_src 
+  #+DOWNLOADED: https://i.imgur.com/Gfbg5Ib.png @ 2024-06-18 20:26:16
+  [[file:Matrizes/2024-06-18_20-26-16_Gfbg5Ib.png]]
+  + Mais de duas dimensões:
+    #+begin_src C
+      int dimensoes[4][3][2]; // matriz com 3 dimensões
+      char pessoas[3][9][7][9]; // matriz com 4 dimensões
+      float numeros[2][2] = {{1, 2},
+                             {3, 4}};
+      float pares[2][3] = {0, 2, 4, 6, 8, 10};
+    #+end_src 
++ Manipulação
+  #+begin_src C
+    salas[19][12] = 4;
+  #+end_src 
+  + O compilador não verifica se os valores inseridos são válidos na matriz
+** Exercício
+Escreva um programa que lê duas matrizes 5x5, mostre-as na tela e então calcule o produto entre as duas matrizes, mostrando-o em seguida
+#+begin_src C 
+    int matriz_1[5][5], matriz_2[5][5], matriz_multi[5][5];
+
+  for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5; j++) {
+      matriz_1[i][j] = 0;
+      matriz_2[i][j] = 0;
+      matriz_multi[i][j] = 0;
+  }
+    }
+
+    for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5; j++) {
+      printf("Matriz1[%d][%d]: ", i, j);
+      scanf("%d", &matriz_1[i][j]);
+    }
+    }
+    for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5; j++) {
+      printf("Matriz2[%d][%d]: ", i, j);
+      scanf("%d", &matriz_2[i][j]);
+    }
+     }
+
+    for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+      matriz_multi[i][j] += (matriz_1[i][k] * matriz_2[k][j]);
+      }
+    }
+  }
+
+  for (int i = 0; i < 5; i++) {
+  for (int j = 0; j < 5; j++) {
+  printf("%8d", matriz_multi[i][j]);
+  }
+  printf("\n");
+   }
+
+  return 0;
+#+end_src 
+
+* Redefinição de tipos, registros e tipos enumerados
++ O comando ~sizeof~ indica o tamanho em bits de uma variável
+  #+begin_src C 
+    printf("%u", sizeof(double)) // retorna 8
+  #+end_src 
+** Redefinição de tipos
++ Útil quando a alteração do tipo de uma variável altera o tipo de várias variáveis
++ Feito através do comando ~typdef~
+  #+begin_src C 
+    // normalmente feita fora da main
+    typedef tipo_primitivo tipo_novo;
+    typedef float nota; // cria um tipo nota, com variáveis de ponto flutuante
+
+    int main() {
+      nota p1, trabalho;
+
+      scanf("%f", &p1);
+      }
+  #+end_src
+** Registros
++ Variável que contém diversas variáveis (/campos/)
+  + Podem ser de tipos diferentes
+  + Faz sentido serem agrupadas
++ Declarados a partir do comando ~struct~
+  #+begin_src C 
+    // normalmente feita fora da main
+    struct nome_do_tipo_do_registro {
+      tipo nome_campo1;
+      tipo nome_campo2;
+      tipo nome_campo3;
+    };
+
+    // Exemplo
+    struct cadastro {
+      int idade;
+      char sexo;
+      float imc;
+    };
+
+    int main() {
+      struct cadastro cad;
+    }
+
+  #+end_src 
++ Campos são acessados por meio de um "."
+  #+begin_src C 
+    nome_registro.nome_campo;
+
+    struct cadastro cad;
+    printf("Insira a idade do atleta: ");
+    scanf("%f", &cad.idade);
+
+    // escreve a idade do atleta na tela
+    printf("%f", cad.idade);
+
+  #+end_src 
++ A inicialização de registros possui duas formas:
+  #+begin_src C 
+    struct aluno aluno1 = {831596, 9.9, 5.4, 8.3},
+                 aluno2 = {.ra = 831596,
+                           .nota_lista = 9.9,
+                           .nota_p1 = 5.4,
+                           .nota_p2 = 8.3};
+  #+end_src 
++ Registros podem ser copiados, assim como variáveis
+  #+begin_src C 
+    aluno1 = aluno3;
+  #+end_src 
++ É possível redefinir um registro para nomea-lo de acordo com a semântica do que ele representa
+  #+begin_src C 
+    struct aluno {
+      int ra;
+      nota nota_p1, nota_p2, nota_trabalho;
+      float media;
+    };
+
+    typedef struct aluno Aluno;
+
+    // ou
+
+    typedef struct aluno {
+      int ra;
+      nota nota_p1, nota_p2, nota_trabalho;
+      float media;
+    } Aluno;
+
+  #+end_src 
++ É possível declarar um registro como campo de outro registro
+  #+begin_src C 
+    typedef float nota;
+
+    typedef struct prova {
+      nota p1;
+      nota p2;
+      nota trabalho;
+      float media;
+    } Provas;
+
+    typedef struct aluno {
+      int ra;
+      provas notas;
+      nota media;
+      } Aluno
+  #+end_src 
++ É possível criar vetores ou matrizes de structs
+  #+begin_src C 
+    struct nota listas[11];
+  #+end_src 
+** Tipos enumerados
++ Tipo que funciona como ~int~, porém está associada a constantes enumeradas
++ comando ~enum~
+  #+begin_src C 
+    enum nome {constante0, constante1, constante_N};
+
+    enum mes { Janeiro, Fevereiro, Marco, Abril, Maio, Junho, Julho, Agosto,
+                Setembro, Outubro, Novembro, Dezembro }; // janeiro equivale a 0
+  #+end_src 
++ Declaração de variável
+  #+begin_src C 
+    enum mes aniversario; // mes é o tipo utilizado
+  #+end_src 
++ Atribuição
+  + É possível atribuir um valor para qualquer um dos tipos
+  #+begin_src C 
+    enum mes { Janeiro=1, Fevereiro, Marco, Abril, Maio, Junho, Julho, Agosto,
+                Setembro, Outubro, Novembro, Dezembro }; // Janeiro equivale a 1
+  #+end_src 
+** Exercícios
++ Escreva um programa para receber e imprimir na tela uma data no formato DD/MM/AAAA (use struct) . Teste se a data é válida (se está entre 01/01/2000 e 31/12/2010) e solicite novamente até que o usuário informe uma data válida
++ Escreva um programa que receba uma data válida e escreva na tela o mês por extenso (use tipo enumerado). Ex: 20/05/2010 => 20 de Maio de 2010
++ Escreva um programa para manter o cadastro de três alunos na disciplina. A média de cada aluno é computada através da média simples entre duas provas e um trabalho. Primeiro, receba os dados da disciplina e de cada aluno e, em seguida, imprima a média geral da turma. Use structs aninhadas e redefinição de tipos
+* Funções e procedimentos
+** Funções e procedimentos
++ Funções são úteis para
+  + Evitar blocos muito lognos
+  + Separar o programa em partes mais fáceis de se compreender logicamente
+  + Reaproveitamento do código
+    + Evitar que um trecho seja repetido várias vezes
++ Procedimentos: estruturas que agrupam um conjunto de comandos
++ Funções: procedimentos que retornam um único valor ao fim de sua execução
+  + Declaração
+    #+begin_src C 
+      tipo nome_funcao (tipo parametro1, tipo parametroN) {
+        comandos;
+        return (valor de retorno);
+      }
+    #+end_src
+    + Normalmente declaradas após a função ~main~
+      + Cria-se um protótipo da função antes
+  + Toda função possui um tipo
+    + Tipo do valor de retorno
+    + Parametros são variáveis iniciadas quando a função é chamada
+      + Uma função pode não ter parametros
+  + Funções só podem ser declaradas fora de outras funções
+  + Exemplo
+    #+begin_src C 
+      int soma(int a, int b) {
+        return (a + b);
+        }
+    #+end_src
+  + Cada parâmetro da função possui um *parâmetro real*
+    + Seus valores são copiados para os parâmetros da função
+    + O valor dos parâmetros reais não é afetado pelas funções
+  + Funções recursivas
++ O tipo ~void~
+  + Tipo utilizado especialmente em funções
+  + Armazena e retorna conteúdo "indeterminado"
+    + Função não retorna nenhum valor
+  + Procedimentos na linguagem C são funções do tipo ~void~
+** Escopo
++ Variável local: declarada dentro de uma função
+  + Existe apenas dentro da função em que foi declarada
+  + Ao fim da função, deixa de existir
+  + Possui precedencia à variáveis globais
++ Variável global: declarado fora de qualquer função
+  + Acessível em todas as funções
+  + Existe durante toda a execução do programa
+** Registros e arranjos
+*** Registros
++ Registros podem ser passados como parâmetros de uma função
+  + Devem ser declarados antes da função
+  + O parâmetro formal recebe uma cópia do registro
++ Uma função pode retornar um registro
+*** Arranjos
++ Um arranjo pode ser passado como parâmetro de uma função
+  + Geralmente o tamanho do arranjo é tambem passado como parâmetro
+    #+begin_src C 
+      int maior_elemento(int vetor[], int tamanho) {}
+    #+end_src 
++ Um arranjo *não* pode ser usado como retorno de uma função
++ Quando utilizados como parâmetros ou valores de retorno, arranjos possuem um comportamento diferente de registros e outros tipos
+  + Eles são alterados pela função
+    + Ocorre pois quando se é dado um arranjo como parâmetro, são passados por referência
+      + O endereço do primeiro endereço é fornecido
+*** Matrizes
++ Quando o arranjo é multidimensional, é necessário informar ao menos o tamanho da segunda dimensão
+    #+begin_src C 
+      int maior_elemento(int matriz[][2], int linhas, int colunas) {}
+    #+end_src 
+** Exercícios
+1. Escreva um programa que receba dois naturais n1 e n2, calcule e imprima na tela (use funções):
+   + n1 + n2
+   + n1 - n2
+   + n1 * n2
+   + n1 / n2
+   + (n1)^n2
+   + imprimir todos os pares de 1 a n1
+   + imprimir todos os ímpares de 1 a n2
+2. Escreva um programa que receba dois vetores v1 e v2 com t números naturais (t <= 100). Calcule e imprima na tela (use funções):
+   + vetor resultante de v1 + v2
+   + vetor resultante de v1 - v2
+   + a soma dos elementos de v1
+   + a soma dos elementos de v2
+   + o maior elemento de v1
+   + o menor elemento de v2
+   + imprimir todos os pares de v1
+   + imprimir todos os ímpares de v2
+* Strings
++ Toda string é armazenada na memória como vetor de caracteres
++ O fim da string é marcado pelo caractere nulo ~'\0'~
+  + Espaços não utilizados também são preenchidos com ~\0~
+    #+begin_src C
+      char data[10] = "Julho 06"; // armazenado como "Julho 06\0\0"
+    #+end_src 
++ Strings são referidas pelo endereço de memória do primeiro caractere
++ Em C, caracteres são tratados como inteiros
+  + Se referem à tabela ASCII
++ A máscara para strings é ~%s~
+  #+begin_src C
+    char str[] = "isso é uma string";
+
+    printf("%s", str);
+  #+end_src
++ O comando ~puts~ imprime a string com quebra de linha
+  #+begin_src C
+    puts(str);
+  #+end_src 
++ Leitura de strings
+  + ~scanf~
+    + Insere ~'\0'~ ao fim
+    + Lê a string até o primeiro caractere em branco
+      #+begin_src C
+        scanf("%s", str);
+      #+end_src
+    + Lê até a quebra de linha
+      #+begin_src C
+        scanf("%[^\n]", str); // lê até encontrar '\n', subistituindo por '\0'
+
+        scanf("%10[^\n]", str); // determina que o número máximo de caracteres é 10
+      #+end_src 
+  + ~gets~
+    #+begin_src C
+      gets(str);
+    #+end_src 
+** Biblioteca string.h
++ Adiciona funções para manipular strings
+  + ~strlen~: tamanho da string
+  + ~strcpy~: copia a string
+  + ~strncpy~: copia /n/ caracteres da string
+  + ~strcat~: concatena a string
+  + ~strncat~: concatena /n/ caracteres da string
+  + ~strcmp~: compara strings
+  + ~strncmp~: compara /n/ caracteres da string
+** Biblioteca ctype.h
++ Adiciona funções para manipular caracteres
+  + ~tolower~: converte caractere para minúsculo
+  + ~toupper~: converte caractere para maíusculo
+  + ~islower~: checa se caractere é minúsculo
+  + ~isupper~: checa se caractere é maiúsculo
+  + ~isalnum~: checa se caractere é alfanumérico
+  + ~isalpha~: checa se caractere é alfabético
+  + ~isdigit~: checa se caractere é numérico
+  + ~isprint~, ~ispunct~, ~isspace~: checa se caractere é imprimível, pontuação ou espaço em branco
+** Matrizes de strings
++ É possível armazenar strings utilizando uma matriz
+  #+begin_src C
+    char moradores[][17] = {
+      "Safado",
+      "Peregrino", "Mamilo",
+      "Mureta", "Butt",
+      "Garagem", "Apito", "Aladim", "Zeca"
+      "Wiil Smith",
+      "Tripa Seca", "Gru", "Bento", "Baby Alive"
+      "Rego", "Ruama", "Vinícius"
+      };
+  #+end_src 
+** Função ~getchar~
++ Lê um caractere
