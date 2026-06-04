@@ -169,7 +169,7 @@ int main() {
     float salas[20][30];
   #+end_src 
   #+DOWNLOADED: https://i.imgur.com/Gfbg5Ib.png @ 2024-06-18 20:26:16
-  [[file:Matrizes/2024-06-18_20-26-16_Gfbg5Ib.png]]
+  [[file:../imgs/2024-06-18_20-26-16_Gfbg5Ib.png]]
   + Mais de duas dimensões:
     #+begin_src C
       int dimensoes[4][3][2]; // matriz com 3 dimensões

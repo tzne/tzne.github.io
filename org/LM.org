@@ -70,7 +70,7 @@ Qualquer fórmula pode ser construída utilizando apenas \neg e \vee
   + É possível criar tabelas verdade abreviadas
     + Abaixo dos conectores vão os valores da subfórmula
       #+DOWNLOADED: https://i.imgur.com/66uJUa3.png @ 2024-08-01 14:33:21
-      [[file:Lógica_Matemática/2024-08-01_14-33-21_66uJUa3.png]]
+      [[file:../imgs/2024-08-01_14-33-21_66uJUa3.png]]
 *** Tautologia, contradição e contingência
 + *Tautologia*: para quaisquer atribuições de valores para as suas variáveis, o valor da fórmula é verdadeiro
   \(\models \varphi\)
@@ -177,7 +177,7 @@ Se \(\vdash A \rightarrow B\) e \(\vdash A\), então \(\vdash B\)
 + *nand* (\uparrow): negação alternativa
   + \(A \uparrow B \equiv \neg (A \wedge B)\)
 #+DOWNLOADED: https://i.imgur.com/hl8sZgH.png @ 2024-08-01 17:24:05
-[[file:Lógica_Matemática/2024-08-01_17-24-05_hl8sZgH.png]]
+[[file:~/tzne.github.io/imgs/2024-08-01_17-24-05_hl8sZgH.png]]
 ** Sintaxe do cálculo proposicional
 + Consiste de regras de dedução
 + É composta por
