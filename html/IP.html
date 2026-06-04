@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-06-04 qui 11:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introdução à Programação</title>
+<meta name="author" content="Felipe Canteiro" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Introdução à Programação</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org04ffc14">1. Introdução</a></li>
+<li><a href="#orgd6edd58">2. Algoritmos</a></li>
+<li><a href="#org1aa9472">3. Variáveis</a>
+<ul>
+<li><a href="#org223cfff">3.1. Nomenclatura</a></li>
+<li><a href="#org647615f">3.2. Conversão de tipos</a></li>
+</ul>
+</li>
+<li><a href="#org9dd0969">4. Vetores</a>
+<ul>
+<li><a href="#org09e079b">4.1. Exercício</a></li>
+</ul>
+</li>
+<li><a href="#org1e53960">5. Matrizes</a>
+<ul>
+<li><a href="#orga1b9d31">5.1. Exercício</a></li>
+</ul>
+</li>
+<li><a href="#orge25fa51">6. Redefinição de tipos, registros e tipos enumerados</a>
+<ul>
+<li><a href="#org88091cd">6.1. Redefinição de tipos</a></li>
+<li><a href="#orga830fa3">6.2. Registros</a></li>
+<li><a href="#orgbb3f47f">6.3. Tipos enumerados</a></li>
+<li><a href="#orge6de816">6.4. Exercícios</a></li>
+</ul>
+</li>
+<li><a href="#org34b1542">7. Funções e procedimentos</a>
+<ul>
+<li><a href="#org4c58b07">7.1. Funções e procedimentos</a></li>
+<li><a href="#org338c959">7.2. Escopo</a></li>
+<li><a href="#org99227bf">7.3. Registros e arranjos</a>
+<ul>
+<li><a href="#orgada8a23">7.3.1. Registros</a></li>
+<li><a href="#orgf55e62b">7.3.2. Arranjos</a></li>
+<li><a href="#orgffca0ac">7.3.3. Matrizes</a></li>
+</ul>
+</li>
+<li><a href="#org3b70216">7.4. Exercícios</a></li>
+</ul>
+</li>
+<li><a href="#orgae5cae9">8. Strings</a>
+<ul>
+<li><a href="#org0945165">8.1. Biblioteca string.h</a></li>
+<li><a href="#orge7ce316">8.2. Biblioteca ctype.h</a></li>
+<li><a href="#org8ffb254">8.3. Matrizes de strings</a></li>
+<li><a href="#orge69bc60">8.4. Função <code>getchar</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org04ffc14" class="outline-2">
+<h2 id="org04ffc14"><span class="section-number-2">1.</span> Introdução</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Ciência da computação: ciência que estuda as técnicas, metodologias e instrumentos computacionais, que automatiza processos e desenvolve soluções baseadas no uso do processamento digital</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd6edd58" class="outline-2">
+<h2 id="orgd6edd58"><span class="section-number-2">2.</span> Algoritmos</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Sequência finita de instruções bem definidas e não ambíguas para resolver um problema ou realizar algum objetivo</li>
+<li>Programa: sequência de instruções em alguma linguagem compreendida pelo computador</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1aa9472" class="outline-2">
+<h2 id="org1aa9472"><span class="section-number-2">3.</span> Variáveis</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Locais na memória onde se armazenam informações
+<ul class="org-ul">
+<li>Apenas um dado por vez</li>
+</ul></li>
+<li>Em C, as variáveis devem ser declaradas antes de serem utilizadas</li>
+<li>Existem apenas em tempo de execução
+<ul class="org-ul">
+<li>São perdidas ao fim do programa</li>
+</ul></li>
+<li>Toda variáveel tem um nome e um tipo
+<ul class="org-ul">
+<li><b>int</b>: <code>%d</code>
+<ul class="org-ul">
+<li><b>short unsigned int</b>: <code>%u</code></li>
+<li><b>short signed int</b>: <code>%d</code></li>
+<li><b>signed int</b>: <code>%d</code></li>
+<li><b>unsigned int</b>: <code>%u</code></li>
+<li><b>long signed int</b>: <code>%ld</code></li>
+<li><b>long unsigned int</b>: <code>%lu</code></li>
+</ul></li>
+<li><b>float</b>: <code>%f</code>
+<ul class="org-ul">
+<li><b>double</b>: <code>%lf</code></li>
+<li><b>long double</b>: <code>%LF</code></li>
+</ul></li>
+<li><b>char</b>: <code>%c</code>
+<ul class="org-ul">
+<li><b>signed char</b>: <code>%c</code></li>
+<li><b>unsigned char</b>: <code>%c</code></li>
+</ul></li>
+</ul></li>
+<li>Por segurança, é aconselhado a inicializar as variáveis antes de utilizá-las</li>
+</ul>
+</div>
+<div id="outline-container-org223cfff" class="outline-3">
+<h3 id="org223cfff"><span class="section-number-3">3.1.</span> Nomenclatura</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Deve começar com uma letra ou <i>underscore</i> (_)</li>
+<li>Não pode começar com um número</li>
+<li>Pode conter letras maiúsculas, minúsculas, números e <i>underscore</i></li>
+<li>Por convenção, não são escritos inteiros em LETRAS MAIÚSCULAS
+<ul class="org-ul">
+<li>Padrão reservado para constantes</li>
+</ul></li>
+<li>Caracteres proibidos
+<ul class="org-ul">
+<li>{</li>
+<li>}</li>
+<li>+</li>
+<li>=</li>
+<li>*</li>
+<li>/</li>
+<li>\</li>
+<li>;</li>
+<li>.</li>
+<li>,</li>
+<li>?</li>
+<li>Acentos</li>
+</ul></li>
+<li>Identificadores são <i>case-sensitive</i></li>
+<li>Não pode ser uma palavra reservada da linguagem C</li>
+<li>Devem ser claros</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org647615f" class="outline-3">
+<h3 id="org647615f"><span class="section-number-3">3.2.</span> Conversão de tipos</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><p>
+Conversão implícita: capacidade do destino deve ser maior que a origem
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">a</span>;
+<span style="color: #fabd2f; font-weight: bold;">short</span> <span style="color: #83a598;">b</span>;
+a = b;
+</pre>
+</div></li>
+<li><p>
+Conversão expícita: não modifica o tipo da variável, apenas da expressão
+</p>
+<div class="org-src-container">
+<pre class="src src-C">a = <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span><span style="color: #fd971f;">)</span> <span style="color: #fd971f;">(</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">float</span><span style="color: #b16286;">)</span> b / <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">float</span><span style="color: #b16286;">)</span> c<span style="color: #fd971f;">)</span>; 
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9dd0969" class="outline-2">
+<h2 id="org9dd0969"><span class="section-number-2">4.</span> Vetores</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Coleção de variáveis de mesmo tipo</li>
+<li>Acesso pelo índice</li>
+<li>Tamanho pré-definido
+<ul class="org-ul">
+<li>Após a compilação, não pode ser alterado</li>
+</ul></li>
+<li><p>
+Declaração:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #83a598;">identificador</span><span style="color: #fd971f;">[</span>tamanho<span style="color: #fd971f;">]</span>;
+
+<span style="color: #fabd2f; font-weight: bold;">char</span> <span style="color: #83a598;">cadeia</span><span style="color: #fd971f;">[</span>50<span style="color: #fd971f;">]</span>;
+<span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">pares</span><span style="color: #fd971f;">[</span>100<span style="color: #fd971f;">]</span>;
+<span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">notas</span><span style="color: #fd971f;">[</span>5<span style="color: #fd971f;">]</span> = <span style="color: #fd971f;">{</span>10.0, 4.1, 7.3, 8.2, 2.7<span style="color: #fd971f;">}</span>;
+<span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">posicoes</span><span style="color: #fd971f;">[</span>3<span style="color: #fd971f;">]</span> = <span style="color: #fd971f;">{</span>2, 4<span style="color: #fd971f;">}</span>; <span style="color: #909090;">// </span><span style="color: #909090;">completa os outros espa&#231;os com 0
+</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">posicoes</span><span style="color: #fd971f;">[]</span> = <span style="color: #fd971f;">{</span>2, 4<span style="color: #fd971f;">}</span>;  <span style="color: #909090;">// </span><span style="color: #909090;">cria um vetor de tamanho 2</span>
+</pre>
+</div></li>
+<li>Primeira posição é 0</li>
+</ul>
+</div>
+<div id="outline-container-org09e079b" class="outline-3">
+<h3 id="org09e079b"><span class="section-number-3">4.1.</span> Exercício</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Escreva um programa para receber as notas de p1, p2 e L de n alunos ( 0 &lt; n &lt;= 10)</li>
+<li>Calcule e exiba
+<ul class="org-ul">
+<li>a média simples de p1, p2 e L</li>
+<li>a média de cada aluno, sendo que M = (2p1 + 3p2 + 5L)/10</li>
+<li>a quantidade de alunos aprovados, reprovados e que ficaram de SAC</li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-C">
+<span style="color: #dfdfdf; font-weight: bold;">#include</span> <span style="color: #fd971f;">&lt;</span><span style="color: #b8bb26;">stdio.h</span><span style="color: #fd971f;">&gt;</span>
+
+<span style="color: #dfdfdf; font-weight: bold;">#define</span> <span style="color: #83a598;">MAX</span> 10
+
+<span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #b8bb26;">main</span><span style="color: #fd971f;">()</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">p1</span><span style="color: #b16286;">[</span>MAX<span style="color: #b16286;">]</span>, <span style="color: #83a598;">p2</span><span style="color: #b16286;">[</span>MAX<span style="color: #b16286;">]</span>, <span style="color: #83a598;">l</span><span style="color: #b16286;">[</span>MAX<span style="color: #b16286;">]</span>, <span style="color: #83a598;">media_p1</span>=0, <span style="color: #83a598;">media_p2</span>=0, <span style="color: #83a598;">media_lista</span>=0,
+  &#9474; <span style="color: #83a598;">media_aluno</span><span style="color: #b16286;">[</span>MAX<span style="color: #b16286;">]</span>;
+  <span style="color: #fabd2f; font-weight: bold;">unsigned</span> <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">n</span>, <span style="color: #83a598;">aprovados</span>=0, <span style="color: #83a598;">reprovados</span>=0, <span style="color: #83a598;">sac</span>=0;
+
+  scanf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"%d"</span>, &amp;n<span style="color: #b16286;">)</span>;
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; n; i++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+  &#9474; printf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"Insira as notas do %d&#176; aluno: "</span>, i+1<span style="color: #b8bb26;">)</span>;
+  &#9474; scanf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"%f %f %f"</span>, &amp;p1<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span>, &amp;p2<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span>, &amp;l<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span><span style="color: #b8bb26;">)</span>;
+  &#9474;
+  &#9474; media_p1 += p1<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">]</span>;
+  &#9474; media_p2 += p2<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">]</span>;
+  &#9474; media_lista += l<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">]</span>;
+  <span style="color: #b16286;">}</span>
+
+  media_p1 /= n;
+  media_p2 /= n;
+  media_lista /= n;
+
+  printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"M&#233;dia P1: %4.1f\n"</span>, media_p1<span style="color: #b16286;">)</span>;
+  printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"M&#233;dia P2: %4.1f\n"</span>, media_p2<span style="color: #b16286;">)</span>;
+  printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"M&#233;dia lista: %4.1f\n"</span>, media_lista<span style="color: #b16286;">)</span>;
+
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; n; i++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+  &#9474; media_aluno<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">]</span> = <span style="color: #b8bb26;">(</span>2*p1<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span> + 3*p2<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span> + 5*l<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span><span style="color: #b8bb26;">)</span> / 10;
+  &#9474;
+  &#9474; printf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"M&#233;dia aluno %d: %4.1f\n"</span>, i+1, media_aluno<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span><span style="color: #b8bb26;">)</span>;
+  &#9474;
+  &#9474; <span style="color: #e74c3c; font-weight: bold;">if</span> <span style="color: #b8bb26;">(</span>media_aluno<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span> &lt; 5<span style="color: #b8bb26;">)</span> <span style="color: #b8bb26;">{</span>
+  &#9474; &#9474; reprovados++;
+  &#9474; <span style="color: #b8bb26;">}</span> <span style="color: #e74c3c; font-weight: bold;">else</span> <span style="color: #e74c3c; font-weight: bold;">if</span> <span style="color: #b8bb26;">(</span>media_aluno<span style="color: #83a598;">[</span>i<span style="color: #83a598;">]</span> &lt; 6<span style="color: #b8bb26;">)</span> <span style="color: #b8bb26;">{</span>
+  &#9474; &#9474; sac++;
+  &#9474; <span style="color: #b8bb26;">}</span> <span style="color: #e74c3c; font-weight: bold;">else</span> <span style="color: #b8bb26;">{</span>
+  &#9474; &#9474; aprovados++;
+  &#9474; <span style="color: #b8bb26;">}</span>
+  <span style="color: #b16286;">}</span>
+
+  printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"Aprovados: %d\n"</span>, aprovados<span style="color: #b16286;">)</span>;
+  printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"SAC: %d\n"</span>, sac<span style="color: #b16286;">)</span>;
+  printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"Reprovados: %d\n"</span>, reprovados<span style="color: #b16286;">)</span>;
+
+  <span style="color: #e74c3c; font-weight: bold;">return</span> 0;
+<span style="color: #fd971f;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org1e53960" class="outline-2">
+<h2 id="org1e53960"><span class="section-number-2">5.</span> Matrizes</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Vetor com duas ou mais dimensões</li>
+<li><p>
+Declaração: <code>tipo nome[linhas][colunas]</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">salas</span><span style="color: #fd971f;">[</span>20<span style="color: #fd971f;">][</span>30<span style="color: #fd971f;">]</span>;
+</pre>
+</div>
+
+<div id="orgfe0d55d" class="figure">
+<p><img src="Matrizes/2024-06-18_20-26-16_Gfbg5Ib.png" alt="2024-06-18_20-26-16_Gfbg5Ib.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li><p>
+Mais de duas dimensões:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">dimensoes</span><span style="color: #fd971f;">[</span>4<span style="color: #fd971f;">][</span>3<span style="color: #fd971f;">][</span>2<span style="color: #fd971f;">]</span>; <span style="color: #909090;">// </span><span style="color: #909090;">matriz com 3 dimens&#245;es
+</span><span style="color: #fabd2f; font-weight: bold;">char</span> <span style="color: #83a598;">pessoas</span><span style="color: #fd971f;">[</span>3<span style="color: #fd971f;">][</span>9<span style="color: #fd971f;">][</span>7<span style="color: #fd971f;">][</span>9<span style="color: #fd971f;">]</span>; <span style="color: #909090;">// </span><span style="color: #909090;">matriz com 4 dimens&#245;es
+</span><span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">numeros</span><span style="color: #fd971f;">[</span>2<span style="color: #fd971f;">][</span>2<span style="color: #fd971f;">]</span> = <span style="color: #fd971f;">{</span><span style="color: #b16286;">{</span>1, 2<span style="color: #b16286;">}</span>,
+  &#9474;                    <span style="color: #b16286;">{</span>3, 4<span style="color: #b16286;">}</span><span style="color: #fd971f;">}</span>;
+<span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">pares</span><span style="color: #fd971f;">[</span>2<span style="color: #fd971f;">][</span>3<span style="color: #fd971f;">]</span> = <span style="color: #fd971f;">{</span>0, 2, 4, 6, 8, 10<span style="color: #fd971f;">}</span>;
+</pre>
+</div></li>
+</ul></li>
+<li><p>
+Manipulação
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">salas</span><span style="color: #fd971f;">[</span>19<span style="color: #fd971f;">][</span>12<span style="color: #fd971f;">]</span> = 4;
+</pre>
+</div>
+<ul class="org-ul">
+<li>O compilador não verifica se os valores inseridos são válidos na matriz</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orga1b9d31" class="outline-3">
+<h3 id="orga1b9d31"><span class="section-number-3">5.1.</span> Exercício</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Escreva um programa que lê duas matrizes 5x5, mostre-as na tela e então calcule o produto entre as duas matrizes, mostrando-o em seguida
+</p>
+<div class="org-src-container">
+<pre class="src src-C">  <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">matriz_1</span><span style="color: #fd971f;">[</span>5<span style="color: #fd971f;">][</span>5<span style="color: #fd971f;">]</span>, <span style="color: #83a598;">matriz_2</span><span style="color: #fd971f;">[</span>5<span style="color: #fd971f;">][</span>5<span style="color: #fd971f;">]</span>, <span style="color: #83a598;">matriz_multi</span><span style="color: #fd971f;">[</span>5<span style="color: #fd971f;">][</span>5<span style="color: #fd971f;">]</span>;
+
+<span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; 5; i++<span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">j</span> = 0; j &lt; 5; j++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+  &#9474; matriz_1<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">][</span>j<span style="color: #b8bb26;">]</span> = 0;
+  &#9474; matriz_2<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">][</span>j<span style="color: #b8bb26;">]</span> = 0;
+  &#9474; matriz_multi<span style="color: #b8bb26;">[</span>i<span style="color: #b8bb26;">][</span>j<span style="color: #b8bb26;">]</span> = 0;
+<span style="color: #b16286;">}</span>
+  <span style="color: #fd971f;">}</span>
+
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; 5; i++<span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">j</span> = 0; j &lt; 5; j++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+  &#9474; printf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"Matriz1[%d][%d]: "</span>, i, j<span style="color: #b8bb26;">)</span>;
+  &#9474; scanf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"%d"</span>, &amp;matriz_1<span style="color: #83a598;">[</span>i<span style="color: #83a598;">][</span>j<span style="color: #83a598;">]</span><span style="color: #b8bb26;">)</span>;
+  <span style="color: #b16286;">}</span>
+  <span style="color: #fd971f;">}</span>
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; 5; i++<span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">j</span> = 0; j &lt; 5; j++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+  &#9474; printf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"Matriz2[%d][%d]: "</span>, i, j<span style="color: #b8bb26;">)</span>;
+  &#9474; scanf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"%d"</span>, &amp;matriz_2<span style="color: #83a598;">[</span>i<span style="color: #83a598;">][</span>j<span style="color: #83a598;">]</span><span style="color: #b8bb26;">)</span>;
+  <span style="color: #b16286;">}</span>
+  &#9474;<span style="color: #fd971f;">}</span>
+  &#9474;
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; 5; i++<span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">j</span> = 0; j &lt; 5; j++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+  &#9474; <span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b8bb26;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">k</span> = 0; k &lt; 5; k++<span style="color: #b8bb26;">)</span> <span style="color: #b8bb26;">{</span>
+  &#9474; matriz_multi<span style="color: #83a598;">[</span>i<span style="color: #83a598;">][</span>j<span style="color: #83a598;">]</span> += <span style="color: #83a598;">(</span>matriz_1<span style="color: #8ec07c;">[</span>i<span style="color: #8ec07c;">][</span>k<span style="color: #8ec07c;">]</span> * matriz_2<span style="color: #8ec07c;">[</span>k<span style="color: #8ec07c;">][</span>j<span style="color: #8ec07c;">]</span><span style="color: #83a598;">)</span>;
+  &#9474; <span style="color: #b8bb26;">}</span>
+  <span style="color: #b16286;">}</span>
+<span style="color: #fd971f;">}</span>
+
+<span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; 5; i++<span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+<span style="color: #e74c3c; font-weight: bold;">for</span> <span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">j</span> = 0; j &lt; 5; j++<span style="color: #b16286;">)</span> <span style="color: #b16286;">{</span>
+printf<span style="color: #b8bb26;">(</span><span style="color: #b8bb26;">"%8d"</span>, matriz_multi<span style="color: #83a598;">[</span>i<span style="color: #83a598;">][</span>j<span style="color: #83a598;">]</span><span style="color: #b8bb26;">)</span>;
+<span style="color: #b16286;">}</span>
+printf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"\n"</span><span style="color: #b16286;">)</span>;
+ <span style="color: #fd971f;">}</span>
+
+<span style="color: #e74c3c; font-weight: bold;">return</span> 0;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge25fa51" class="outline-2">
+<h2 id="orge25fa51"><span class="section-number-2">6.</span> Redefinição de tipos, registros e tipos enumerados</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><p>
+O comando <code>sizeof</code> indica o tamanho em bits de uma variável
+</p>
+<div class="org-src-container">
+<pre class="src src-C">printf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%u"</span>, <span style="color: #e74c3c; font-weight: bold;">sizeof</span><span style="color: #b16286;">(</span><span style="color: #fabd2f; font-weight: bold;">double</span><span style="color: #b16286;">)</span><span style="color: #fd971f;">)</span> <span style="color: #909090;">// </span><span style="color: #909090;">retorna 8</span>
+</pre>
+</div></li>
+</ul>
+</div>
+<div id="outline-container-org88091cd" class="outline-3">
+<h3 id="org88091cd"><span class="section-number-3">6.1.</span> Redefinição de tipos</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Útil quando a alteração do tipo de uma variável altera o tipo de várias variáveis</li>
+<li><p>
+Feito através do comando <code>typdef</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #909090;">// </span><span style="color: #909090;">normalmente feita fora da main
+</span><span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #fabd2f; font-weight: bold;">tipo_primitivo</span> <span style="color: #fabd2f; font-weight: bold;">tipo_novo</span>;
+<span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #fabd2f; font-weight: bold;">nota</span>; <span style="color: #909090;">// </span><span style="color: #909090;">cria um tipo nota, com vari&#225;veis de ponto flutuante
+</span>
+<span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #b8bb26;">main</span><span style="color: #fd971f;">()</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">p1</span>, <span style="color: #83a598;">trabalho</span>;
+
+  scanf<span style="color: #b16286;">(</span><span style="color: #b8bb26;">"%f"</span>, &amp;p1<span style="color: #b16286;">)</span>;
+  <span style="color: #fd971f;">}</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga830fa3" class="outline-3">
+<h3 id="orga830fa3"><span class="section-number-3">6.2.</span> Registros</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>Variável que contém diversas variáveis (<i>campos</i>)
+<ul class="org-ul">
+<li>Podem ser de tipos diferentes</li>
+<li>Faz sentido serem agrupadas</li>
+</ul></li>
+<li><p>
+Declarados a partir do comando <code>struct</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #909090;">// </span><span style="color: #909090;">normalmente feita fora da main
+</span><span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">nome_do_tipo_do_registro</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #83a598;">nome_campo1</span>;
+  <span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #83a598;">nome_campo2</span>;
+  <span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #83a598;">nome_campo3</span>;
+<span style="color: #fd971f;">}</span>;
+
+<span style="color: #909090;">// </span><span style="color: #909090;">Exemplo
+</span><span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">cadastro</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">idade</span>;
+  <span style="color: #fabd2f; font-weight: bold;">char</span> <span style="color: #83a598;">sexo</span>;
+  <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">imc</span>;
+<span style="color: #fd971f;">}</span>;
+
+<span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #b8bb26;">main</span><span style="color: #fd971f;">()</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">cadastro</span> <span style="color: #83a598;">cad</span>;
+<span style="color: #fd971f;">}</span>
+
+</pre>
+</div></li>
+<li><p>
+Campos são acessados por meio de um "."
+</p>
+<div class="org-src-container">
+<pre class="src src-C">nome_registro.nome_campo;
+
+<span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">cadastro</span> <span style="color: #83a598;">cad</span>;
+printf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"Insira a idade do atleta: "</span><span style="color: #fd971f;">)</span>;
+scanf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%f"</span>, &amp;cad.idade<span style="color: #fd971f;">)</span>;
+
+<span style="color: #909090;">// </span><span style="color: #909090;">escreve a idade do atleta na tela
+</span>printf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%f"</span>, cad.idade<span style="color: #fd971f;">)</span>;
+
+</pre>
+</div></li>
+<li><p>
+A inicialização de registros possui duas formas:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">aluno</span> <span style="color: #83a598;">aluno1</span> = <span style="color: #fd971f;">{</span>831596, 9.9, 5.4, 8.3<span style="color: #fd971f;">}</span>,
+  &#9474; &#9474; &#9474; &#9474; &#9474; &#9474;<span style="color: #83a598;">aluno2</span> = <span style="color: #fd971f;">{</span>.ra = 831596,
+  &#9474; &#9474; &#9474; &#9474; &#9474; &#9474; &#9474;        .nota_lista = 9.9,
+  &#9474; &#9474; &#9474; &#9474; &#9474; &#9474; &#9474;        .nota_p1 = 5.4,
+  &#9474; &#9474; &#9474; &#9474; &#9474; &#9474; &#9474;        .nota_p2 = 8.3<span style="color: #fd971f;">}</span>;
+</pre>
+</div></li>
+<li><p>
+Registros podem ser copiados, assim como variáveis
+</p>
+<div class="org-src-container">
+<pre class="src src-C">aluno1 = aluno3;
+</pre>
+</div></li>
+<li><p>
+É possível redefinir um registro para nomea-lo de acordo com a semântica do que ele representa
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">aluno</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">ra</span>;
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">nota_p1</span>, <span style="color: #83a598;">nota_p2</span>, <span style="color: #83a598;">nota_trabalho</span>;
+  <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">media</span>;
+<span style="color: #fd971f;">}</span>;
+
+<span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">aluno</span> <span style="color: #fabd2f; font-weight: bold;">Aluno</span>;
+
+<span style="color: #909090;">// </span><span style="color: #909090;">ou
+</span>
+<span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">aluno</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">ra</span>;
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">nota_p1</span>, <span style="color: #83a598;">nota_p2</span>, <span style="color: #83a598;">nota_trabalho</span>;
+  <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">media</span>;
+<span style="color: #fd971f;">}</span> <span style="color: #fabd2f; font-weight: bold;">Aluno</span>;
+
+</pre>
+</div></li>
+<li><p>
+É possível declarar um registro como campo de outro registro
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #fabd2f; font-weight: bold;">nota</span>;
+
+<span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">prova</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">p1</span>;
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">p2</span>;
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">trabalho</span>;
+  <span style="color: #fabd2f; font-weight: bold;">float</span> <span style="color: #83a598;">media</span>;
+<span style="color: #fd971f;">}</span> <span style="color: #fabd2f; font-weight: bold;">Provas</span>;
+
+<span style="color: #e74c3c; font-weight: bold;">typedef</span> <span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">aluno</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">ra</span>;
+  <span style="color: #fabd2f; font-weight: bold;">provas</span> <span style="color: #83a598;">notas</span>;
+  <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">media</span>;
+  <span style="color: #fd971f;">}</span> <span style="color: #fabd2f; font-weight: bold;">Aluno</span>
+</pre>
+</div></li>
+<li><p>
+É possível criar vetores ou matrizes de structs
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">struct</span> <span style="color: #fabd2f; font-weight: bold;">nota</span> <span style="color: #83a598;">listas</span><span style="color: #fd971f;">[</span>11<span style="color: #fd971f;">]</span>;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbb3f47f" class="outline-3">
+<h3 id="orgbb3f47f"><span class="section-number-3">6.3.</span> Tipos enumerados</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>Tipo que funciona como <code>int</code>, porém está associada a constantes enumeradas</li>
+<li><p>
+comando <code>enum</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">enum</span> <span style="color: #fabd2f; font-weight: bold;">nome</span> <span style="color: #fd971f;">{</span><span style="color: #83a598;">constante0</span>, <span style="color: #83a598;">constante1</span>, <span style="color: #83a598;">constante_N</span><span style="color: #fd971f;">}</span>;
+
+<span style="color: #e74c3c; font-weight: bold;">enum</span> <span style="color: #fabd2f; font-weight: bold;">mes</span> <span style="color: #fd971f;">{</span> <span style="color: #83a598;">Janeiro</span>, <span style="color: #83a598;">Fevereiro</span>, <span style="color: #83a598;">Marco</span>, <span style="color: #83a598;">Abril</span>, <span style="color: #83a598;">Maio</span>, <span style="color: #83a598;">Junho</span>, <span style="color: #83a598;">Julho</span>, <span style="color: #83a598;">Agosto</span>,
+  &#9474;         <span style="color: #83a598;">Setembro</span>, <span style="color: #83a598;">Outubro</span>, <span style="color: #83a598;">Novembro</span>, <span style="color: #83a598;">Dezembro</span> <span style="color: #fd971f;">}</span>; <span style="color: #909090;">// </span><span style="color: #909090;">janeiro equivale a 0</span>
+</pre>
+</div></li>
+<li><p>
+Declaração de variável
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">enum</span> <span style="color: #fabd2f; font-weight: bold;">mes</span> <span style="color: #83a598;">aniversario</span>; <span style="color: #909090;">// </span><span style="color: #909090;">mes &#233; o tipo utilizado</span>
+</pre>
+</div></li>
+<li><p>
+Atribuição
+</p>
+<ul class="org-ul">
+<li>É possível atribuir um valor para qualquer um dos tipos</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #e74c3c; font-weight: bold;">enum</span> <span style="color: #fabd2f; font-weight: bold;">mes</span> <span style="color: #fd971f;">{</span> <span style="color: #83a598;">Janeiro</span>=1, <span style="color: #83a598;">Fevereiro</span>, <span style="color: #83a598;">Marco</span>, <span style="color: #83a598;">Abril</span>, <span style="color: #83a598;">Maio</span>, <span style="color: #83a598;">Junho</span>, <span style="color: #83a598;">Julho</span>, <span style="color: #83a598;">Agosto</span>,
+  &#9474;         <span style="color: #83a598;">Setembro</span>, <span style="color: #83a598;">Outubro</span>, <span style="color: #83a598;">Novembro</span>, <span style="color: #83a598;">Dezembro</span> <span style="color: #fd971f;">}</span>; <span style="color: #909090;">// </span><span style="color: #909090;">Janeiro equivale a 1</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge6de816" class="outline-3">
+<h3 id="orge6de816"><span class="section-number-3">6.4.</span> Exercícios</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>Escreva um programa para receber e imprimir na tela uma data no formato DD/MM/AAAA (use struct) . Teste se a data é válida (se está entre 01/01/2000 e 31/12/2010) e solicite novamente até que o usuário informe uma data válida</li>
+<li>Escreva um programa que receba uma data válida e escreva na tela o mês por extenso (use tipo enumerado). Ex: 20/05/2010 =&gt; 20 de Maio de 2010</li>
+<li>Escreva um programa para manter o cadastro de três alunos na disciplina. A média de cada aluno é computada através da média simples entre duas provas e um trabalho. Primeiro, receba os dados da disciplina e de cada aluno e, em seguida, imprima a média geral da turma. Use structs aninhadas e redefinição de tipos</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org34b1542" class="outline-2">
+<h2 id="org34b1542"><span class="section-number-2">7.</span> Funções e procedimentos</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org4c58b07" class="outline-3">
+<h3 id="org4c58b07"><span class="section-number-3">7.1.</span> Funções e procedimentos</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>Funções são úteis para
+<ul class="org-ul">
+<li>Evitar blocos muito lognos</li>
+<li>Separar o programa em partes mais fáceis de se compreender logicamente</li>
+<li>Reaproveitamento do código
+<ul class="org-ul">
+<li>Evitar que um trecho seja repetido várias vezes</li>
+</ul></li>
+</ul></li>
+<li>Procedimentos: estruturas que agrupam um conjunto de comandos</li>
+<li>Funções: procedimentos que retornam um único valor ao fim de sua execução
+<ul class="org-ul">
+<li><p>
+Declaração
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #b8bb26;">nome_funcao</span> <span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #83a598;">parametro1</span>, <span style="color: #fabd2f; font-weight: bold;">tipo</span> <span style="color: #83a598;">parametroN</span><span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+  comandos;
+  <span style="color: #e74c3c; font-weight: bold;">return</span> <span style="color: #b16286;">(</span>valor de retorno<span style="color: #b16286;">)</span>;
+<span style="color: #fd971f;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Normalmente declaradas após a função <code>main</code>
+<ul class="org-ul">
+<li>Cria-se um protótipo da função antes</li>
+</ul></li>
+</ul></li>
+<li>Toda função possui um tipo
+<ul class="org-ul">
+<li>Tipo do valor de retorno</li>
+<li>Parametros são variáveis iniciadas quando a função é chamada
+<ul class="org-ul">
+<li>Uma função pode não ter parametros</li>
+</ul></li>
+</ul></li>
+<li>Funções só podem ser declaradas fora de outras funções</li>
+<li><p>
+Exemplo
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #b8bb26;">soma</span><span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">a</span>, <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">b</span><span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{</span>
+  <span style="color: #e74c3c; font-weight: bold;">return</span> <span style="color: #b16286;">(</span>a + b<span style="color: #b16286;">)</span>;
+  <span style="color: #fd971f;">}</span>
+</pre>
+</div></li>
+<li>Cada parâmetro da função possui um <b>parâmetro real</b>
+<ul class="org-ul">
+<li>Seus valores são copiados para os parâmetros da função</li>
+<li>O valor dos parâmetros reais não é afetado pelas funções</li>
+</ul></li>
+<li>Funções recursivas</li>
+</ul></li>
+<li>O tipo <code>void</code>
+<ul class="org-ul">
+<li>Tipo utilizado especialmente em funções</li>
+<li>Armazena e retorna conteúdo "indeterminado"
+<ul class="org-ul">
+<li>Função não retorna nenhum valor</li>
+</ul></li>
+<li>Procedimentos na linguagem C são funções do tipo <code>void</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org338c959" class="outline-3">
+<h3 id="org338c959"><span class="section-number-3">7.2.</span> Escopo</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>Variável local: declarada dentro de uma função
+<ul class="org-ul">
+<li>Existe apenas dentro da função em que foi declarada</li>
+<li>Ao fim da função, deixa de existir</li>
+<li>Possui precedencia à variáveis globais</li>
+</ul></li>
+<li>Variável global: declarado fora de qualquer função
+<ul class="org-ul">
+<li>Acessível em todas as funções</li>
+<li>Existe durante toda a execução do programa</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org99227bf" class="outline-3">
+<h3 id="org99227bf"><span class="section-number-3">7.3.</span> Registros e arranjos</h3>
+<div class="outline-text-3" id="text-7-3">
+</div>
+<div id="outline-container-orgada8a23" class="outline-4">
+<h4 id="orgada8a23"><span class="section-number-4">7.3.1.</span> Registros</h4>
+<div class="outline-text-4" id="text-7-3-1">
+<ul class="org-ul">
+<li>Registros podem ser passados como parâmetros de uma função
+<ul class="org-ul">
+<li>Devem ser declarados antes da função</li>
+<li>O parâmetro formal recebe uma cópia do registro</li>
+</ul></li>
+<li>Uma função pode retornar um registro</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf55e62b" class="outline-4">
+<h4 id="orgf55e62b"><span class="section-number-4">7.3.2.</span> Arranjos</h4>
+<div class="outline-text-4" id="text-7-3-2">
+<ul class="org-ul">
+<li>Um arranjo pode ser passado como parâmetro de uma função
+<ul class="org-ul">
+<li><p>
+Geralmente o tamanho do arranjo é tambem passado como parâmetro
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #b8bb26;">maior_elemento</span><span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">vetor</span><span style="color: #b16286;">[]</span>, <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">tamanho</span><span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{}</span>
+</pre>
+</div></li>
+</ul></li>
+<li>Um arranjo <b>não</b> pode ser usado como retorno de uma função</li>
+<li>Quando utilizados como parâmetros ou valores de retorno, arranjos possuem um comportamento diferente de registros e outros tipos
+<ul class="org-ul">
+<li>Eles são alterados pela função
+<ul class="org-ul">
+<li>Ocorre pois quando se é dado um arranjo como parâmetro, são passados por referência
+<ul class="org-ul">
+<li>O endereço do primeiro endereço é fornecido</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgffca0ac" class="outline-4">
+<h4 id="orgffca0ac"><span class="section-number-4">7.3.3.</span> Matrizes</h4>
+<div class="outline-text-4" id="text-7-3-3">
+<ul class="org-ul">
+<li><p>
+Quando o arranjo é multidimensional, é necessário informar ao menos o tamanho da segunda dimensão
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #b8bb26;">maior_elemento</span><span style="color: #fd971f;">(</span><span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">matriz</span><span style="color: #b16286;">[][</span>2<span style="color: #b16286;">]</span>, <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">linhas</span>, <span style="color: #fabd2f; font-weight: bold;">int</span> <span style="color: #83a598;">colunas</span><span style="color: #fd971f;">)</span> <span style="color: #fd971f;">{}</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b70216" class="outline-3">
+<h3 id="org3b70216"><span class="section-number-3">7.4.</span> Exercícios</h3>
+<div class="outline-text-3" id="text-7-4">
+<ol class="org-ol">
+<li>Escreva um programa que receba dois naturais n1 e n2, calcule e imprima na tela (use funções):
+<ul class="org-ul">
+<li>n1 + n2</li>
+<li>n1 - n2</li>
+<li>n1 * n2</li>
+<li>n1 / n2</li>
+<li>(n1)<sup>n2</sup></li>
+<li>imprimir todos os pares de 1 a n1</li>
+<li>imprimir todos os ímpares de 1 a n2</li>
+</ul></li>
+<li>Escreva um programa que receba dois vetores v1 e v2 com t números naturais (t &lt;= 100). Calcule e imprima na tela (use funções):
+<ul class="org-ul">
+<li>vetor resultante de v1 + v2</li>
+<li>vetor resultante de v1 - v2</li>
+<li>a soma dos elementos de v1</li>
+<li>a soma dos elementos de v2</li>
+<li>o maior elemento de v1</li>
+<li>o menor elemento de v2</li>
+<li>imprimir todos os pares de v1</li>
+<li>imprimir todos os ímpares de v2</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgae5cae9" class="outline-2">
+<h2 id="orgae5cae9"><span class="section-number-2">8.</span> Strings</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Toda string é armazenada na memória como vetor de caracteres</li>
+<li>O fim da string é marcado pelo caractere nulo <code>'\0'</code>
+<ul class="org-ul">
+<li><p>
+Espaços não utilizados também são preenchidos com <code>\0</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">char</span> <span style="color: #83a598;">data</span><span style="color: #fd971f;">[</span>10<span style="color: #fd971f;">]</span> = <span style="color: #b8bb26;">"Julho 06"</span>; <span style="color: #909090;">// </span><span style="color: #909090;">armazenado como "Julho 06\0\0"</span>
+</pre>
+</div></li>
+</ul></li>
+<li>Strings são referidas pelo endereço de memória do primeiro caractere</li>
+<li>Em C, caracteres são tratados como inteiros
+<ul class="org-ul">
+<li>Se referem à tabela ASCII</li>
+</ul></li>
+<li><p>
+A máscara para strings é <code>%s</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">char</span> <span style="color: #83a598;">str</span><span style="color: #fd971f;">[]</span> = <span style="color: #b8bb26;">"isso &#233; uma string"</span>;
+
+printf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%s"</span>, str<span style="color: #fd971f;">)</span>;
+</pre>
+</div></li>
+<li><p>
+O comando <code>puts</code> imprime a string com quebra de linha
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #b8bb26;">puts</span><span style="color: #fd971f;">(</span>str<span style="color: #fd971f;">)</span>;
+</pre>
+</div></li>
+<li>Leitura de strings
+<ul class="org-ul">
+<li><code>scanf</code>
+<ul class="org-ul">
+<li>Insere <code>'\0'</code> ao fim</li>
+<li><p>
+Lê a string até o primeiro caractere em branco
+</p>
+<div class="org-src-container">
+<pre class="src src-C">scanf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%s"</span>, str<span style="color: #fd971f;">)</span>;
+</pre>
+</div></li>
+<li><p>
+Lê até a quebra de linha
+</p>
+<div class="org-src-container">
+<pre class="src src-C">scanf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%[^\n]"</span>, str<span style="color: #fd971f;">)</span>; <span style="color: #909090;">// </span><span style="color: #909090;">l&#234; at&#233; encontrar '\n', subistituindo por '\0'
+</span>
+scanf<span style="color: #fd971f;">(</span><span style="color: #b8bb26;">"%10[^\n]"</span>, str<span style="color: #fd971f;">)</span>; <span style="color: #909090;">// </span><span style="color: #909090;">determina que o n&#250;mero m&#225;ximo de caracteres &#233; 10</span>
+</pre>
+</div></li>
+</ul></li>
+<li><p>
+<code>gets</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #b8bb26;">gets</span><span style="color: #fd971f;">(</span>str<span style="color: #fd971f;">)</span>;
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org0945165" class="outline-3">
+<h3 id="org0945165"><span class="section-number-3">8.1.</span> Biblioteca string.h</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>Adiciona funções para manipular strings
+<ul class="org-ul">
+<li><code>strlen</code>: tamanho da string</li>
+<li><code>strcpy</code>: copia a string</li>
+<li><code>strncpy</code>: copia <i>n</i> caracteres da string</li>
+<li><code>strcat</code>: concatena a string</li>
+<li><code>strncat</code>: concatena <i>n</i> caracteres da string</li>
+<li><code>strcmp</code>: compara strings</li>
+<li><code>strncmp</code>: compara <i>n</i> caracteres da string</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge7ce316" class="outline-3">
+<h3 id="orge7ce316"><span class="section-number-3">8.2.</span> Biblioteca ctype.h</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>Adiciona funções para manipular caracteres
+<ul class="org-ul">
+<li><code>tolower</code>: converte caractere para minúsculo</li>
+<li><code>toupper</code>: converte caractere para maíusculo</li>
+<li><code>islower</code>: checa se caractere é minúsculo</li>
+<li><code>isupper</code>: checa se caractere é maiúsculo</li>
+<li><code>isalnum</code>: checa se caractere é alfanumérico</li>
+<li><code>isalpha</code>: checa se caractere é alfabético</li>
+<li><code>isdigit</code>: checa se caractere é numérico</li>
+<li><code>isprint</code>, <code>ispunct</code>, <code>isspace</code>: checa se caractere é imprimível, pontuação ou espaço em branco</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8ffb254" class="outline-3">
+<h3 id="org8ffb254"><span class="section-number-3">8.3.</span> Matrizes de strings</h3>
+<div class="outline-text-3" id="text-8-3">
+<ul class="org-ul">
+<li><p>
+É possível armazenar strings utilizando uma matriz
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #fabd2f; font-weight: bold;">char</span> <span style="color: #83a598;">moradores</span><span style="color: #fd971f;">[][</span>17<span style="color: #fd971f;">]</span> = <span style="color: #fd971f;">{</span>
+  <span style="color: #b8bb26;">"Safado"</span>,
+  <span style="color: #b8bb26;">"Peregrino"</span>, <span style="color: #b8bb26;">"Mamilo"</span>,
+  <span style="color: #b8bb26;">"Mureta"</span>, <span style="color: #b8bb26;">"Butt"</span>,
+  <span style="color: #b8bb26;">"Garagem"</span>, <span style="color: #b8bb26;">"Apito"</span>, <span style="color: #b8bb26;">"Aladim"</span>, <span style="color: #b8bb26;">"Zeca"</span>
+  <span style="color: #b8bb26;">"Wiil Smith"</span>,
+  <span style="color: #b8bb26;">"Tripa Seca"</span>, <span style="color: #b8bb26;">"Gru"</span>, <span style="color: #b8bb26;">"Bento"</span>, <span style="color: #b8bb26;">"Baby Alive"</span>
+  <span style="color: #b8bb26;">"Rego"</span>, <span style="color: #b8bb26;">"Ruama"</span>, <span style="color: #b8bb26;">"Vin&#237;cius"</span>
+  <span style="color: #fd971f;">}</span>;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge69bc60" class="outline-3">
+<h3 id="orge69bc60"><span class="section-number-3">8.4.</span> Função <code>getchar</code></h3>
+<div class="outline-text-3" id="text-8-4">
+<ul class="org-ul">
+<li>Lê um caractere</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Felipe Canteiro</p>
+<p class="date">Created: 2026-06-04 qui 11:05</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
