@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+<head>
+<!-- 2026-06-04 qui 11:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lógica Matemática</title>
+<meta name="author" content="Felipe Costa Canteiro" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Lógica Matemática</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Índice</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd2c0cdb">1. Introdução e história</a>
+<ul>
+<li><a href="#org68cb33a">1.1. História</a></li>
+</ul>
+</li>
+<li><a href="#orgbc199da">2. Cálculo Proposicional</a>
+<ul>
+<li><a href="#orge8aea3b">2.1. Conectores Lógicos</a>
+<ul>
+<li><a href="#org55be56c">2.1.1. Ordem de precedência</a></li>
+</ul>
+</li>
+<li><a href="#orge8481d6">2.2. Metafórmulas</a></li>
+<li><a href="#org4cabb36">2.3. Mapeamento de fórmulas para o cálculo proposicional</a></li>
+<li><a href="#org7f11e3e">2.4. Semântica do calculo proposicional</a>
+<ul>
+<li><a href="#org88e430f">2.4.1. Tautologia, contradição e contingência</a></li>
+<li><a href="#orgc557f02">2.4.2. Consequência lógica</a></li>
+<li><a href="#org805e012">2.4.3. Equivalência lógica</a></li>
+<li><a href="#orgd3e0502">2.4.4. Como produzir tautologias</a></li>
+<li><a href="#org7f7ee87">2.4.5. Sequências</a></li>
+<li><a href="#org79e7224">2.4.6. Propopsições e definiçoes usando tautologias</a></li>
+<li><a href="#org33c6668">2.4.7. Principais equivalências lógicas</a></li>
+<li><a href="#org17d3f5f">2.4.8. Equivalências lógicas com tautologias e contradições</a></li>
+<li><a href="#orgf939721">2.4.9. Literal</a></li>
+<li><a href="#org09fa647">2.4.10. Conjunções e disjunções</a></li>
+<li><a href="#orgb992142">2.4.11. Forma Normal Disjuntiva (FND)</a></li>
+<li><a href="#org7ae93e8">2.4.12. Forma Normal Conjuntiva (FNC)</a></li>
+<li><a href="#org6651815">2.4.13. Negação conjunta e negação alternativa</a></li>
+</ul>
+</li>
+<li><a href="#orge68dd7c">2.5. Sintaxe do cálculo proposicional</a>
+<ul>
+<li><a href="#orge2de822">2.5.1. Axiomas</a></li>
+<li><a href="#orge4025c5">2.5.2. Regras de inferência</a></li>
+<li><a href="#org7927670">2.5.3. Teoremas e Provas</a></li>
+<li><a href="#org3b07d68">2.5.4. Consequência sintática</a></li>
+<li><a href="#org01426e3">2.5.5. Teorema da dedução</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+\newpage
+</p>
+<div id="outline-container-orgd2c0cdb" class="outline-2">
+<h2 id="orgd2c0cdb"><span class="section-number-2">1.</span> Introdução e história</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Lógica: ciência que estuda os princípios de inferência
+<ul class="org-ul">
+<li>Determinar em que condições certas coisas se seguem ou não de outras</li>
+</ul></li>
+<li>Lógica Matemática: relacionada à computação
+<ul class="org-ul">
+<li>Dividida em 4 áreas:
+<ul class="org-ul">
+<li>Teoria da prova</li>
+<li>Teoria dos modelos</li>
+<li>Teoria axiomática dos conjuntos</li>
+<li>Computabilidade</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org68cb33a" class="outline-3">
+<h3 id="org68cb33a"><span class="section-number-3">1.1.</span> História</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>A lógica foi criada por Aristóteles</li>
+</ul>
+<p>
+\newpage
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbc199da" class="outline-2">
+<h2 id="orgbc199da"><span class="section-number-2">2.</span> Cálculo Proposicional</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Utiliza fórmulas lógicas</li>
+</ul>
+</div>
+<div id="outline-container-orge8aea3b" class="outline-3">
+<h3 id="orge8aea3b"><span class="section-number-3">2.1.</span> Conectores Lógicos</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>&not;: negação
+"não é verdade que"</li>
+<li>&or;: disjunção
+<ul class="org-ul">
+<li>"ou"</li>
+</ul></li>
+<li>&and;: conjunção
+<ul class="org-ul">
+<li>"e"</li>
+</ul></li>
+<li>&rarr;: implicação
+<ul class="org-ul">
+<li>"se &#x2026; então &#x2026;"</li>
+<li>A &rarr; B
+<ul class="org-ul">
+<li>A: antecedente</li>
+<li>B: consequente</li>
+</ul></li>
+</ul></li>
+<li>&harr;: bicondicional
+<ul class="org-ul">
+<li>"se, e somente se,"</li>
+</ul></li>
+</ul>
+
+<p>
+Qualquer fórmula pode ser construída utilizando apenas &not; e &or; 
+</p>
+<ul class="org-ul">
+<li>\(A \wedge B \equiv \neg (\neg A \vee \neg B)\)</li>
+<li>\(A \rightarrow B \equiv \neg A \vee B\)</li>
+<li>\(A \leftrightarrow B \equiv (A \rightarrow B) \wedge (B \rightarrow A)\)</li>
+</ul>
+</div>
+<div id="outline-container-org55be56c" class="outline-4">
+<h4 id="org55be56c"><span class="section-number-4">2.1.1.</span> Ordem de precedência</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>&not;</li>
+<li>&or;</li>
+<li>&and;</li>
+<li>&rarr;</li>
+<li>&harr;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8481d6" class="outline-3">
+<h3 id="orge8481d6"><span class="section-number-3">2.2.</span> Metafórmulas</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Fórmulas que representaç qualquer outra fórmula</li>
+<li>O símbolo \(=_{def}\) é utilizado para associar uma fórmula a uma meta fórmula
+<ul class="org-ul">
+<li>\(\varphi =_{def} (A \rightarrow \neg B) \wedge \neg A\) ** Subfórmula + Toda fórmula é subfórmula de si mesma + Toda subfórmula de A é subfórmula de &not; A + Toda subfórmula de A ou de B é subfórmula de A &or; B, A &and; B, A &rarr; B, A &harr; B</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4cabb36" class="outline-3">
+<h3 id="org4cabb36"><span class="section-number-3">2.3.</span> Mapeamento de fórmulas para o cálculo proposicional</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Nem sempre é possível mapear fórmulas</li>
+<li>O cálculo proposicional não é adequado ao mapeamento de frases do cotidiano</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7f11e3e" class="outline-3">
+<h3 id="org7f11e3e"><span class="section-number-3">2.4.</span> Semântica do calculo proposicional</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Usamo <b>V</b> para verdadeiro e <b>F</b> para falso</li>
+<li>Função verdade: \(f \wedge (A,B)\) (exemplo com a conjunção)
+<ul class="org-ul">
+<li>\(f \wedge (V,V) = V\)</li>
+<li>\(f \wedge (V,F) = F\)</li>
+<li>\(f \wedge (F,V) = F\)</li>
+<li>\(f \wedge (F,F) = F\)</li>
+</ul></li>
+<li><p>
+Tabela verdade
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">A</th>
+<th scope="col" class="org-left">B</th>
+<th scope="col" class="org-left">A &and; B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">V</td>
+<td class="org-left">V</td>
+<td class="org-left">V</td>
+</tr>
+
+<tr>
+<td class="org-left">V</td>
+<td class="org-left">F</td>
+<td class="org-left">F</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">V</td>
+<td class="org-left">F</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">F</td>
+<td class="org-left">F</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>É possível criar tabelas verdade abreviadas
+<ul class="org-ul">
+<li><p>
+Abaixo dos conectores vão os valores da subfórmula
+</p>
+
+<div id="orgf6e12cc" class="figure">
+<p><img src="Lógica_Matemática/2024-08-01_14-33-21_66uJUa3.png" alt="2024-08-01_14-33-21_66uJUa3.png" />
+</p>
+</div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org88e430f" class="outline-4">
+<h4 id="org88e430f"><span class="section-number-4">2.4.1.</span> Tautologia, contradição e contingência</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<ul class="org-ul">
+<li><b>Tautologia</b>: para quaisquer atribuições de valores para as suas variáveis, o valor da fórmula é verdadeiro
+\(\models \varphi\)</li>
+<li><b>Contradição</b>: para quaisquer atribuições de valores para as suas variáveis, o valor da fórmula é falso
+\(\models \neg \varphi\)</li>
+<li><b>Contingência</b>: uma fórmula que não é tautologia ou contradição
+\(\not\models \varphi\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc557f02" class="outline-4">
+<h4 id="orgc557f02"><span class="section-number-4">2.4.2.</span> Consequência lógica</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<ul class="org-ul">
+<li>Se \(\vdash A \rightarrow B\) dizemos que A implica logicamente B ou que B é uma consequência lógica de A
+<ul class="org-ul">
+<li><b>Princípio da explosão</b>: \(\vdash A \neg A \rightarrow \varphi \)
+<ul class="org-ul">
+<li>Qualquer fórmulas &varphi; é uma consequência lógica de \(A \wedge \neg A\)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org805e012" class="outline-4">
+<h4 id="org805e012"><span class="section-number-4">2.4.3.</span> Equivalência lógica</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<ul class="org-ul">
+<li>Se \(\vdash A \leftrightarrow B\) dizemos que A é logicamente equivalente a B</li>
+<li>Escrevemos A &equiv; B</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd3e0502" class="outline-4">
+<h4 id="orgd3e0502"><span class="section-number-4">2.4.4.</span> Como produzir tautologias</h4>
+<div class="outline-text-4" id="text-2-4-4">
+<ol class="org-ol">
+<li>\(\vdash \varphi \Rightarrow \vdash \varphi \vee \psi\) para qualquer &psi;</li>
+<li>\(\vdash \varphi \Rightarrow \vdash \psi \rightarrow \varphi\) e \(\vdash \neg \varphi \rightarrow \psi\) para quaisquer &varphi; e &psi;</li>
+<li>\(\vdash A \wedge B \rightarrow A\)</li>
+<li>\(\vdash A \rightarrow A \vee B\)</li>
+<li>\(\vdash A \wedge B \rightarrow A \vee B\)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org7f7ee87" class="outline-4">
+<h4 id="org7f7ee87"><span class="section-number-4">2.4.5.</span> Sequências</h4>
+<div class="outline-text-4" id="text-2-4-5">
+<ul class="org-ul">
+<li><b>Sequência</b>: é uma n-tupla \(s = (s_0, s_1, ... s_{n-1})\) na qual \(s_i \in \{V, F\}\) 
+<ul class="org-ul">
+<li>n &ge; 0</li>
+<li>\(s \in \{V, F\}^n \)</li>
+<li>Corresponde a uma linha da tabela-verdade</li>
+<li>Pode ser um argumento para uma função de verdade
+<ul class="org-ul">
+<li><p>
+Exemplo
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">A</th>
+<th scope="col" class="org-left">B</th>
+<th scope="col" class="org-left">&varphi;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">V</td>
+<td class="org-left">V</td>
+<td class="org-left">F</td>
+</tr>
+
+<tr>
+<td class="org-left">V</td>
+<td class="org-left">F</td>
+<td class="org-left">F</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">V</td>
+<td class="org-left">V</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">F</td>
+<td class="org-left">V</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>A função de verdade \(f_{\varphi}\) para &varphi; é tal que se \(s = (V,V), f_{\varphi}(s) = F\)
+<ul class="org-ul">
+<li>Porque \(f_{\varphi} (s) = Fi\)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Uma sequência \(s = (s_0, s_1, ... s_{n-1})\) satisfaz uma fórmula &varphi; se, quando a variável (V<sub>i</sub>) assume o valor \(s_i (i = 0..n-1)\), o falr de &varphi; é V
+<ul class="org-ul">
+<li>\(s \vdash \varphi\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org79e7224" class="outline-4">
+<h4 id="org79e7224"><span class="section-number-4">2.4.6.</span> Propopsições e definiçoes usando tautologias</h4>
+<div class="outline-text-4" id="text-2-4-6">
+<p>
+Se \(\vdash A \rightarrow B\) e \(\vdash A\), então \(\vdash B\)
+</p>
+<ul class="org-ul">
+<li>Dizemos que uma sequência <i>s</i> satisfaz um conjunto &Gamma; de fórmulas se <i>s</i> satisfaz cada \(\varphi \in  \Gamma\)
+<ul class="org-ul">
+<li>Exemplo: \(s = (V, F, V)\) satisfaz
+<ul class="org-ul">
+<li>\(\Gamma = \{V_1 \rightarrow V_0, \neg (V_0 \wedge V_1 \wedge V_2), \neg V_1 \wedge V_0 \wedge V_2\}\)</li>
+</ul></li>
+</ul></li>
+<li>Dizemos que uma fórmula &varphi; é uma <b>consequência lógica</b> de um conjunto de fórmulas &Gamma; se toda sequência que satisfaz &Gamma; também satisfaz &varphi;
+<ul class="org-ul">
+<li>\(\Gamma \vdash \varphi\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org33c6668" class="outline-4">
+<h4 id="org33c6668"><span class="section-number-4">2.4.7.</span> Principais equivalências lógicas</h4>
+<div class="outline-text-4" id="text-2-4-7">
+<ul class="org-ul">
+<li>Comutatividade: \(A \vee B \equiv B \vee A\)</li>
+<li>Comutatividade: \(A \wedge B \equiv B \wedge A\)</li>
+<li>Associatividade: \((A \vee B) \vee C \equiv A \vee (B \vee C)\)</li>
+<li>Associatividade: \((A \wedge B) \wedge C \equiv A \wedge (B \wedge C)\)</li>
+<li>De Morgan: \(\neg (A \vee B) \equiv \neg A \wedge \neg B\)</li>
+<li>De Morgan: \(\neg (A \wedge B) \equiv \neg A \vee \neg B\)</li>
+<li>Contrapositiva: \(A \rightarrow B \equiv \neg B \rightarrow \neg A\)</li>
+<li>Bicondicional: \(A \leftrightarrow B \equiv B \leftrightarrow A\)</li>
+<li>Distributiva:  \(A \wedge (B \vee C) \equiv (A \wedge B) \vee (A \wedge C)\)</li>
+<li>Distributiva:  \(A \vee (B \wedge C) \equiv (A \vee B) \wedge (A \vee C)\)</li>
+<li>\(A \rightarrow (B \rightarrow C) \equiv (A \wedge B) \rightarrow C\)</li>
+<li>\((A \wedge B) \vee \neg B \equiv A \vee \neg B\)</li>
+<li>\((A \vee B) \wedge \neg B \equiv A \wedge \neg B\)</li>
+<li>\((A \leftrightarrow B) \leftrightarrow C \equiv A \leftrightarrow (B \leftrightarrow C)\)</li>
+<li>\(A \leftrightarrow B \equiv (A \wedge B) \vee (\neg A \wedge \neg B)\)</li>
+<li>\(A \vee (A \wedge B) \equiv A\)</li>
+<li>\(A \wedge (A \vee B) \equiv A\)</li>
+<li>\(\neg (A \leftrightarrow B) \equiv A \leftrightarrow \neg B\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org17d3f5f" class="outline-4">
+<h4 id="org17d3f5f"><span class="section-number-4">2.4.8.</span> Equivalências lógicas com tautologias e contradições</h4>
+<div class="outline-text-4" id="text-2-4-8">
+<ul class="org-ul">
+<li>\(\top\) representa uma constante que é sempre <b>verdadeira</b></li>
+<li>\(\perp\) representa uma constante que é sempre <b>falsa</b></li>
+<li>\(\top \wedge A \equiv A\)</li>
+<li>\(\top \vee A \equiv \top\)</li>
+<li>\(\perp \wedge A \equiv \perp\)</li>
+<li>\(\perp \vee A \equiv A\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf939721" class="outline-4">
+<h4 id="orgf939721"><span class="section-number-4">2.4.9.</span> Literal</h4>
+<div class="outline-text-4" id="text-2-4-9">
+<ul class="org-ul">
+<li>Uma variável ou a negação de uma variável</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org09fa647" class="outline-4">
+<h4 id="org09fa647"><span class="section-number-4">2.4.10.</span> Conjunções e disjunções</h4>
+<div class="outline-text-4" id="text-2-4-10">
+<ul class="org-ul">
+<li>Disjunção é uma sequência de 2 ou mais fórmulas separadas por &or;</li>
+<li>Conjunção é uma sequência de 2 ou mais fórmulas separadas por &and;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb992142" class="outline-4">
+<h4 id="orgb992142"><span class="section-number-4">2.4.11.</span> Forma Normal Disjuntiva (FND)</h4>
+<div class="outline-text-4" id="text-2-4-11">
+<ul class="org-ul">
+<li><p>
+Uma fórmula &varphi; está na <b>Forma Normal Disjuntiva</b> se está no formato
+</p>
+
+<p>
+\(\varphi = \bigvee^n_{i=1} (\bigwedge^m_{j=1} L_{ij})\)
+</p>
+
+<p>
+onde \(L_{ij}\) é um <a href="#orgf939721">literal</a>
+</p></li>
+
+<li>Toda fórmula &varphi; é logicamente equivalente a uma fórmula na FND</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orga4c880b"></a>FND a partir de uma tabela verdade<br />
+<div class="outline-text-5" id="text-2-4-11-1">
+<ol class="org-ol">
+<li>Obter todas as conjunções &varphi; com valor <b>V</b></li>
+<li>Separá-las por uma disjunção</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org7ae93e8" class="outline-4">
+<h4 id="org7ae93e8"><span class="section-number-4">2.4.12.</span> Forma Normal Conjuntiva (FNC)</h4>
+<div class="outline-text-4" id="text-2-4-12">
+<ul class="org-ul">
+<li><p>
+Uma fórmula &varphi; está na <b>Forma Normal Disjuntiva</b> se está no formato
+</p>
+
+<p>
+\(\varphi = \bigwedge^n_{i=1} (\bigvee^m_{j=1} L_{ij})\)
+</p>
+
+<p>
+onde \(L_{ij}\) é um <a href="#orgf939721">literal</a>
+</p></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org6bebbeb"></a>FNC a partir de uma tabela verdade<br />
+<div class="outline-text-5" id="text-2-4-12-1">
+<ol class="org-ol">
+<li>Obter todas as disjunções &varphi; com valor <b>F</b></li>
+<li>Negar os termos verdadeiros</li>
+<li>Separá-las por uma conjunção</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org6651815" class="outline-4">
+<h4 id="org6651815"><span class="section-number-4">2.4.13.</span> Negação conjunta e negação alternativa</h4>
+<div class="outline-text-4" id="text-2-4-13">
+<ul class="org-ul">
+<li><b>nor</b> (&darr;): negação conjunta
+\(A \downarrow B \equiv \neg (A \vee B)\)
+<ul class="org-ul">
+<li>\(\neg A \equiv A \downarrow A\)</li>
+<li>\(A \wedge B \equiv ((A \downarrow A) \downarrow (B \downarrow B))\)</li>
+</ul></li>
+<li><b>nand</b> (&uarr;): negação alternativa
+<ul class="org-ul">
+<li>\(A \uparrow B \equiv \neg (A \wedge B)\)</li>
+</ul></li>
+</ul>
+
+<div id="org096e537" class="figure">
+<p><img src="Lógica_Matemática/2024-08-01_17-24-05_hl8sZgH.png" alt="2024-08-01_17-24-05_hl8sZgH.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge68dd7c" class="outline-3">
+<h3 id="orge68dd7c"><span class="section-number-3">2.5.</span> Sintaxe do cálculo proposicional</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Consiste de regras de dedução</li>
+<li>É composta por
+<ul class="org-ul">
+<li>Um <b>alfabeto</b> de símbolos</li>
+<li>Sequências bem definidas de símbolos deste alfabeto (<b>fórmulas</b>)</li>
+<li><a href="#orge2de822">2.5.1</a> subconjunto de fórmulas</li>
+<li><a href="#orge4025c5">Regras</a> para produzir novas fórmulas a partir de outras</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orge2de822" class="outline-4">
+<h4 id="orge2de822"><span class="section-number-4">2.5.1.</span> Axiomas</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<ul class="org-ul">
+<li><p>
+Um axioma representa infinitos axiomas
+</p>
+<ul class="org-ul">
+<li>\(\neg A \vee A\)</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Axiomas Válidos</th>
+<th scope="col" class="org-left">Não São Axiomas Válidos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(\neg V_0 \vee V_0\)</td>
+<td class="org-left">\(V_0 \vee \neg V_0\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\neg A \vee A\)</td>
+<td class="org-left">\(\neg V_0 \vee \neg \neg V_0\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\neg (A \rightarrow B) \vee (A \rightarrow B)\)</td>
+<td class="org-left">\(A \rightarrow A\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\neg \neg A \vee \neg A\)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge4025c5" class="outline-4">
+<h4 id="orge4025c5"><span class="section-number-4">2.5.2.</span> Regras de inferência</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<ul class="org-ul">
+<li>Regra da expansão: \(\frac{A}{A \vee B}\)</li>
+<li>Regra da eliminação: \(\frac{A \vee A}{A}\)</li>
+<li>Regra da associatividade: \(\frac{A \vee (B \vee C)}{(A \vee B) \vee C}\)</li>
+<li>Regra do corte: \(\frac{(A \vee B)\ \ \ \ (\neg A \vee C)}{B \vee C}\)</li>
+<li>Regras deduzidas: 
+<ul class="org-ul">
+<li>Modus ponens: \(\frac{(A) \ \ \ \ (A \rightarrow B)}{A}\)</li>
+<li>Comutatividade: \(\frac{(A \vee B) \ \ \ \ (\neg A \vee A)}{B \vee A}\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7927670" class="outline-4">
+<h4 id="org7927670"><span class="section-number-4">2.5.3.</span> Teoremas e Provas</h4>
+<div class="outline-text-4" id="text-2-5-3">
+<ul class="org-ul">
+<li>Definição de teorema:
+<ul class="org-ul">
+<li>Axioma; ou</li>
+<li>Uma fórmula obtida de uma regra a partir de um ou dois teoremas</li>
+</ul></li>
+<li>Definição de prova: uma sequência de fórmulas \(A_1, A_2, ... A_n\) tal que para cada 1 &le; i &le; n, \(A_i\) é:
+<ul class="org-ul">
+<li>Um axioma; ou</li>
+<li>Deduzida a partir das regras usando \(A_j\) e/ou \(A_k\) sendo \(j, k <  i\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3b07d68" class="outline-4">
+<h4 id="org3b07d68"><span class="section-number-4">2.5.4.</span> Consequência sintática</h4>
+<div class="outline-text-4" id="text-2-5-4">
+<ul class="org-ul">
+<li>Uma fórmula &varphi; é uma consequência de um conjunto de &Gamma; de fórmulas se, e somente se há uma sequência \(A_1, A_2,... A_n\) de fórmulas tal que \(\varphi = A_n\) e, para cada \(1 \leq i \leq n,\ A_i\) é
+<ul class="org-ul">
+<li>Um axioma; ou</li>
+<li>Pertencente a &Gamma;; ou</li>
+<li>Deduzida a partir das regras usando \(A_j\) e/ou \(A_k\) sendo \(j, k <  i\)</li>
+</ul></li>
+<li>Se &varphi; é consequência sintática de &Gamma;, escrevemos
+<ul class="org-ul">
+<li>\(\Gamma \vdash \varphi\)</li>
+</ul></li>
+<li>Se &varphi; não é consequência sintática de &Gamma;, escrevemos
+<ul class="org-ul">
+<li>\(\Gamma \not\vdash \varphi\)</li>
+</ul></li>
+<li>Abreviaturas
+<ul class="org-ul">
+<li>\(A, B \vdash C\) para \(\{A, B\} \vdash C\)</li>
+<li>\(\Gamma, A \vdash B\) para \(\Gamma \cup \{A\} \vdash B\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org01426e3" class="outline-4">
+<h4 id="org01426e3"><span class="section-number-4">2.5.5.</span> Teorema da dedução</h4>
+<div class="outline-text-4" id="text-2-5-5">
+<ul class="org-ul">
+<li>Se
+\(\Gamma A \vdash B \Rightarrow \Gamma \vdash A \rightarrow B\)</li>
+<li>Como pode-se provar que se \(\Gamma \vdash A \rightarrow B\), então \(\Gamma, A \vdash B\), temos
+\(\Gamma, A \vdash B \Leftrightarrow \Gamma \vdash A \rightarrow B\)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Felipe Costa Canteiro</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

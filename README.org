@@ -6,3 +6,4 @@
 * Matérias
 ** [[file:html/IP.html][Introdução à Programação]]
 ** [[file:html/CD.html][Circuitos Digitais]]
+** [[file:html/LM.html][Lógica Matemática]]
