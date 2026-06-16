@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
-<!-- 2026-06-16 ter 06:29 -->
+<!-- 2026-06-16 ter 06:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Uma introdução à Programação em Emacs Lisp</title>
@@ -27,70 +27,70 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6ecdf6c">1. Prefácio</a>
+<li><a href="#org3e6f2d0">1. Prefácio</a>
 <ul>
-<li><a href="#org45a9486">1.1. Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org413bb51">1.2. Sobre a leitura deste texto</a></li>
-<li><a href="#org1638aa4">1.3. Para quem isso foi escrito</a></li>
-<li><a href="#orgc2b8c0c">1.4. História do Lisp</a></li>
-<li><a href="#orgf6017b7">1.5. Um adendo para novatos</a></li>
-<li><a href="#org332982c">1.6. Agradecimentos</a></li>
+<li><a href="#orga256cd6">1.1. Por que estudar Emacs Lisp?</a></li>
+<li><a href="#org96372d2">1.2. Sobre a leitura deste texto</a></li>
+<li><a href="#org25a345c">1.3. Para quem isso foi escrito</a></li>
+<li><a href="#orgc66e98a">1.4. História do Lisp</a></li>
+<li><a href="#org98b6c42">1.5. Um adendo para novatos</a></li>
+<li><a href="#org30132bc">1.6. Agradecimentos</a></li>
 </ul>
 </li>
-<li><a href="#org38c7a11">2. Processamento de listas</a></li>
-<li><a href="#orgc52a1a9">3. Praticando avaliação</a></li>
-<li><a href="#org8e58591">4. Como escrever definições de funções</a></li>
-<li><a href="#orgfd9de08">5. Algumas funções relacionadas a <i>buffers</i></a></li>
-<li><a href="#org2b7a9d1">6. Mais algumas funções mais complexas</a></li>
-<li><a href="#org59a143f">7. <i>Narrowing</i> e <i>widening</i></a></li>
-<li><a href="#orgb370afc">8. <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a></li>
-<li><a href="#orga520972">9. Recortando e armazenando texto</a></li>
-<li><a href="#org2c36425">10. Como listas são implementadas</a></li>
-<li><a href="#orga498ce9">11. Colando texto de volta</a></li>
-<li><a href="#org91c7c2b">12. Loops e recursão</a></li>
-<li><a href="#orgf160b7c">13. Buscas com expressões regulares</a></li>
-<li><a href="#org742bd28">14. Contando via repetição e <i>regexps</i></a></li>
-<li><a href="#orgd0f4bfb">15. Contando palavras em uma <code>defun</code></a></li>
-<li><a href="#org5c59e1b">16. Preparando um gráfico</a></li>
-<li><a href="#org21b36ee">17. Seu arquivo <code>.emacs</code></a>
+<li><a href="#orgdbcda11">2. Processamento de listas</a></li>
+<li><a href="#org2e8f226">3. Praticando avaliação</a></li>
+<li><a href="#org8d446cd">4. Como escrever definições de funções</a></li>
+<li><a href="#org58ce9cf">5. Algumas funções relacionadas a <i>buffers</i></a></li>
+<li><a href="#org476b3ab">6. Mais algumas funções mais complexas</a></li>
+<li><a href="#org73f9c79">7. <i>Narrowing</i> e <i>widening</i></a></li>
+<li><a href="#org4bf4e17">8. <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a></li>
+<li><a href="#org41b68a4">9. Recortando e armazenando texto</a></li>
+<li><a href="#orgfef5254">10. Como listas são implementadas</a></li>
+<li><a href="#org2a7332b">11. Colando texto de volta</a></li>
+<li><a href="#orgc5c27e0">12. Loops e recursão</a></li>
+<li><a href="#org6b76506">13. Buscas com expressões regulares</a></li>
+<li><a href="#org4b1ef6b">14. Contando via repetição e <i>regexps</i></a></li>
+<li><a href="#orge0419a6">15. Contando palavras em uma <code>defun</code></a></li>
+<li><a href="#org3c4319d">16. Preparando um gráfico</a></li>
+<li><a href="#orga67dd99">17. Seu arquivo <code>.emacs</code></a>
 <ul>
-<li><a href="#orgd0adf39">17.1. Mapeamento de teclas</a></li>
+<li><a href="#org4f57d18">17.1. Mapeamento de teclas</a></li>
 </ul>
 </li>
-<li><a href="#org212b543">18. Depuração</a></li>
-<li><a href="#org450e918">19. Conclusão</a></li>
-<li><a href="#org25b2ad7">20. Apêndice a</a></li>
-<li><a href="#org548eca5">21. Apêndice b</a></li>
-<li><a href="#orgaf318d1">22. Apêndice c</a></li>
-<li><a href="#org4fffbd4">23. Apêndice d</a></li>
-<li><a href="#orgeeaef65">24. Apêndice e</a></li>
-<li><a href="#org0d193aa">25. Index</a></li>
-<li><a href="#org4603538">26. Sobre o autor</a></li>
+<li><a href="#org7aa5191">18. Depuração</a></li>
+<li><a href="#orgbd9827a">19. Conclusão</a></li>
+<li><a href="#org27da800">20. Apêndice A</a></li>
+<li><a href="#orgcb79ad2">21. Apêndice B</a></li>
+<li><a href="#orgbec7363">22. Apêndice C</a></li>
+<li><a href="#orgcd575cc">23. Apêndice D</a></li>
+<li><a href="#org038df9e">24. Apêndice E</a></li>
+<li><a href="#org8a98336">25. Índice</a></li>
+<li><a href="#org3462dce">26. Sobre o autor</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6ecdf6c" class="outline-2">
-<h2 id="org6ecdf6c"><span class="section-number-2">1.</span> Prefácio</h2>
+<div id="outline-container-org3e6f2d0" class="outline-2">
+<h2 id="org3e6f2d0"><span class="section-number-2">1.</span> Prefácio</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de programação chamada Emacs Lisp. O código escrito nesta linguagem é o software - os conjuntos de instruções - que dizem ao computador o que fazer quando você dá comandos a ele. O Emacs é projetado de forma que você possa escrever novo código em Emacs Lisp e facilmente instalá-lo como uma extensão ao editor.
 </p>
 
 <p>
-(GNU Emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. É mais adequado se referir ao Emacs como um "ambiente de computação extensível". Porém, essa frase é comprida demais. É mais fácil se referir ao Emacs simplesmente como um editor. Além disso, tudo o que se faz no Emacs - encontrar a data Maia e fases da lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
+(GNU Emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. É mais adequado se referir ao Emacs como um "ambiente de computação extensível". Porém, essa frase é comprida demais. É mais fácil se referir ao Emacs simplesmente como um editor. Além disso, tudo o que se faz no Emacs - encontrar a data Maia e fases da Lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
 </p>
 
 <ul class="org-ul">
-<li><a href="#org45a9486">Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org413bb51">Sobre a leitura deste texto</a></li>
-<li><a href="#org1638aa4">Para quem isso foi escrito</a></li>
-<li><a href="#orgc2b8c0c">História do Lisp</a></li>
-<li><a href="#orgf6017b7">Um adendo para novatos</a></li>
-<li><a href="#org332982c">Agradecimentos</a></li>
+<li><a href="#orga256cd6">Por que estudar Emacs Lisp?</a></li>
+<li><a href="#org96372d2">Sobre a leitura deste texto</a></li>
+<li><a href="#org25a345c">Para quem isso foi escrito</a></li>
+<li><a href="#orgc66e98a">História do Lisp</a></li>
+<li><a href="#org98b6c42">Um adendo para novatos</a></li>
+<li><a href="#org30132bc">Agradecimentos</a></li>
 </ul>
 </div>
-<div id="outline-container-org45a9486" class="outline-3">
-<h3 id="org45a9486"><span class="section-number-3">1.1.</span> Por que estudar Emacs Lisp?</h3>
+<div id="outline-container-orga256cd6" class="outline-3">
+<h3 id="orga256cd6"><span class="section-number-3">1.1.</span> Por que estudar Emacs Lisp?</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Apesar de geralmente associarem Emacs Lisp exclusivamente ao Emacs, ele é uma linguagem de programação completa. Você pode usar Emacs Lisp como você faria com qualquer outra linguagem de programação.
@@ -101,11 +101,11 @@ Talvez você queira entender programação; talvez você queira extender o Emacs
 </p>
 </div>
 </div>
-<div id="outline-container-org413bb51" class="outline-3">
-<h3 id="org413bb51"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
+<div id="outline-container-org96372d2" class="outline-3">
+<h3 id="org96372d2"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do Emacs. Se você ler este documento em Info dentro do gnu emacs, você pode executar os programas à medida que eles aparecem. De forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando Emacs. (isso é o que gosto de fazer; eu gosto de livros impressos.) Se você não possui uma instância do Emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
+Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do Emacs. Se você ler este documento em Info dentro do GNU Emacs, você pode executar os programas à medida que eles aparecem. De forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando Emacs. (isso é o que gosto de fazer; eu gosto de livros impressos.) Se você não possui uma instância do Emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
 </p>
 
 <p>
@@ -121,8 +121,8 @@ Finalmente, eu espero transmitir algumas das habilidades para utilizar o Emacs p
 </p>
 </div>
 </div>
-<div id="outline-container-org1638aa4" class="outline-3">
-<h3 id="org1638aa4"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
+<div id="outline-container-org25a345c" class="outline-3">
+<h3 id="org25a345c"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Esse texto foi escrito como uma introdução elementar para pessoas que não são programadoras. Se você é um programador, você pode não se satisfazer com este princípio. A razão é que você pode ter se tornado um especialista em ler manuais de referência e se desanimar com a forma que este texto é organizado.
@@ -162,8 +162,8 @@ Este livro, <i>Uma Introdução à Programação em Emacs Lisp</i>, tem um docum
 </p>
 </div>
 </div>
-<div id="outline-container-orgc2b8c0c" class="outline-3">
-<h3 id="orgc2b8c0c"><span class="section-number-3">1.4.</span> História do Lisp</h3>
+<div id="outline-container-orgc66e98a" class="outline-3">
+<h3 id="orgc66e98a"><span class="section-number-3">1.4.</span> História do Lisp</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Lisp foi desenvolvido inicialmente no fim da década de 1950 no Instituto de Tecnologia de Massachusetts (MIT) para pesquisa em inteligência artificial. O grande poder da linguagem Lisp faz com que seja também superior para outros propósitos, como escrever comandos de editor e ambientes integrados.
@@ -174,15 +174,15 @@ GNU Emacs Lisp é grandemente inspirado por Maclisp, que foi escrito no MIT na d
 </p>
 </div>
 </div>
-<div id="outline-container-orgf6017b7" class="outline-3">
-<h3 id="orgf6017b7"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
+<div id="outline-container-org98b6c42" class="outline-3">
+<h3 id="org98b6c42"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Se você não conhece o GNU Emacs, você ainda pode ler este documento de maneira proveitosa. Porém, recomendo que você aprenda sobre o Emacs, ainda que apenas para movimentar-se pela tela do seu computador. Você pode se ensinar a como utilizar o Emacs com o tutorial embutido. para utilizá-lo, digite <code>C-h t</code>. (isto significa que você deve pressionar e liberar a tecla <code>CTRL</code> e o <code>h</code> ao mesmo tempo, e depois pressionar e liberar <code>t</code>.)
 </p>
 
 <p>
-Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#orgd0adf39">mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
+Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#org4f57d18">mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
 </p>
 
 <p>
@@ -198,8 +198,8 @@ Um adendo sobre terminologia: quando utilizo à palavra Lisp sozinha, eu frequen
 </p>
 </div>
 </div>
-<div id="outline-container-org332982c" class="outline-3">
-<h3 id="org332982c"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
+<div id="outline-container-org30132bc" class="outline-3">
+<h3 id="org30132bc"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Meus agradecimentos a todos que me ajudaram com este livro. Meus agradecimentos especiais a Jim Blandy, Noah Friedman, Jim Kingdon, Roland McGrath, Frank Ritter, Randy Smith, Richard M. Stallman, e Melissa Weisshaus. Meus agradecimentos vão também tanto para Philip Johnson como para David Stampe pelo seu encorajamento paciente. Meus erros são meus.
@@ -211,90 +211,90 @@ Robert J. Chassel bob@gnu.org
 </div>
 </div>
 </div>
-<div id="outline-container-org38c7a11" class="outline-2">
-<h2 id="org38c7a11"><span class="section-number-2">2.</span> Processamento de listas</h2>
+<div id="outline-container-orgdbcda11" class="outline-2">
+<h2 id="orgdbcda11"><span class="section-number-2">2.</span> Processamento de listas</h2>
 </div>
-<div id="outline-container-orgc52a1a9" class="outline-2">
-<h2 id="orgc52a1a9"><span class="section-number-2">3.</span> Praticando avaliação</h2>
+<div id="outline-container-org2e8f226" class="outline-2">
+<h2 id="org2e8f226"><span class="section-number-2">3.</span> Praticando avaliação</h2>
 </div>
-<div id="outline-container-org8e58591" class="outline-2">
-<h2 id="org8e58591"><span class="section-number-2">4.</span> Como escrever definições de funções</h2>
+<div id="outline-container-org8d446cd" class="outline-2">
+<h2 id="org8d446cd"><span class="section-number-2">4.</span> Como escrever definições de funções</h2>
 </div>
-<div id="outline-container-orgfd9de08" class="outline-2">
-<h2 id="orgfd9de08"><span class="section-number-2">5.</span> Algumas funções relacionadas a <i>buffers</i></h2>
+<div id="outline-container-org58ce9cf" class="outline-2">
+<h2 id="org58ce9cf"><span class="section-number-2">5.</span> Algumas funções relacionadas a <i>buffers</i></h2>
 </div>
-<div id="outline-container-org2b7a9d1" class="outline-2">
-<h2 id="org2b7a9d1"><span class="section-number-2">6.</span> Mais algumas funções mais complexas</h2>
+<div id="outline-container-org476b3ab" class="outline-2">
+<h2 id="org476b3ab"><span class="section-number-2">6.</span> Mais algumas funções mais complexas</h2>
 </div>
-<div id="outline-container-org59a143f" class="outline-2">
-<h2 id="org59a143f"><span class="section-number-2">7.</span> <i>Narrowing</i> e <i>widening</i></h2>
+<div id="outline-container-org73f9c79" class="outline-2">
+<h2 id="org73f9c79"><span class="section-number-2">7.</span> <i>Narrowing</i> e <i>widening</i></h2>
 </div>
-<div id="outline-container-orgb370afc" class="outline-2">
-<h2 id="orgb370afc"><span class="section-number-2">8.</span> <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</h2>
+<div id="outline-container-org4bf4e17" class="outline-2">
+<h2 id="org4bf4e17"><span class="section-number-2">8.</span> <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</h2>
 </div>
-<div id="outline-container-orga520972" class="outline-2">
-<h2 id="orga520972"><span class="section-number-2">9.</span> Recortando e armazenando texto</h2>
+<div id="outline-container-org41b68a4" class="outline-2">
+<h2 id="org41b68a4"><span class="section-number-2">9.</span> Recortando e armazenando texto</h2>
 </div>
-<div id="outline-container-org2c36425" class="outline-2">
-<h2 id="org2c36425"><span class="section-number-2">10.</span> Como listas são implementadas</h2>
+<div id="outline-container-orgfef5254" class="outline-2">
+<h2 id="orgfef5254"><span class="section-number-2">10.</span> Como listas são implementadas</h2>
 </div>
-<div id="outline-container-orga498ce9" class="outline-2">
-<h2 id="orga498ce9"><span class="section-number-2">11.</span> Colando texto de volta</h2>
+<div id="outline-container-org2a7332b" class="outline-2">
+<h2 id="org2a7332b"><span class="section-number-2">11.</span> Colando texto de volta</h2>
 </div>
-<div id="outline-container-org91c7c2b" class="outline-2">
-<h2 id="org91c7c2b"><span class="section-number-2">12.</span> Loops e recursão</h2>
+<div id="outline-container-orgc5c27e0" class="outline-2">
+<h2 id="orgc5c27e0"><span class="section-number-2">12.</span> Loops e recursão</h2>
 </div>
-<div id="outline-container-orgf160b7c" class="outline-2">
-<h2 id="orgf160b7c"><span class="section-number-2">13.</span> Buscas com expressões regulares</h2>
+<div id="outline-container-org6b76506" class="outline-2">
+<h2 id="org6b76506"><span class="section-number-2">13.</span> Buscas com expressões regulares</h2>
 </div>
-<div id="outline-container-org742bd28" class="outline-2">
-<h2 id="org742bd28"><span class="section-number-2">14.</span> Contando via repetição e <i>regexps</i></h2>
+<div id="outline-container-org4b1ef6b" class="outline-2">
+<h2 id="org4b1ef6b"><span class="section-number-2">14.</span> Contando via repetição e <i>regexps</i></h2>
 </div>
-<div id="outline-container-orgd0f4bfb" class="outline-2">
-<h2 id="orgd0f4bfb"><span class="section-number-2">15.</span> Contando palavras em uma <code>defun</code></h2>
+<div id="outline-container-orge0419a6" class="outline-2">
+<h2 id="orge0419a6"><span class="section-number-2">15.</span> Contando palavras em uma <code>defun</code></h2>
 </div>
-<div id="outline-container-org5c59e1b" class="outline-2">
-<h2 id="org5c59e1b"><span class="section-number-2">16.</span> Preparando um gráfico</h2>
+<div id="outline-container-org3c4319d" class="outline-2">
+<h2 id="org3c4319d"><span class="section-number-2">16.</span> Preparando um gráfico</h2>
 </div>
-<div id="outline-container-org21b36ee" class="outline-2">
-<h2 id="org21b36ee"><span class="section-number-2">17.</span> Seu arquivo <code>.emacs</code></h2>
+<div id="outline-container-orga67dd99" class="outline-2">
+<h2 id="orga67dd99"><span class="section-number-2">17.</span> Seu arquivo <code>.emacs</code></h2>
 <div class="outline-text-2" id="text-17">
 </div>
-<div id="outline-container-orgd0adf39" class="outline-3">
-<h3 id="orgd0adf39"><span class="section-number-3">17.1.</span> Mapeamento de teclas</h3>
+<div id="outline-container-org4f57d18" class="outline-3">
+<h3 id="org4f57d18"><span class="section-number-3">17.1.</span> Mapeamento de teclas</h3>
 </div>
 </div>
-<div id="outline-container-org212b543" class="outline-2">
-<h2 id="org212b543"><span class="section-number-2">18.</span> Depuração</h2>
+<div id="outline-container-org7aa5191" class="outline-2">
+<h2 id="org7aa5191"><span class="section-number-2">18.</span> Depuração</h2>
 </div>
-<div id="outline-container-org450e918" class="outline-2">
-<h2 id="org450e918"><span class="section-number-2">19.</span> Conclusão</h2>
+<div id="outline-container-orgbd9827a" class="outline-2">
+<h2 id="orgbd9827a"><span class="section-number-2">19.</span> Conclusão</h2>
 </div>
-<div id="outline-container-org25b2ad7" class="outline-2">
-<h2 id="org25b2ad7"><span class="section-number-2">20.</span> Apêndice a</h2>
+<div id="outline-container-org27da800" class="outline-2">
+<h2 id="org27da800"><span class="section-number-2">20.</span> Apêndice A</h2>
 </div>
-<div id="outline-container-org548eca5" class="outline-2">
-<h2 id="org548eca5"><span class="section-number-2">21.</span> Apêndice b</h2>
+<div id="outline-container-orgcb79ad2" class="outline-2">
+<h2 id="orgcb79ad2"><span class="section-number-2">21.</span> Apêndice B</h2>
 </div>
-<div id="outline-container-orgaf318d1" class="outline-2">
-<h2 id="orgaf318d1"><span class="section-number-2">22.</span> Apêndice c</h2>
+<div id="outline-container-orgbec7363" class="outline-2">
+<h2 id="orgbec7363"><span class="section-number-2">22.</span> Apêndice C</h2>
 </div>
-<div id="outline-container-org4fffbd4" class="outline-2">
-<h2 id="org4fffbd4"><span class="section-number-2">23.</span> Apêndice d</h2>
+<div id="outline-container-orgcd575cc" class="outline-2">
+<h2 id="orgcd575cc"><span class="section-number-2">23.</span> Apêndice D</h2>
 </div>
-<div id="outline-container-orgeeaef65" class="outline-2">
-<h2 id="orgeeaef65"><span class="section-number-2">24.</span> Apêndice e</h2>
+<div id="outline-container-org038df9e" class="outline-2">
+<h2 id="org038df9e"><span class="section-number-2">24.</span> Apêndice E</h2>
 </div>
-<div id="outline-container-org0d193aa" class="outline-2">
-<h2 id="org0d193aa"><span class="section-number-2">25.</span> Index</h2>
+<div id="outline-container-org8a98336" class="outline-2">
+<h2 id="org8a98336"><span class="section-number-2">25.</span> Índice</h2>
 </div>
-<div id="outline-container-org4603538" class="outline-2">
-<h2 id="org4603538"><span class="section-number-2">26.</span> Sobre o autor</h2>
+<div id="outline-container-org3462dce" class="outline-2">
+<h2 id="org3462dce"><span class="section-number-2">26.</span> Sobre o autor</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Felipe Costa Canteiro</p>
-<p class="date">Created: 2026-06-16 ter 06:29</p>
+<p class="date">Created: 2026-06-16 ter 06:54</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
