@@ -12,6 +12,12 @@ A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de program
 
 (GNU Emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. É mais adequado se referir ao Emacs como um "ambiente de computação extensível". Porém, essa frase é comprida demais. É mais fácil se referir ao Emacs simplesmente como um editor. Além disso, tudo o que faz no Emacs - encontrar a data Maia e fases da lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
 
++ [[*Por que estudar Emacs Lisp?][Por que estudar Emacs Lisp?]]
++ [[*Sobre a leitura deste texto][Sobre a leitura deste texto]]
++ [[*Para quem isso foi escrito][Para quem isso foi escrito]]
++ [[*História do Lisp][História do Lisp]]
++ [[*Um adendo para novatos][Um adendo para novatos]]
++ [[*Agradecimentos][Agradecimentos]]
 ** Por que estudar Emacs Lisp?
 Apesar de geralmente associarem Emacs Lisp exclusivamente ao Emacs, ele é uma linguagem de programação completa. Você pode usar Emacs Lisp como você faria com qualquer outra linguagem de programação.
 
@@ -52,20 +58,20 @@ Lisp foi desenvolvido inicialmente no fim da década de 1950 no Instituto de Tec
 GNU Emacs Lisp é grandemente inspirado por Maclisp, que foi escrito no MIT na década de 1960. É, de certa forma, inspirado em Common Lisp, que se tornou um padrão na década de 1980. Porém, o Emacs Lisp é muito mais simples que o Common Lisp. (A distribuição padrão do Emacs contém um arquivo de extensão opcional, ~cl-lib.el~, que adiciona muitas funcionalidades do Common Lisp ao Emacs Lisp.)
 
 ** Um adendo para novatos
-Se você não conhece o GNU Emacs, você ainda pode ler este documento de maneira proveitosa. Porém, recomendo que você aprenda sobre o Emacs, ainda que apenas para movimentá-lo pela tela do seu computador. Você pode se ensinar a como utilizar o Emacs com o tutorial embutido. Para utilizá-lo, digite =C-h t=. (Isto significa que você deve pressionar e liberar a tecla =CTRL= e o =h= ao mesmo tempo, e depois pressionar e liberar =t=.)
+Se você não conhece o GNU Emacs, você ainda pode ler este documento de maneira proveitosa. Porém, recomendo que você aprenda sobre o Emacs, ainda que apenas para movimentá-lo pela tela do seu computador. Você pode se ensinar a como utilizar o Emacs com o tutorial embutido. Para utilizá-lo, digite ~C-h t~. (Isto significa que você deve pressionar e liberar a tecla ~CTRL~ e o ~h~ ao mesmo tempo, e depois pressionar e liberar ~t~.)
 
-Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: =C-M-\= ~(indent region)~. Isto significa que o comando ~indent-region~ é geralmente executado ao digitar =C-M\=. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama /rebinding/. Veja [[*Mapeamento de teclas][Mapeamento de teclas]].) A abreviação =C-M-\.= significa que você digita a tecla =CTRL=, a tecla =META= e a tecla =\= ao mesmo tempo. (Em muitos teclados modernos, a tecla =META= é chamada =ALT=.) Às vezes uma combinação como essa é chamada acorde de teclas (/keychord/), já que é similar a como se toca um acorde em um piano. Se seu teclado não possui uma tecla =META=, a tecla =ESC= é utilizada no lugar. Neste caso, =C-M-\= significa que você pressiona e libera sua tecla =ESC= e depois digite a tecla =CTRL= e a tecla =\= ao mesmo tempo. Porém, geralmente =C-M-\= significa pressionar a tecla =CTRL= junto com a tecla descrita como =ALT= e, ao mesmo tempo, pressionar a tecla =\=.
+Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: ~C-M-\~ ~(indent region)~. Isto significa que o comando ~indent-region~ é geralmente executado ao digitar ~C-M\~. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama /rebinding/. Veja [[*Mapeamento de teclas][Mapeamento de teclas]].) A abreviação ~C-M-\.~ significa que você digita a tecla ~CTRL~, a tecla ~META~ e a tecla ~\~ ao mesmo tempo. (Em muitos teclados modernos, a tecla ~META~ é chamada ~ALT~.) Às vezes uma combinação como essa é chamada acorde de teclas (/keychord/), já que é similar a como se toca um acorde em um piano. Se seu teclado não possui uma tecla ~META~, a tecla ~ESC~ é utilizada no lugar. Neste caso, ~C-M-\~ significa que você pressiona e libera sua tecla ~ESC~ e depois digite a tecla ~CTRL~ e a tecla ~\~ ao mesmo tempo. Porém, geralmente ~C-M-\~ significa pressionar a tecla ~CTRL~ junto com a tecla descrita como ~ALT~ e, ao mesmo tempo, pressionar a tecla ~\~.
 
-Em adição a digitar um /keychord/ isolado, você pode prefixar o que digita com =C-u=, chamado de /argumento universal/. O /keychord/ =C-U= passa um argumento para o comando subsequente. Assim, para indentar uma região de texto em 6 espaços, selecione a região e pressione =C-u 6 C-M-\=. (Se você não especificar um número, ou o Emacs passa o número 4 paro o comando ou executa o comando de maneira diferente do que faria de outra forma.) Veja [[https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Arguments][Argumentos numéricos no /Manual do GNU Emacs/]].
+Em adição a digitar um /keychord/ isolado, você pode prefixar o que digita com ~C-u~, chamado de /argumento universal/. O /keychord/ ~C-U~ passa um argumento para o comando subsequente. Assim, para indentar uma região de texto em 6 espaços, selecione a região e pressione ~C-u 6 C-M-\~. (Se você não especificar um número, ou o Emacs passa o número 4 paro o comando ou executa o comando de maneira diferente do que faria de outra forma.) Veja [[https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Arguments][Argumentos numéricos no /Manual do GNU Emacs/]].
 
-Se você está lendo isso em Info utilizando o GNU Emacs, você pode ler todo este documento apenas pressionando a tecla de espaço, =SPC=. (Para aprender sobre Info, digite =C-h i= e selecione Info.)
+Se você está lendo isso em Info utilizando o GNU Emacs, você pode ler todo este documento apenas pressionando a tecla de espaço, ~SPC~. (Para aprender sobre Info, digite ~C-h i~ e selecione Info.)
 
 Um adendo sobre terminologia: quando utilizo à palavra Lisp sozinha, eu frequentemente estou me referindo aos vários dialetos Lisp em geral, mas quando eu digo sobre Emacs Lisp, me refiro particularmente ao GNU Emacs Lisp.
 
 ** Agradecimentos
 Meus agradecimentos a todos que me ajudaram com este livro. Meus agradecimentos especiais a Jim Blandy, Noah Friedman, Jim Kingdon, Rolando McGrath, Frank Ritter, Randy Smith, Richard M. Stallman, e Melissa Weisshaus. Meus agradecimentos vão também tanto para Philip Johnson como para David Stampe pelo seu encorajamento paciente. Meus erros são meus.
 
-Robert J. Chassel [[mailto:bob@gnu.org]]
+Robert J. Chassel bob@gnu.org
 
 * Seu arquivo ~.emacs~
 ** Mapeamento de teclas

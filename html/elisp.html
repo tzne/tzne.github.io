@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
-<!-- 2026-06-16 ter 05:46 -->
+<!-- 2026-06-16 ter 06:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Uma introdução à Programação em Emacs Lisp</title>
@@ -27,26 +27,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org68195b7">1. Prefácio</a>
+<li><a href="#org1f2392e">1. Prefácio</a>
 <ul>
-<li><a href="#org0c493fe">1.1. Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org9bf058d">1.2. Sobre a leitura deste texto</a></li>
-<li><a href="#org00ba2ff">1.3. Para quem isso foi escrito</a></li>
-<li><a href="#org2b282fe">1.4. História do Lisp</a></li>
-<li><a href="#org63a9903">1.5. Um adendo para novatos</a></li>
-<li><a href="#orge174854">1.6. Agradecimentos</a></li>
+<li><a href="#orgac691f4">1.1. Por que estudar Emacs Lisp?</a></li>
+<li><a href="#org09deb35">1.2. Sobre a leitura deste texto</a></li>
+<li><a href="#org470e89d">1.3. Para quem isso foi escrito</a></li>
+<li><a href="#org9cb8c5a">1.4. História do Lisp</a></li>
+<li><a href="#org9aca30f">1.5. Um adendo para novatos</a></li>
+<li><a href="#orgf6fe1e7">1.6. Agradecimentos</a></li>
 </ul>
 </li>
-<li><a href="#org7b80042">2. Seu arquivo <code>.emacs</code></a>
+<li><a href="#orgaa713ca">2. Seu arquivo <code>.emacs</code></a>
 <ul>
-<li><a href="#org7d855d5">2.1. Mapeamento de teclas</a></li>
+<li><a href="#orgfb0d3f7">2.1. Mapeamento de teclas</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org68195b7" class="outline-2">
-<h2 id="org68195b7"><span class="section-number-2">1.</span> Prefácio</h2>
+<div id="outline-container-org1f2392e" class="outline-2">
+<h2 id="org1f2392e"><span class="section-number-2">1.</span> Prefácio</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de programação chamada Emacs Lisp. O código escrito nesta linguagem é o software - os conjuntos de instruções - que dizem ao computador o que fazer quando você dá comandos a ele. O Emacs é projetado de forma que você possa escrever novo código em Emacs Lisp e facilmente instalá-lo como uma extensão ao editor.
@@ -55,9 +55,18 @@ A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de program
 <p>
 (GNU Emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. É mais adequado se referir ao Emacs como um "ambiente de computação extensível". Porém, essa frase é comprida demais. É mais fácil se referir ao Emacs simplesmente como um editor. Além disso, tudo o que faz no Emacs - encontrar a data Maia e fases da lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
 </p>
+
+<ul class="org-ul">
+<li><a href="#orgac691f4">Por que estudar Emacs Lisp?</a></li>
+<li><a href="#org09deb35">Sobre a leitura deste texto</a></li>
+<li><a href="#org470e89d">Para quem isso foi escrito</a></li>
+<li><a href="#org9cb8c5a">História do Lisp</a></li>
+<li><a href="#org9aca30f">Um adendo para novatos</a></li>
+<li><a href="#orgf6fe1e7">Agradecimentos</a></li>
+</ul>
 </div>
-<div id="outline-container-org0c493fe" class="outline-3">
-<h3 id="org0c493fe"><span class="section-number-3">1.1.</span> Por que estudar Emacs Lisp?</h3>
+<div id="outline-container-orgac691f4" class="outline-3">
+<h3 id="orgac691f4"><span class="section-number-3">1.1.</span> Por que estudar Emacs Lisp?</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Apesar de geralmente associarem Emacs Lisp exclusivamente ao Emacs, ele é uma linguagem de programação completa. Você pode usar Emacs Lisp como você faria com qualquer outra linguagem de programação.
@@ -68,8 +77,8 @@ Talvez você queira entender programação; talvez você queira extender o Emacs
 </p>
 </div>
 </div>
-<div id="outline-container-org9bf058d" class="outline-3">
-<h3 id="org9bf058d"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
+<div id="outline-container-org09deb35" class="outline-3">
+<h3 id="org09deb35"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do Emacs. Se você ler este documento em Info dentro do GNU Emacs, você pode executar os programas à medida que eles aparecem. De forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando Emacs. (Isso é o que gosto de fazer; eu gosto de livros impressos.) Se você não possui uma instância do Emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
@@ -88,8 +97,8 @@ Finalmente, eu espero transmitir algumas das habilidades para utilizar o Emacs p
 </p>
 </div>
 </div>
-<div id="outline-container-org00ba2ff" class="outline-3">
-<h3 id="org00ba2ff"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
+<div id="outline-container-org470e89d" class="outline-3">
+<h3 id="org470e89d"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Esse texto foi escrito como uma introdução elementar para pessoas que não são programadoras. Se você é um programador, você pode não se satisfazer com este princípio. A razão é que você pode ter se tornado um especialista em ler manuais de referência e se desanimar com a forma que este texto é organizado.
@@ -129,8 +138,8 @@ Este livro, <i>Uma Introdução à Programação em Emacs Lisp</i>, tem um docum
 </p>
 </div>
 </div>
-<div id="outline-container-org2b282fe" class="outline-3">
-<h3 id="org2b282fe"><span class="section-number-3">1.4.</span> História do Lisp</h3>
+<div id="outline-container-org9cb8c5a" class="outline-3">
+<h3 id="org9cb8c5a"><span class="section-number-3">1.4.</span> História do Lisp</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Lisp foi desenvolvido inicialmente no fim da década de 1950 no Instituto de Tecnologia de Massachusetts (MIT) para pesquisa em inteligência artificial. O grande poder da linguagem Lisp faz com que seja também superior para outros propósitos, como escrever comandos de editor e ambientes integrados.
@@ -141,15 +150,15 @@ GNU Emacs Lisp é grandemente inspirado por Maclisp, que foi escrito no MIT na d
 </p>
 </div>
 </div>
-<div id="outline-container-org63a9903" class="outline-3">
-<h3 id="org63a9903"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
+<div id="outline-container-org9aca30f" class="outline-3">
+<h3 id="org9aca30f"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Se você não conhece o GNU Emacs, você ainda pode ler este documento de maneira proveitosa. Porém, recomendo que você aprenda sobre o Emacs, ainda que apenas para movimentá-lo pela tela do seu computador. Você pode se ensinar a como utilizar o Emacs com o tutorial embutido. Para utilizá-lo, digite <code>C-h t</code>. (Isto significa que você deve pressionar e liberar a tecla <code>CTRL</code> e o <code>h</code> ao mesmo tempo, e depois pressionar e liberar <code>t</code>.)
 </p>
 
 <p>
-Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#org7d855d5">Mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. Se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. Neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
+Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#orgfb0d3f7">Mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. Se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. Neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
 </p>
 
 <p>
@@ -165,31 +174,31 @@ Um adendo sobre terminologia: quando utilizo à palavra Lisp sozinha, eu frequen
 </p>
 </div>
 </div>
-<div id="outline-container-orge174854" class="outline-3">
-<h3 id="orge174854"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
+<div id="outline-container-orgf6fe1e7" class="outline-3">
+<h3 id="orgf6fe1e7"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Meus agradecimentos a todos que me ajudaram com este livro. Meus agradecimentos especiais a Jim Blandy, Noah Friedman, Jim Kingdon, Rolando McGrath, Frank Ritter, Randy Smith, Richard M. Stallman, e Melissa Weisshaus. Meus agradecimentos vão também tanto para Philip Johnson como para David Stampe pelo seu encorajamento paciente. Meus erros são meus.
 </p>
 
 <p>
-Robert J. Chassel <a href="mailto:bob@gnu.org">mailto:bob@gnu.org</a>
+Robert J. Chassel bob@gnu.org
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org7b80042" class="outline-2">
-<h2 id="org7b80042"><span class="section-number-2">2.</span> Seu arquivo <code>.emacs</code></h2>
+<div id="outline-container-orgaa713ca" class="outline-2">
+<h2 id="orgaa713ca"><span class="section-number-2">2.</span> Seu arquivo <code>.emacs</code></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org7d855d5" class="outline-3">
-<h3 id="org7d855d5"><span class="section-number-3">2.1.</span> Mapeamento de teclas</h3>
+<div id="outline-container-orgfb0d3f7" class="outline-3">
+<h3 id="orgfb0d3f7"><span class="section-number-3">2.1.</span> Mapeamento de teclas</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Felipe Costa Canteiro</p>
-<p class="date">Created: 2026-06-16 ter 05:46</p>
+<p class="date">Created: 2026-06-16 ter 06:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
