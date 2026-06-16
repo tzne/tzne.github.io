@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
-<!-- 2026-06-16 ter 14:25 -->
+<!-- 2026-06-16 ter 14:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Uma introdução à Programação em Emacs Lisp</title>
@@ -27,70 +27,70 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5120740">1. Prefácio</a>
+<li><a href="#org7f248aa">Prefácio</a>
 <ul>
-<li><a href="#org0c49efd">1.1. Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org04c4de5">1.2. Sobre a leitura deste texto</a></li>
-<li><a href="#orgdfe3fc4">1.3. Para quem isso foi escrito</a></li>
-<li><a href="#org8e7043a">1.4. História do Lisp</a></li>
-<li><a href="#orgf7ab0b5">1.5. Um adendo para novatos</a></li>
-<li><a href="#org9769109">1.6. Agradecimentos</a></li>
+<li><a href="#orge6b8db1">Por que estudar Emacs Lisp?</a></li>
+<li><a href="#org91b9d03">Sobre a leitura deste texto</a></li>
+<li><a href="#orgbaf0967">Para quem isso foi escrito</a></li>
+<li><a href="#org93ef1a1">História do Lisp</a></li>
+<li><a href="#org9ef3e9b">Um adendo para novatos</a></li>
+<li><a href="#orgdbff244">Agradecimentos</a></li>
 </ul>
 </li>
-<li><a href="#org3956f81">2. Processamento de listas</a>
+<li><a href="#org534a70a">Processamento de listas</a>
 <ul>
-<li><a href="#orgd3a3d33">2.1. Listas Lisp</a>
+<li><a href="#org4de268b">Listas Lisp</a>
 <ul>
-<li><a href="#org0383230">2.1.1. Números, Listas dentro de Listas</a></li>
-<li><a href="#orgeda4691">2.1.2. Átomos Lisp</a></li>
+<li><a href="#orga3564e5">Números, Listas dentro de Listas</a></li>
+<li><a href="#org6f4fab9">Átomos Lisp</a></li>
 </ul>
 </li>
-<li><a href="#org7163404">2.2. Execute um Programa</a></li>
-<li><a href="#orgee67dd9">2.3. Gere uma Mensagem de Erro</a></li>
-<li><a href="#org9f14b20">2.4. Nomes Símbolos e Definições de Funções</a></li>
-<li><a href="#org8a87239">2.5. O Interpretador Lisp</a></li>
-<li><a href="#org331f324">2.6. Avaliação</a></li>
-<li><a href="#orga2889df">2.7. Variáveis</a></li>
-<li><a href="#orgbfec4a9">2.8. Argumentos</a></li>
-<li><a href="#org834ca3f">2.9. Assinalando o Valor de uma Variável</a></li>
-<li><a href="#org30b0525">2.10. Resumo</a></li>
-<li><a href="#orgaebd25a">2.11. Exercícios</a></li>
+<li><a href="#org8d1f95b">Execute um Programa</a></li>
+<li><a href="#orgd698391">Gere uma Mensagem de Erro</a></li>
+<li><a href="#orgb8d4276">Nomes Símbolos e Definições de Funções</a></li>
+<li><a href="#orgafac554">O Interpretador Lisp</a></li>
+<li><a href="#org5e3394a">Avaliação</a></li>
+<li><a href="#org13a77d7">Variáveis</a></li>
+<li><a href="#org920d23d">Argumentos</a></li>
+<li><a href="#org3db4216">Assinalando o Valor de uma Variável</a></li>
+<li><a href="#orgf95ea4e">Resumo</a></li>
+<li><a href="#org9a5fc8e">Exercícios</a></li>
 </ul>
 </li>
-<li><a href="#orgec8d753">3. Praticando avaliação</a></li>
-<li><a href="#org8e004c3">4. Como escrever definições de funções</a></li>
-<li><a href="#orgae715c7">5. Algumas funções relacionadas a <i>buffers</i></a></li>
-<li><a href="#orgd9e6845">6. Mais algumas funções mais complexas</a></li>
-<li><a href="#org5f68e63">7. <i>Narrowing</i> e <i>widening</i></a></li>
-<li><a href="#orgedfb6ad">8. <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a></li>
-<li><a href="#orgd5a9a00">9. Recortando e armazenando texto</a></li>
-<li><a href="#orgf8a9bbe">10. Como listas são implementadas</a></li>
-<li><a href="#org8621029">11. Colando texto de volta</a></li>
-<li><a href="#org70bbc64">12. Loops e recursão</a></li>
-<li><a href="#org9dcd9be">13. Buscas com expressões regulares</a></li>
-<li><a href="#org3ab6bb7">14. Contando via repetição e <i>regexps</i></a></li>
-<li><a href="#org17f3feb">15. Contando palavras em uma <code>defun</code></a></li>
-<li><a href="#orgad90aca">16. Preparando um gráfico</a></li>
-<li><a href="#orge06335c">17. Seu arquivo <code>.emacs</code></a>
+<li><a href="#org77c5dfb">Praticando avaliação</a></li>
+<li><a href="#org4645e44">Como escrever definições de funções</a></li>
+<li><a href="#orgeb97cfb">Algumas funções relacionadas a <i>buffers</i></a></li>
+<li><a href="#org7761575">Mais algumas funções mais complexas</a></li>
+<li><a href="#orgb9a3dc3"><i>Narrowing</i> e <i>widening</i></a></li>
+<li><a href="#org8cf57dc"><code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a></li>
+<li><a href="#org207c565">Recortando e armazenando texto</a></li>
+<li><a href="#org0c3364b">Como listas são implementadas</a></li>
+<li><a href="#org7ebfe3c">Colando texto de volta</a></li>
+<li><a href="#org2c2a087">Loops e recursão</a></li>
+<li><a href="#org830f2a0">Buscas com expressões regulares</a></li>
+<li><a href="#org49a6eb7">Contando via repetição e <i>regexps</i></a></li>
+<li><a href="#orgdbd7894">Contando palavras em uma <code>defun</code></a></li>
+<li><a href="#orga0c189b">Preparando um gráfico</a></li>
+<li><a href="#org4060a09">Seu arquivo <code>.emacs</code></a>
 <ul>
-<li><a href="#org7256e11">17.1. Mapeamento de teclas</a></li>
+<li><a href="#org6b8cbff">Mapeamento de teclas</a></li>
 </ul>
 </li>
-<li><a href="#org802fdb1">18. Depuração</a></li>
-<li><a href="#org5f0dcb6">19. Conclusão</a></li>
-<li><a href="#org5b89772">20. Apêndice A</a></li>
-<li><a href="#orgd09d847">21. Apêndice B</a></li>
-<li><a href="#org2038d73">22. Apêndice C</a></li>
-<li><a href="#orgafe2122">23. Apêndice D</a></li>
-<li><a href="#org275d7bb">24. Apêndice E</a></li>
-<li><a href="#org0937d18">25. Índice</a></li>
-<li><a href="#org364080d">26. Sobre o autor</a></li>
+<li><a href="#org7c8b87b">Depuração</a></li>
+<li><a href="#org316eb49">Conclusão</a></li>
+<li><a href="#org25ea9ae">Apêndice A</a></li>
+<li><a href="#orgb8adc2f">Apêndice B</a></li>
+<li><a href="#orgc716b1d">Apêndice C</a></li>
+<li><a href="#orgc99337f">Apêndice D</a></li>
+<li><a href="#org95d147c">Apêndice E</a></li>
+<li><a href="#org89e5393">Índice</a></li>
+<li><a href="#org463a21a">Sobre o autor</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5120740" class="outline-2">
-<h2 id="org5120740"><span class="section-number-2">1.</span> Prefácio</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org7f248aa" class="outline-2">
+<h2 id="org7f248aa">Prefácio</h2>
+<div class="outline-text-2" id="text-org7f248aa">
 <p>
 A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de programação chamada Emacs Lisp. O código escrito nesta linguagem é o software - os conjuntos de instruções - que dizem ao computador o que fazer quando você dá comandos a ele. O Emacs é projetado de forma que você possa escrever novo código em Emacs Lisp e facilmente instalá-lo como uma extensão ao editor.
 </p>
@@ -100,17 +100,17 @@ A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de program
 </p>
 
 <ul class="org-ul">
-<li><a href="#org0c49efd">Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org04c4de5">Sobre a leitura deste texto</a></li>
-<li><a href="#orgdfe3fc4">Para quem isso foi escrito</a></li>
-<li><a href="#org8e7043a">História do Lisp</a></li>
-<li><a href="#orgf7ab0b5">Um adendo para novatos</a></li>
-<li><a href="#org9769109">Agradecimentos</a></li>
+<li><a href="#orge6b8db1">Por que estudar Emacs Lisp?</a></li>
+<li><a href="#org91b9d03">Sobre a leitura deste texto</a></li>
+<li><a href="#orgbaf0967">Para quem isso foi escrito</a></li>
+<li><a href="#org93ef1a1">História do Lisp</a></li>
+<li><a href="#org9ef3e9b">Um adendo para novatos</a></li>
+<li><a href="#orgdbff244">Agradecimentos</a></li>
 </ul>
 </div>
-<div id="outline-container-org0c49efd" class="outline-3">
-<h3 id="org0c49efd"><span class="section-number-3">1.1.</span> Por que estudar Emacs Lisp?</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orge6b8db1" class="outline-3">
+<h3 id="orge6b8db1">Por que estudar Emacs Lisp?</h3>
+<div class="outline-text-3" id="text-orge6b8db1">
 <p>
 Apesar de geralmente associarem Emacs Lisp exclusivamente ao Emacs, ele é uma linguagem de programação completa. Você pode usar Emacs Lisp como você faria com qualquer outra linguagem de programação.
 </p>
@@ -120,9 +120,9 @@ Talvez você queira entender programação; talvez você queira extender o Emacs
 </p>
 </div>
 </div>
-<div id="outline-container-org04c4de5" class="outline-3">
-<h3 id="org04c4de5"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org91b9d03" class="outline-3">
+<h3 id="org91b9d03">Sobre a leitura deste texto</h3>
+<div class="outline-text-3" id="text-org91b9d03">
 <p>
 Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do Emacs. Se você ler este documento em Info dentro do GNU Emacs, você pode executar os programas à medida que eles aparecem. De forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando Emacs. (isso é o que gosto de fazer; eu gosto de livros impressos.) Se você não possui uma instância do Emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
 </p>
@@ -140,9 +140,9 @@ Finalmente, eu espero transmitir algumas das habilidades para utilizar o Emacs p
 </p>
 </div>
 </div>
-<div id="outline-container-orgdfe3fc4" class="outline-3">
-<h3 id="orgdfe3fc4"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgbaf0967" class="outline-3">
+<h3 id="orgbaf0967">Para quem isso foi escrito</h3>
+<div class="outline-text-3" id="text-orgbaf0967">
 <p>
 Esse texto foi escrito como uma introdução elementar para pessoas que não são programadoras. Se você é um programador, você pode não se satisfazer com este princípio. A razão é que você pode ter se tornado um especialista em ler manuais de referência e se desanimar com a forma que este texto é organizado.
 </p>
@@ -181,9 +181,9 @@ Este livro, <i>Uma Introdução à Programação em Emacs Lisp</i>, tem um docum
 </p>
 </div>
 </div>
-<div id="outline-container-org8e7043a" class="outline-3">
-<h3 id="org8e7043a"><span class="section-number-3">1.4.</span> História do Lisp</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org93ef1a1" class="outline-3">
+<h3 id="org93ef1a1">História do Lisp</h3>
+<div class="outline-text-3" id="text-org93ef1a1">
 <p>
 Lisp foi desenvolvido inicialmente no fim da década de 1950 no Instituto de Tecnologia de Massachusetts (MIT) para pesquisa em inteligência artificial. O grande poder da linguagem Lisp faz com que seja também superior para outros propósitos, como escrever comandos de editor e ambientes integrados.
 </p>
@@ -193,15 +193,15 @@ GNU Emacs Lisp é grandemente inspirado por Maclisp, que foi escrito no MIT na d
 </p>
 </div>
 </div>
-<div id="outline-container-orgf7ab0b5" class="outline-3">
-<h3 id="orgf7ab0b5"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-org9ef3e9b" class="outline-3">
+<h3 id="org9ef3e9b">Um adendo para novatos</h3>
+<div class="outline-text-3" id="text-org9ef3e9b">
 <p>
 Se você não conhece o GNU Emacs, você ainda pode ler este documento de maneira proveitosa. Porém, recomendo que você aprenda sobre o Emacs, ainda que apenas para movimentar-se pela tela do seu computador. Você pode se ensinar a como utilizar o Emacs com o tutorial embutido. para utilizá-lo, digite <code>C-h t</code>. (isto significa que você deve pressionar e liberar a tecla <code>CTRL</code> e o <code>h</code> ao mesmo tempo, e depois pressionar e liberar <code>t</code>.)
 </p>
 
 <p>
-Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#org7256e11">mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
+Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#org6b8cbff">mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
 </p>
 
 <p>
@@ -217,9 +217,9 @@ Um adendo sobre terminologia: quando utilizo à palavra Lisp sozinha, eu frequen
 </p>
 </div>
 </div>
-<div id="outline-container-org9769109" class="outline-3">
-<h3 id="org9769109"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgdbff244" class="outline-3">
+<h3 id="orgdbff244">Agradecimentos</h3>
+<div class="outline-text-3" id="text-orgdbff244">
 <p>
 Meus agradecimentos a todos que me ajudaram com este livro. Meus agradecimentos especiais a Jim Blandy, Noah Friedman, Jim Kingdon, Roland McGrath, Frank Ritter, Randy Smith, Richard M. Stallman, e Melissa Weisshaus. Meus agradecimentos vão também tanto para Philip Johnson como para David Stampe pelo seu encorajamento paciente. Meus erros são meus.
 </p>
@@ -230,9 +230,9 @@ Robert J. Chassel bob@gnu.org
 </div>
 </div>
 </div>
-<div id="outline-container-org3956f81" class="outline-2">
-<h2 id="org3956f81"><span class="section-number-2">2.</span> Processamento de listas</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org534a70a" class="outline-2">
+<h2 id="org534a70a">Processamento de listas</h2>
+<div class="outline-text-2" id="text-org534a70a">
 <p>
 Para um olhar não treinado, o Lisp é uma linguagem de programação estranha; Em código Lisp há parenteses em todo lugar. Alguns até dizem que o nome representa "Vários Parenteses Bobos Isolados" ("<i>Lots of Isolated Silly Parentheses</i>").
 Mas dizer isso é injusto. Lisp representa Processamento de Listas (<i>LISt Processing</i>), e a linguagem de programação lida com <i>listas</i> (e listas de listas) colocando-as entre parenteses.
@@ -240,22 +240,22 @@ Os parenteses marcam os limites da lista. Às vezes uma lista é precedida por u
 </p>
 
 <ul class="org-ul">
-<li><a href="#orgd3a3d33">Listas Lisp</a></li>
-<li><a href="#org7163404">Execute um Programa</a></li>
-<li><a href="#orgee67dd9">Gere uma Mensagem de Erro</a></li>
-<li><a href="#org9f14b20">Nomes dos Símbolos e Definições de Funções</a></li>
-<li><a href="#org8a87239">O Interpretador Lisp</a></li>
-<li><a href="#org331f324">Avaliação</a></li>
-<li><a href="#orga2889df">Variáveis</a></li>
-<li><a href="#orgbfec4a9">Argumentos</a></li>
-<li><a href="#org834ca3f">Assinalando o Valor de uma Variável</a></li>
-<li><a href="#org30b0525">Resumo</a></li>
-<li><a href="#orgaebd25a">Exercícios</a></li>
+<li><a href="#org4de268b">Listas Lisp</a></li>
+<li><a href="#org8d1f95b">Execute um Programa</a></li>
+<li><a href="#orgd698391">Gere uma Mensagem de Erro</a></li>
+<li><a href="#orgb8d4276">Nomes dos Símbolos e Definições de Funções</a></li>
+<li><a href="#orgafac554">O Interpretador Lisp</a></li>
+<li><a href="#org5e3394a">Avaliação</a></li>
+<li><a href="#org13a77d7">Variáveis</a></li>
+<li><a href="#org920d23d">Argumentos</a></li>
+<li><a href="#org3db4216">Assinalando o Valor de uma Variável</a></li>
+<li><a href="#orgf95ea4e">Resumo</a></li>
+<li><a href="#org9a5fc8e">Exercícios</a></li>
 </ul>
 </div>
-<div id="outline-container-orgd3a3d33" class="outline-3">
-<h3 id="orgd3a3d33"><span class="section-number-3">2.1.</span> Listas Lisp</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org4de268b" class="outline-3">
+<h3 id="org4de268b">Listas Lisp</h3>
+<div class="outline-text-3" id="text-org4de268b">
 <p>
 Em Lisp, uma lista se parece com isso: <code>'(rosa violeta bem-me-quer bafo-de-boi)</code>. Esta lista é precedida por um único apóstrofo. Ela também poderia ser escrita da forma a seguir, que se parece mais com o tipo de lista que você deve estar acostumado:
 </p>
@@ -271,9 +271,9 @@ Em Lisp, uma lista se parece com isso: <code>'(rosa violeta bem-me-quer bafo-de-
 Os elementos desta lista são os nomes de 4 diferentes flores, separados um do outro por um espaço em branco e cercado por parenteses, como flores com uma parede de pedras em volta delas.
 </p>
 </div>
-<div id="outline-container-org0383230" class="outline-4">
-<h4 id="org0383230"><span class="section-number-4">2.1.1.</span> Números, Listas dentro de Listas</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-orga3564e5" class="outline-4">
+<h4 id="orga3564e5">Números, Listas dentro de Listas</h4>
+<div class="outline-text-4" id="text-orga3564e5">
 <p>
 Listas também podem conter números, como nesta lista: <code>(+ 2 2)</code>. Esta lista possui o sinal de adição '<code>+</code>', seguido de dois '2's, separados por um espaço em branco.
 </p>
@@ -296,11 +296,11 @@ Os componentes desta lista são as palavras '<code>essa</code>', '<code>lista</c
 </p>
 </div>
 </div>
-<div id="outline-container-orgeda4691" class="outline-4">
-<h4 id="orgeda4691"><span class="section-number-4">2.1.2.</span> Átomos Lisp</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<div id="outline-container-org6f4fab9" class="outline-4">
+<h4 id="org6f4fab9">Átomos Lisp</h4>
+<div class="outline-text-4" id="text-org6f4fab9">
 <p>
-Em Lisp, o que estávamos chamando de palavras são chamados <i>átomos</i>. Esse termo vem do significado histórico da palavra átomo, que significa "indivisível". Até onde o Lisp sabe, as palavras que nós viemos utilizando nas listas não podem ser divididas em qualquer partes menores e ainda significar a mesma coisa como parte de um programa; da mesma forma com números e símbolos de caracteres únicos como '<code>+</code>'. Por outro lado, diferentemente de um átomo antigo, uma lista pode ser dividida em partes. (Veja <a href="#orgedfb6ad"><code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a>.)
+Em Lisp, o que estávamos chamando de palavras são chamados <i>átomos</i>. Esse termo vem do significado histórico da palavra átomo, que significa "indivisível". Até onde o Lisp sabe, as palavras que nós viemos utilizando nas listas não podem ser divididas em qualquer partes menores e ainda significar a mesma coisa como parte de um programa; da mesma forma com números e símbolos de caracteres únicos como '<code>+</code>'. Por outro lado, diferentemente de um átomo antigo, uma lista pode ser dividida em partes. (Veja <a href="#org8cf57dc"><code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a>.)
 </p>
 
 <p>
@@ -341,127 +341,127 @@ Em Lisp, todo o texto citado acima incluindo o ponto final e espaços é um úni
 </div>
 </div>
 </div>
-<div id="outline-container-org7163404" class="outline-3">
-<h3 id="org7163404"><span class="section-number-3">2.2.</span> Execute um Programa</h3>
+<div id="outline-container-org8d1f95b" class="outline-3">
+<h3 id="org8d1f95b">Execute um Programa</h3>
 </div>
 
-<div id="outline-container-orgee67dd9" class="outline-3">
-<h3 id="orgee67dd9"><span class="section-number-3">2.3.</span> Gere uma Mensagem de Erro</h3>
+<div id="outline-container-orgd698391" class="outline-3">
+<h3 id="orgd698391">Gere uma Mensagem de Erro</h3>
 </div>
 
-<div id="outline-container-org9f14b20" class="outline-3">
-<h3 id="org9f14b20"><span class="section-number-3">2.4.</span> Nomes Símbolos e Definições de Funções</h3>
+<div id="outline-container-orgb8d4276" class="outline-3">
+<h3 id="orgb8d4276">Nomes Símbolos e Definições de Funções</h3>
 </div>
 
-<div id="outline-container-org8a87239" class="outline-3">
-<h3 id="org8a87239"><span class="section-number-3">2.5.</span> O Interpretador Lisp</h3>
+<div id="outline-container-orgafac554" class="outline-3">
+<h3 id="orgafac554">O Interpretador Lisp</h3>
 </div>
 
-<div id="outline-container-org331f324" class="outline-3">
-<h3 id="org331f324"><span class="section-number-3">2.6.</span> Avaliação</h3>
+<div id="outline-container-org5e3394a" class="outline-3">
+<h3 id="org5e3394a">Avaliação</h3>
 </div>
 
-<div id="outline-container-orga2889df" class="outline-3">
-<h3 id="orga2889df"><span class="section-number-3">2.7.</span> Variáveis</h3>
+<div id="outline-container-org13a77d7" class="outline-3">
+<h3 id="org13a77d7">Variáveis</h3>
 </div>
 
-<div id="outline-container-orgbfec4a9" class="outline-3">
-<h3 id="orgbfec4a9"><span class="section-number-3">2.8.</span> Argumentos</h3>
+<div id="outline-container-org920d23d" class="outline-3">
+<h3 id="org920d23d">Argumentos</h3>
 </div>
 
-<div id="outline-container-org834ca3f" class="outline-3">
-<h3 id="org834ca3f"><span class="section-number-3">2.9.</span> Assinalando o Valor de uma Variável</h3>
+<div id="outline-container-org3db4216" class="outline-3">
+<h3 id="org3db4216">Assinalando o Valor de uma Variável</h3>
 </div>
 
-<div id="outline-container-org30b0525" class="outline-3">
-<h3 id="org30b0525"><span class="section-number-3">2.10.</span> Resumo</h3>
+<div id="outline-container-orgf95ea4e" class="outline-3">
+<h3 id="orgf95ea4e">Resumo</h3>
 </div>
 
-<div id="outline-container-orgaebd25a" class="outline-3">
-<h3 id="orgaebd25a"><span class="section-number-3">2.11.</span> Exercícios</h3>
+<div id="outline-container-org9a5fc8e" class="outline-3">
+<h3 id="org9a5fc8e">Exercícios</h3>
 </div>
 </div>
-<div id="outline-container-orgec8d753" class="outline-2">
-<h2 id="orgec8d753"><span class="section-number-2">3.</span> Praticando avaliação</h2>
+<div id="outline-container-org77c5dfb" class="outline-2">
+<h2 id="org77c5dfb">Praticando avaliação</h2>
 </div>
-<div id="outline-container-org8e004c3" class="outline-2">
-<h2 id="org8e004c3"><span class="section-number-2">4.</span> Como escrever definições de funções</h2>
+<div id="outline-container-org4645e44" class="outline-2">
+<h2 id="org4645e44">Como escrever definições de funções</h2>
 </div>
-<div id="outline-container-orgae715c7" class="outline-2">
-<h2 id="orgae715c7"><span class="section-number-2">5.</span> Algumas funções relacionadas a <i>buffers</i></h2>
+<div id="outline-container-orgeb97cfb" class="outline-2">
+<h2 id="orgeb97cfb">Algumas funções relacionadas a <i>buffers</i></h2>
 </div>
-<div id="outline-container-orgd9e6845" class="outline-2">
-<h2 id="orgd9e6845"><span class="section-number-2">6.</span> Mais algumas funções mais complexas</h2>
+<div id="outline-container-org7761575" class="outline-2">
+<h2 id="org7761575">Mais algumas funções mais complexas</h2>
 </div>
-<div id="outline-container-org5f68e63" class="outline-2">
-<h2 id="org5f68e63"><span class="section-number-2">7.</span> <i>Narrowing</i> e <i>widening</i></h2>
+<div id="outline-container-orgb9a3dc3" class="outline-2">
+<h2 id="orgb9a3dc3"><i>Narrowing</i> e <i>widening</i></h2>
 </div>
-<div id="outline-container-orgedfb6ad" class="outline-2">
-<h2 id="orgedfb6ad"><span class="section-number-2">8.</span> <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</h2>
+<div id="outline-container-org8cf57dc" class="outline-2">
+<h2 id="org8cf57dc"><code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</h2>
 </div>
-<div id="outline-container-orgd5a9a00" class="outline-2">
-<h2 id="orgd5a9a00"><span class="section-number-2">9.</span> Recortando e armazenando texto</h2>
+<div id="outline-container-org207c565" class="outline-2">
+<h2 id="org207c565">Recortando e armazenando texto</h2>
 </div>
-<div id="outline-container-orgf8a9bbe" class="outline-2">
-<h2 id="orgf8a9bbe"><span class="section-number-2">10.</span> Como listas são implementadas</h2>
+<div id="outline-container-org0c3364b" class="outline-2">
+<h2 id="org0c3364b">Como listas são implementadas</h2>
 </div>
-<div id="outline-container-org8621029" class="outline-2">
-<h2 id="org8621029"><span class="section-number-2">11.</span> Colando texto de volta</h2>
+<div id="outline-container-org7ebfe3c" class="outline-2">
+<h2 id="org7ebfe3c">Colando texto de volta</h2>
 </div>
-<div id="outline-container-org70bbc64" class="outline-2">
-<h2 id="org70bbc64"><span class="section-number-2">12.</span> Loops e recursão</h2>
+<div id="outline-container-org2c2a087" class="outline-2">
+<h2 id="org2c2a087">Loops e recursão</h2>
 </div>
-<div id="outline-container-org9dcd9be" class="outline-2">
-<h2 id="org9dcd9be"><span class="section-number-2">13.</span> Buscas com expressões regulares</h2>
+<div id="outline-container-org830f2a0" class="outline-2">
+<h2 id="org830f2a0">Buscas com expressões regulares</h2>
 </div>
-<div id="outline-container-org3ab6bb7" class="outline-2">
-<h2 id="org3ab6bb7"><span class="section-number-2">14.</span> Contando via repetição e <i>regexps</i></h2>
+<div id="outline-container-org49a6eb7" class="outline-2">
+<h2 id="org49a6eb7">Contando via repetição e <i>regexps</i></h2>
 </div>
-<div id="outline-container-org17f3feb" class="outline-2">
-<h2 id="org17f3feb"><span class="section-number-2">15.</span> Contando palavras em uma <code>defun</code></h2>
+<div id="outline-container-orgdbd7894" class="outline-2">
+<h2 id="orgdbd7894">Contando palavras em uma <code>defun</code></h2>
 </div>
-<div id="outline-container-orgad90aca" class="outline-2">
-<h2 id="orgad90aca"><span class="section-number-2">16.</span> Preparando um gráfico</h2>
+<div id="outline-container-orga0c189b" class="outline-2">
+<h2 id="orga0c189b">Preparando um gráfico</h2>
 </div>
-<div id="outline-container-orge06335c" class="outline-2">
-<h2 id="orge06335c"><span class="section-number-2">17.</span> Seu arquivo <code>.emacs</code></h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-org4060a09" class="outline-2">
+<h2 id="org4060a09">Seu arquivo <code>.emacs</code></h2>
+<div class="outline-text-2" id="text-org4060a09">
 </div>
-<div id="outline-container-org7256e11" class="outline-3">
-<h3 id="org7256e11"><span class="section-number-3">17.1.</span> Mapeamento de teclas</h3>
+<div id="outline-container-org6b8cbff" class="outline-3">
+<h3 id="org6b8cbff">Mapeamento de teclas</h3>
 </div>
 </div>
-<div id="outline-container-org802fdb1" class="outline-2">
-<h2 id="org802fdb1"><span class="section-number-2">18.</span> Depuração</h2>
+<div id="outline-container-org7c8b87b" class="outline-2">
+<h2 id="org7c8b87b">Depuração</h2>
 </div>
-<div id="outline-container-org5f0dcb6" class="outline-2">
-<h2 id="org5f0dcb6"><span class="section-number-2">19.</span> Conclusão</h2>
+<div id="outline-container-org316eb49" class="outline-2">
+<h2 id="org316eb49">Conclusão</h2>
 </div>
-<div id="outline-container-org5b89772" class="outline-2">
-<h2 id="org5b89772"><span class="section-number-2">20.</span> Apêndice A</h2>
+<div id="outline-container-org25ea9ae" class="outline-2">
+<h2 id="org25ea9ae">Apêndice A</h2>
 </div>
-<div id="outline-container-orgd09d847" class="outline-2">
-<h2 id="orgd09d847"><span class="section-number-2">21.</span> Apêndice B</h2>
+<div id="outline-container-orgb8adc2f" class="outline-2">
+<h2 id="orgb8adc2f">Apêndice B</h2>
 </div>
-<div id="outline-container-org2038d73" class="outline-2">
-<h2 id="org2038d73"><span class="section-number-2">22.</span> Apêndice C</h2>
+<div id="outline-container-orgc716b1d" class="outline-2">
+<h2 id="orgc716b1d">Apêndice C</h2>
 </div>
-<div id="outline-container-orgafe2122" class="outline-2">
-<h2 id="orgafe2122"><span class="section-number-2">23.</span> Apêndice D</h2>
+<div id="outline-container-orgc99337f" class="outline-2">
+<h2 id="orgc99337f">Apêndice D</h2>
 </div>
-<div id="outline-container-org275d7bb" class="outline-2">
-<h2 id="org275d7bb"><span class="section-number-2">24.</span> Apêndice E</h2>
+<div id="outline-container-org95d147c" class="outline-2">
+<h2 id="org95d147c">Apêndice E</h2>
 </div>
-<div id="outline-container-org0937d18" class="outline-2">
-<h2 id="org0937d18"><span class="section-number-2">25.</span> Índice</h2>
+<div id="outline-container-org89e5393" class="outline-2">
+<h2 id="org89e5393">Índice</h2>
 </div>
-<div id="outline-container-org364080d" class="outline-2">
-<h2 id="org364080d"><span class="section-number-2">26.</span> Sobre o autor</h2>
+<div id="outline-container-org463a21a" class="outline-2">
+<h2 id="org463a21a">Sobre o autor</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Felipe Costa Canteiro</p>
-<p class="date">Created: 2026-06-16 ter 14:25</p>
+<p class="date">Created: 2026-06-16 ter 14:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

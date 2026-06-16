@@ -3,7 +3,7 @@
 #+filetags: elisp:emacs:Code
 #+date: [2026-06-15 seg]
 #+export_file_name: ../html/elisp
-#+options: date:nil
+#+options: date:nil num:nil
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/html-theme-readtheorg.setup
 #+LANGUAGE: pt-br
 
