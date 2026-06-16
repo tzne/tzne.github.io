@@ -1,0 +1,31 @@
+#+title: Uma introdução à Programação em Emacs Lisp
+#+AUTHOR: Felipe Costa Canteiro
+#+filetags: elisp:emacs:Code
+#+date: [2026-06-15 seg]
+#+export_file_name: ../html/elisp
+#+options: date:nil
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/html-theme-readtheorg.setup
+#+LANGUAGE: pt-br
+* TOC :noexport:toc_3:
+- [[#prefácio][Prefácio]]
+  - [[#por-que-estudar-emacs-lisp][Por que estudar Emacs Lisp?]]
+  - [[#sobre-a-leitura-deste-texto][Sobre a leitura deste texto]]
+
+* Prefácio
+A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de programação chamada Emacs Lisp. O código escrito nesta linguagem é o software - os conjuntos de instruções - que dizem ao computador o que fazer quando você dá comandos a ele. O Emacs é projetado de forma que você possa escrever novo código em Emacs Lisp e facilmente instalá-lo como uma extensão ao editor.
+
+(GNU Emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. É mais adequado se referir ao Emacs como um "ambiente de computação extensível". Porém, essa frase é comprida demais. É mais fácil se referir ao Emacs simplesmente como um editor. Além disso, tudo o que faz no Emacs - encontrar a data Maia e fases da lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
+
+** Por que estudar Emacs Lisp?
+Apesar de geralmente associarem Emacs Lisp exclusivamente ao Emacs, ele é uma linguagem de programação completa. Você pode usar Emacs Lisp como você faria com qualquer outra linguagem de programação.
+
+Talvez você queira entender programação; talvez você queira extender o Emacs; ou talvez você quer se tornar um programador. Essa introdução ao Emacs Lisp é projetada para te dar início: para te guiar em aprender os fundamentos da programação, e, mais importante, te mostrar como você pode se ensinar a ir além.
+
+** Sobre a leitura deste texto
+Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do Emacs. Se você ler este documento em Info dentro do GNU Emacs, você pode executar os programas à medida que eles aparecem. De forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando Emacs. (Isso é o que gosto de fazer; eu gosto de livros impressos.) Se você não possui uma instância do Emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
+
+Boa parte desta introdução é dedicada a orientações ou passeios guiados de código usado no GNU Emacs. Esses passeios são projetados com dois objetivos: primeiro, te familiarizar com código real e funcional (código que você utiliza todos os dias); e segundo, te familiarizar em como o Emacs funciona. É interessante ver como um ambiente funcional é implementado. Além disso, espero que você pegue o hábito de navegar através de código fonte. Você pode aprender com isso e minerar por ideias. Ter o GNU Emacs é como ter uma caverna do dragão cheia de tesouros.
+
+Em adição a aprender sobre o Emacs como um editor e o Emacs Lisp como uma linguagem de programação, os exemplos e passeios guiados vão te proporcionar uma oportunidade de se familiarizar com o Emacs como um ambiente de programação Lisp. O GNU Emacs suporta programação e provê ferramentas que você vai querer ficar confortável em utilizar, como ~M-.~ (a tecla que chama o commando ~xref-find-definitions~). Você também vai aprender sobre buffers e outros objetos que são parte do ambiente. Aprender sobre essas funcionalidades do Emacs é como aprender novas rotas na sua cidade natal.
+
+Finalmente, eu espero transmitir algumas das habilidades para utilizar o Emacs para aprender aspectos da programação que você não conhece. Você pode frequentemente utilizar o Emacs para te ajudar a entender o que te intriga ou para descobrir como fazer algo novo. Esta auto-dependência não é apenas um prazer, mas uma vantagem.
