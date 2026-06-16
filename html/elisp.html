@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
-<!-- 2026-06-16 ter 06:00 -->
+<!-- 2026-06-16 ter 06:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Uma introdução à Programação em Emacs Lisp</title>
@@ -27,81 +27,105 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1f2392e">1. Prefácio</a>
+<li><a href="#orga347062">1. Prefácio</a>
 <ul>
-<li><a href="#orgac691f4">1.1. Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org09deb35">1.2. Sobre a leitura deste texto</a></li>
-<li><a href="#org470e89d">1.3. Para quem isso foi escrito</a></li>
-<li><a href="#org9cb8c5a">1.4. História do Lisp</a></li>
-<li><a href="#org9aca30f">1.5. Um adendo para novatos</a></li>
-<li><a href="#orgf6fe1e7">1.6. Agradecimentos</a></li>
+<li><a href="#org1e15769">1.1. Por que estudar emacs lisp?</a></li>
+<li><a href="#orgea559c8">1.2. Sobre a leitura deste texto</a></li>
+<li><a href="#org3c9acd2">1.3. Para quem isso foi escrito</a></li>
+<li><a href="#orgacea306">1.4. História do Lisp</a></li>
+<li><a href="#org7257e7b">1.5. Um adendo para novatos</a></li>
+<li><a href="#org7aa12f7">1.6. Agradecimentos</a></li>
 </ul>
 </li>
-<li><a href="#orgaa713ca">2. Seu arquivo <code>.emacs</code></a>
+<li><a href="#orgf26d90f">2. Processamento de listas</a></li>
+<li><a href="#org73c02d4">3. Praticando avaliação</a></li>
+<li><a href="#org89800ac">4. Como escrever definições de funções</a></li>
+<li><a href="#org7af1f08">5. Algumas funções relacionadas a <i>buffers</i></a></li>
+<li><a href="#org9b48080">6. Mais algumas funções mais complexas</a></li>
+<li><a href="#org0d3468a">7. <i>Narrowing</i> e <i>widening</i></a></li>
+<li><a href="#org33541af">8. <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</a></li>
+<li><a href="#orga2d4f3f">9. Recortando e armazenando texto</a></li>
+<li><a href="#org66e2b1a">10. Como listas são implementadas</a></li>
+<li><a href="#org9e519d2">11. Colando texto de volta</a></li>
+<li><a href="#org9691529">12. Loops e recursão</a></li>
+<li><a href="#org1688c3b">13. Buscas com expressões regulares</a></li>
+<li><a href="#org4216e0f">14. Contando via repetição e <i>regexps</i></a></li>
+<li><a href="#orgc8358ee">15. Contando palavras em uma <code>defun</code></a></li>
+<li><a href="#org98f5fc8">16. Preparando um gráfico</a></li>
+<li><a href="#org33ba87d">17. Seu arquivo <code>.emacs</code></a>
 <ul>
-<li><a href="#orgfb0d3f7">2.1. Mapeamento de teclas</a></li>
+<li><a href="#org4b4926d">17.1. Mapeamento de teclas</a></li>
 </ul>
 </li>
+<li><a href="#org7ff4a49">18. Depuração</a></li>
+<li><a href="#org6a4e0ae">19. Conclusão</a></li>
+<li><a href="#org4775002">20. Apêndice a</a></li>
+<li><a href="#orgae506cd">21. Apêndice b</a></li>
+<li><a href="#org2cb149a">22. Apêndice c</a></li>
+<li><a href="#orga115a1c">23. Apêndice d</a></li>
+<li><a href="#org9d658dd">24. Apêndice e</a></li>
+<li><a href="#org07cb7af">25. Index</a></li>
+<li><a href="#org9869d8e">26. Sobre o autor</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f2392e" class="outline-2">
-<h2 id="org1f2392e"><span class="section-number-2">1.</span> Prefácio</h2>
+<div id="outline-container-orga347062" class="outline-2">
+<h2 id="orga347062"><span class="section-number-2">1.</span> Prefácio</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-A maior parte do ambiente integrado GNU Emacs é escrita na linguagem de programação chamada Emacs Lisp. O código escrito nesta linguagem é o software - os conjuntos de instruções - que dizem ao computador o que fazer quando você dá comandos a ele. O Emacs é projetado de forma que você possa escrever novo código em Emacs Lisp e facilmente instalá-lo como uma extensão ao editor.
+A maior parte do ambiente integrado gnu emacs é escrita na linguagem de programação chamada emacs lisp. o código escrito nesta linguagem é o software - os conjuntos de instruções - que dizem ao computador o que fazer quando você dá comandos a ele. o emacs é projetado de forma que você possa escrever novo código em emacs lisp e facilmente instalá-lo como uma extensão ao editor.
 </p>
 
 <p>
-(GNU Emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. É mais adequado se referir ao Emacs como um "ambiente de computação extensível". Porém, essa frase é comprida demais. É mais fácil se referir ao Emacs simplesmente como um editor. Além disso, tudo o que faz no Emacs - encontrar a data Maia e fases da lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
+(gnu emacs é, às vezes, chamado de um "editor extensível", mas ele faz muito mais do que prover capacidades de edição. é mais adequado se referir ao emacs como um "ambiente de computação extensível". porém, essa frase é comprida demais. é mais fácil se referir ao emacs simplesmente como um editor. além disso, tudo o que faz no emacs - encontrar a data maia e fases da lua, simplificar polinômios, depurar código, gerenciar arquivos, ler cartas, escrever livros - todas essas atividades são tipos de edição no sentido mais geral da palavra.)
 </p>
 
 <ul class="org-ul">
-<li><a href="#orgac691f4">Por que estudar Emacs Lisp?</a></li>
-<li><a href="#org09deb35">Sobre a leitura deste texto</a></li>
-<li><a href="#org470e89d">Para quem isso foi escrito</a></li>
-<li><a href="#org9cb8c5a">História do Lisp</a></li>
-<li><a href="#org9aca30f">Um adendo para novatos</a></li>
-<li><a href="#orgf6fe1e7">Agradecimentos</a></li>
+<li><a href="#org1e15769">Por que estudar Emacs Lisp?</a></li>
+<li><a href="#orgea559c8">Sobre a leitura deste texto</a></li>
+<li><a href="#org3c9acd2">Para quem isso foi escrito</a></li>
+<li><a href="#orgacea306">História do Lisp</a></li>
+<li><a href="#org7257e7b">Um adendo para novatos</a></li>
+<li><a href="#org7aa12f7">Agradecimentos</a></li>
 </ul>
 </div>
-<div id="outline-container-orgac691f4" class="outline-3">
-<h3 id="orgac691f4"><span class="section-number-3">1.1.</span> Por que estudar Emacs Lisp?</h3>
+<div id="outline-container-org1e15769" class="outline-3">
+<h3 id="org1e15769"><span class="section-number-3">1.1.</span> Por que estudar emacs lisp?</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-Apesar de geralmente associarem Emacs Lisp exclusivamente ao Emacs, ele é uma linguagem de programação completa. Você pode usar Emacs Lisp como você faria com qualquer outra linguagem de programação.
+Apesar de geralmente associarem emacs lisp exclusivamente ao emacs, ele é uma linguagem de programação completa. você pode usar emacs lisp como você faria com qualquer outra linguagem de programação.
 </p>
 
 <p>
-Talvez você queira entender programação; talvez você queira extender o Emacs; ou talvez você quer se tornar um programador. Essa introdução ao Emacs Lisp é projetada para te dar início: para te guiar em aprender os fundamentos da programação, e, mais importante, te mostrar como você pode se ensinar a ir além.
+Talvez você queira entender programação; talvez você queira extender o emacs; ou talvez você quer se tornar um programador. essa introdução ao emacs lisp é projetada para te dar início: para te guiar em aprender os fundamentos da programação, e, mais importante, te mostrar como você pode se ensinar a ir além.
 </p>
 </div>
 </div>
-<div id="outline-container-org09deb35" class="outline-3">
-<h3 id="org09deb35"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
+<div id="outline-container-orgea559c8" class="outline-3">
+<h3 id="orgea559c8"><span class="section-number-3">1.2.</span> Sobre a leitura deste texto</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do Emacs. Se você ler este documento em Info dentro do GNU Emacs, você pode executar os programas à medida que eles aparecem. De forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando Emacs. (Isso é o que gosto de fazer; eu gosto de livros impressos.) Se você não possui uma instância do Emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
+Ao longo deste documento, você verá pequenos "programas amostra" que você pode executar dentro do emacs. se você ler este documento em info dentro do gnu emacs, você pode executar os programas à medida que eles aparecem. de forma alternativa, você pode ler esta introdução como um livro impresso sentado próximo a um computador executando emacs. (isso é o que gosto de fazer; eu gosto de livros impressos.) se você não possui uma instância do emacs em execução por perto, você ainda pode ler este texto, mas neste caso, é melhor tratar isso como um romance ou guia de viagem para um país ainda não visitado: interessante, mas não é a mesma coisa que estar lá.
 </p>
 
 <p>
-Boa parte desta introdução é dedicada a orientações ou passeios guiados de código usado no GNU Emacs. Esses passeios são projetados com dois objetivos: primeiro, te familiarizar com código real e funcional (código que você utiliza todos os dias); e segundo, te familiarizar em como o Emacs funciona. É interessante ver como um ambiente funcional é implementado. Além disso, espero que você pegue o hábito de navegar através de código fonte. Você pode aprender com isso e minerar por ideias. Ter o GNU Emacs é como ter uma caverna do dragão cheia de tesouros.
+Boa parte desta introdução é dedicada a orientações ou passeios guiados de código usado no gnu emacs. esses passeios são projetados com dois objetivos: primeiro, te familiarizar com código real e funcional (código que você utiliza todos os dias); e segundo, te familiarizar em como o emacs funciona. é interessante ver como um ambiente funcional é implementado. além disso, espero que você pegue o hábito de navegar através de código fonte. você pode aprender com isso e minerar por ideias. ter o gnu emacs é como ter uma caverna do dragão cheia de tesouros.
 </p>
 
 <p>
-Em adição a aprender sobre o Emacs como um editor e o Emacs Lisp como uma linguagem de programação, os exemplos e passeios guiados vão te proporcionar uma oportunidade de se familiarizar com o Emacs como um ambiente de programação Lisp. O GNU Emacs suporta programação e provê ferramentas que você vai querer ficar confortável em utilizar, como <code>M-.</code> (a tecla que chama o commando <code>xref-find-definitions</code>). Você também vai aprender sobre buffers e outros objetos que são parte do ambiente. Aprender sobre essas funcionalidades do Emacs é como aprender novas rotas na sua cidade natal.
+Em adição a aprender sobre o emacs como um editor e o emacs lisp como uma linguagem de programação, os exemplos e passeios guiados vão te proporcionar uma oportunidade de se familiarizar com o emacs como um ambiente de programação lisp. o gnu emacs suporta programação e provê ferramentas que você vai querer ficar confortável em utilizar, como <code>m-.</code> (a tecla que chama o commando <code>xref-find-definitions</code>). você também vai aprender sobre buffers e outros objetos que são parte do ambiente. aprender sobre essas funcionalidades do emacs é como aprender novas rotas na sua cidade natal.
 </p>
 
 <p>
-Finalmente, eu espero transmitir algumas das habilidades para utilizar o Emacs para aprender aspectos da programação que você não conhece. Você pode frequentemente utilizar o Emacs para te ajudar a entender o que te intriga ou para descobrir como fazer algo novo. Esta auto-dependência não é apenas um prazer, mas uma vantagem.
+Finalmente, eu espero transmitir algumas das habilidades para utilizar o emacs para aprender aspectos da programação que você não conhece. você pode frequentemente utilizar o emacs para te ajudar a entender o que te intriga ou para descobrir como fazer algo novo. esta auto-dependência não é apenas um prazer, mas uma vantagem.
 </p>
 </div>
 </div>
-<div id="outline-container-org470e89d" class="outline-3">
-<h3 id="org470e89d"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
+<div id="outline-container-org3c9acd2" class="outline-3">
+<h3 id="org3c9acd2"><span class="section-number-3">1.3.</span> Para quem isso foi escrito</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Esse texto foi escrito como uma introdução elementar para pessoas que não são programadoras. Se você é um programador, você pode não se satisfazer com este princípio. A razão é que você pode ter se tornado um especialista em ler manuais de referência e se desanimar com a forma que este texto é organizado.
+Esse texto foi escrito como uma introdução elementar para pessoas que não são programadoras. se você é um programador, você pode não se satisfazer com este princípio. a razão é que você pode ter se tornado um especialista em ler manuais de referência e se desanimar com a forma que este texto é organizado.
 </p>
 
 <p>
@@ -109,11 +133,11 @@ Um programador expert que revisou este texto me disse:
 </p>
 <blockquote>
 <p>
-Eu prefiro aprender através de manuais de referência. Eu "mergulho" em cada parágrafo, e "volto para respirar" entre os parágrafos.
+Eu prefiro aprender através de manuais de referência. eu "mergulho" em cada parágrafo, e "volto para respirar" entre os parágrafos.
 </p>
 
 <p>
-Quando eu chego ao fim de um parágrafo, eu assumo que o assunto está finalizado, terminado, que eu sei tudo o que preciso (com a possível exceção do caso quando o próximo parágrafo começa falando sobre isso em mais detalhes). Eu espero que um manual de referência bem escrito não terá muita redundância, e que ele tera excelente indicações para o (único) lugar onde a informação que eu quero está.
+Quando eu chego ao fim de um parágrafo, eu assumo que o assunto está finalizado, terminado, que eu sei tudo o que preciso (com a possível exceção do caso quando o próximo parágrafo começa falando sobre isso em mais detalhes). eu espero que um manual de referência bem escrito não terá muita redundância, e que ele tera excelente indicações para o (único) lugar onde a informação que eu quero está.
 </p>
 </blockquote>
 
@@ -126,79 +150,151 @@ Primeiramente, eu tento dizer tudo ao menos três vezes: primeiro, para introduz
 </p>
 
 <p>
-Em segundo lugar, eu raramente vou colocar toda a informação sobre um assunto em um único lugar, muito menos em um parágrafo. Na minha forma de pensar, isso impõem um peso muito grande para o leitor. Ao invés disso, eu tento explicar apenas o que você precisa saber no momento. (Às vezes eu incluo um pouco de informação extra para que você não fique surpreso depois, quando a informação adicional é formalmente introduzida.)
+Em segundo lugar, eu raramente vou colocar toda a informação sobre um assunto em um único lugar, muito menos em um parágrafo. na minha forma de pensar, isso impõem um peso muito grande para o leitor. ao invés disso, eu tento explicar apenas o que você precisa saber no momento. (às vezes eu incluo um pouco de informação extra para que você não fique surpreso depois, quando a informação adicional é formalmente introduzida.)
 </p>
 
 <p>
-Quando você ler este texto, não é esperado que você aprenda tudo na primeira vez. Frequentemente você terá apenas que ter um conhecimento superficial sobre alguns dos itens mencionados. Minha esperança é que eu tenha estruturado o texto e te dado dicas o suficiente para que você esteja alerta ao que é importante, e se concentrar nisso.
+Quando você ler este texto, não é esperado que você aprenda tudo na primeira vez. frequentemente você terá apenas que ter um conhecimento superficial sobre alguns dos itens mencionados. minha esperança é que eu tenha estruturado o texto e te dado dicas o suficiente para que você esteja alerta ao que é importante, e se concentrar nisso.
 </p>
 
 <p>
-Este livro, <i>Uma Introdução à Programação em Emacs Lisp</i>, tem um documento associado, <a href="https://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Top">O Manual de Referência do GNU Emacs Lisp</a>, no <i>Manual de Referência do GNU Emacs Lisp</i>. O Manual de referência possui mais detalhes do que esta introdução. No manual de referência, toda a informação sobre um tópico é concentrado em um único lugar. Você deve se direcionar a ele se é como o programador citado acima. E, é claro, depois de ler esta <i>Introdução</i>, você vai achar o <i>Manual de Referência</i> mais útil quando você estiver escrevendo seus próprios programas. 
+Este livro, <i>uma introdução à programação em emacs lisp</i>, tem um documento associado, <a href="https://www.gnu.org/software/emacs/manual/html_mono/elisp.html#top">o manual de referência do gnu emacs lisp</a>, no <i>manual de referência do gnu emacs lisp</i>. o manual de referência possui mais detalhes do que esta introdução. no manual de referência, toda a informação sobre um tópico é concentrado em um único lugar. você deve se direcionar a ele se é como o programador citado acima. e, é claro, depois de ler esta <i>introdução</i>, você vai achar o <i>manual de referência</i> mais útil quando você estiver escrevendo seus próprios programas. 
 </p>
 </div>
 </div>
-<div id="outline-container-org9cb8c5a" class="outline-3">
-<h3 id="org9cb8c5a"><span class="section-number-3">1.4.</span> História do Lisp</h3>
+<div id="outline-container-orgacea306" class="outline-3">
+<h3 id="orgacea306"><span class="section-number-3">1.4.</span> História do Lisp</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-Lisp foi desenvolvido inicialmente no fim da década de 1950 no Instituto de Tecnologia de Massachusetts (MIT) para pesquisa em inteligência artificial. O grande poder da linguagem Lisp faz com que seja também superior para outros propósitos, como escrever comandos de editor e ambientes integrados.
+Lisp foi desenvolvido inicialmente no fim da década de 1950 no instituto de tecnologia de massachusetts (mit) para pesquisa em inteligência artificial. o grande poder da linguagem lisp faz com que seja também superior para outros propósitos, como escrever comandos de editor e ambientes integrados.
 </p>
 
 <p>
-GNU Emacs Lisp é grandemente inspirado por Maclisp, que foi escrito no MIT na década de 1960. É, de certa forma, inspirado em Common Lisp, que se tornou um padrão na década de 1980. Porém, o Emacs Lisp é muito mais simples que o Common Lisp. (A distribuição padrão do Emacs contém um arquivo de extensão opcional, <code>cl-lib.el</code>, que adiciona muitas funcionalidades do Common Lisp ao Emacs Lisp.)
+Gnu emacs lisp é grandemente inspirado por maclisp, que foi escrito no mit na década de 1960. é, de certa forma, inspirado em common lisp, que se tornou um padrão na década de 1980. porém, o emacs lisp é muito mais simples que o common lisp. (a distribuição padrão do emacs contém um arquivo de extensão opcional, <code>Cl-lib.el</code>, que adiciona muitas funcionalidades do common lisp ao emacs lisp.)
 </p>
 </div>
 </div>
-<div id="outline-container-org9aca30f" class="outline-3">
-<h3 id="org9aca30f"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
+<div id="outline-container-org7257e7b" class="outline-3">
+<h3 id="org7257e7b"><span class="section-number-3">1.5.</span> Um adendo para novatos</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
-Se você não conhece o GNU Emacs, você ainda pode ler este documento de maneira proveitosa. Porém, recomendo que você aprenda sobre o Emacs, ainda que apenas para movimentá-lo pela tela do seu computador. Você pode se ensinar a como utilizar o Emacs com o tutorial embutido. Para utilizá-lo, digite <code>C-h t</code>. (Isto significa que você deve pressionar e liberar a tecla <code>CTRL</code> e o <code>h</code> ao mesmo tempo, e depois pressionar e liberar <code>t</code>.)
+Se você não conhece o gnu emacs, você ainda pode ler este documento de maneira proveitosa. porém, recomendo que você aprenda sobre o emacs, ainda que apenas para movimentá-lo pela tela do seu computador. você pode se ensinar a como utilizar o emacs com o tutorial embutido. para utilizá-lo, digite <code>C-h t</code>. (isto significa que você deve pressionar e liberar a tecla <code>Ctrl</code> e o <code>h</code> ao mesmo tempo, e depois pressionar e liberar <code>t</code>.)
 </p>
 
 <p>
-Além disso, eu frequentemente me refiro para um dos comandos padrão do Emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-M-\</code> <code>(indent region)</code>. Isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-M\</code>. (Você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. Veja <a href="#orgfb0d3f7">Mapeamento de teclas</a>.) A abreviação <code>C-M-\.</code> significa que você digita a tecla <code>CTRL</code>, a tecla <code>META</code> e a tecla <code>\</code> ao mesmo tempo. (Em muitos teclados modernos, a tecla <code>META</code> é chamada <code>ALT</code>.) Às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. Se seu teclado não possui uma tecla <code>META</code>, a tecla <code>ESC</code> é utilizada no lugar. Neste caso, <code>C-M-\</code> significa que você pressiona e libera sua tecla <code>ESC</code> e depois digite a tecla <code>CTRL</code> e a tecla <code>\</code> ao mesmo tempo. Porém, geralmente <code>C-M-\</code> significa pressionar a tecla <code>CTRL</code> junto com a tecla descrita como <code>ALT</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
+Além disso, eu frequentemente me refiro para um dos comandos padrão do emacs listando as teclas que você pressiona para executar o commando e depois dando o nome do commando entre parenteses, desta forma: <code>C-m-\</code> <code>(indent region)</code>. isto significa que o comando <code>indent-region</code> é geralmente executado ao digitar <code>C-m\</code>. (você pode, se desejar, mudar as teclas que são digitadas para evocar o comando; isto se chama <i>rebinding</i>. veja <a href="#org4b4926d">mapeamento de teclas</a>.) a abreviação <code>C-m-\.</code> significa que você digita a tecla <code>Ctrl</code>, a tecla <code>meta</code> e a tecla <code>\</code> ao mesmo tempo. (em muitos teclados modernos, a tecla <code>meta</code> é chamada <code>alt</code>.) às vezes uma combinação como essa é chamada acorde de teclas (<i>keychord</i>), já que é similar a como se toca um acorde em um piano. se seu teclado não possui uma tecla <code>meta</code>, a tecla <code>esc</code> é utilizada no lugar. neste caso, <code>C-m-\</code> significa que você pressiona e libera sua tecla <code>esc</code> e depois digite a tecla <code>Ctrl</code> e a tecla <code>\</code> ao mesmo tempo. porém, geralmente <code>C-m-\</code> significa pressionar a tecla <code>Ctrl</code> junto com a tecla descrita como <code>alt</code> e, ao mesmo tempo, pressionar a tecla <code>\</code>.
 </p>
 
 <p>
-Em adição a digitar um <i>keychord</i> isolado, você pode prefixar o que digita com <code>C-u</code>, chamado de <i>argumento universal</i>. O <i>keychord</i> <code>C-U</code> passa um argumento para o comando subsequente. Assim, para indentar uma região de texto em 6 espaços, selecione a região e pressione <code>C-u 6 C-M-\</code>. (Se você não especificar um número, ou o Emacs passa o número 4 paro o comando ou executa o comando de maneira diferente do que faria de outra forma.) Veja <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Arguments">Argumentos numéricos no <i>Manual do GNU Emacs</i></a>.
+Em adição a digitar um <i>keychord</i> isolado, você pode prefixar o que digita com <code>C-u</code>, chamado de <i>argumento universal</i>. o <i>keychord</i> <code>C-u</code> passa um argumento para o comando subsequente. assim, para indentar uma região de texto em 6 espaços, selecione a região e pressione <code>C-u 6 c-m-\</code>. (se você não especificar um número, ou o emacs passa o número 4 paro o comando ou executa o comando de maneira diferente do que faria de outra forma.) veja <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#arguments">argumentos numéricos no <i>manual do gnu emacs</i></a>.
 </p>
 
 <p>
-Se você está lendo isso em Info utilizando o GNU Emacs, você pode ler todo este documento apenas pressionando a tecla de espaço, <code>SPC</code>. (Para aprender sobre Info, digite <code>C-h i</code> e selecione Info.)
+Se você está lendo isso em info utilizando o gnu emacs, você pode ler todo este documento apenas pressionando a tecla de espaço, <code>spc</code>. (para aprender sobre info, digite <code>C-h i</code> e selecione info.)
 </p>
 
 <p>
-Um adendo sobre terminologia: quando utilizo à palavra Lisp sozinha, eu frequentemente estou me referindo aos vários dialetos Lisp em geral, mas quando eu digo sobre Emacs Lisp, me refiro particularmente ao GNU Emacs Lisp.
+Um adendo sobre terminologia: quando utilizo à palavra lisp sozinha, eu frequentemente estou me referindo aos vários dialetos lisp em geral, mas quando eu digo sobre emacs lisp, me refiro particularmente ao gnu emacs lisp.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf6fe1e7" class="outline-3">
-<h3 id="orgf6fe1e7"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
+<div id="outline-container-org7aa12f7" class="outline-3">
+<h3 id="org7aa12f7"><span class="section-number-3">1.6.</span> Agradecimentos</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
-Meus agradecimentos a todos que me ajudaram com este livro. Meus agradecimentos especiais a Jim Blandy, Noah Friedman, Jim Kingdon, Rolando McGrath, Frank Ritter, Randy Smith, Richard M. Stallman, e Melissa Weisshaus. Meus agradecimentos vão também tanto para Philip Johnson como para David Stampe pelo seu encorajamento paciente. Meus erros são meus.
+Meus agradecimentos a todos que me ajudaram com este livro. meus agradecimentos especiais a jim blandy, noah friedman, jim kingdon, rolando mcgrath, frank ritter, randy smith, richard m. stallman, e melissa weisshaus. meus agradecimentos vão também tanto para philip johnson como para david stampe pelo seu encorajamento paciente. meus erros são meus.
 </p>
 
 <p>
-Robert J. Chassel bob@gnu.org
+Robert j. chassel bob@gnu.org
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgaa713ca" class="outline-2">
-<h2 id="orgaa713ca"><span class="section-number-2">2.</span> Seu arquivo <code>.emacs</code></h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgf26d90f" class="outline-2">
+<h2 id="orgf26d90f"><span class="section-number-2">2.</span> Processamento de listas</h2>
 </div>
-<div id="outline-container-orgfb0d3f7" class="outline-3">
-<h3 id="orgfb0d3f7"><span class="section-number-3">2.1.</span> Mapeamento de teclas</h3>
+<div id="outline-container-org73c02d4" class="outline-2">
+<h2 id="org73c02d4"><span class="section-number-2">3.</span> Praticando avaliação</h2>
 </div>
+<div id="outline-container-org89800ac" class="outline-2">
+<h2 id="org89800ac"><span class="section-number-2">4.</span> Como escrever definições de funções</h2>
+</div>
+<div id="outline-container-org7af1f08" class="outline-2">
+<h2 id="org7af1f08"><span class="section-number-2">5.</span> Algumas funções relacionadas a <i>buffers</i></h2>
+</div>
+<div id="outline-container-org9b48080" class="outline-2">
+<h2 id="org9b48080"><span class="section-number-2">6.</span> Mais algumas funções mais complexas</h2>
+</div>
+<div id="outline-container-org0d3468a" class="outline-2">
+<h2 id="org0d3468a"><span class="section-number-2">7.</span> <i>Narrowing</i> e <i>widening</i></h2>
+</div>
+<div id="outline-container-org33541af" class="outline-2">
+<h2 id="org33541af"><span class="section-number-2">8.</span> <code>car</code>, <code>cdr</code>, <code>cons</code>: funções fundamentais</h2>
+</div>
+<div id="outline-container-orga2d4f3f" class="outline-2">
+<h2 id="orga2d4f3f"><span class="section-number-2">9.</span> Recortando e armazenando texto</h2>
+</div>
+<div id="outline-container-org66e2b1a" class="outline-2">
+<h2 id="org66e2b1a"><span class="section-number-2">10.</span> Como listas são implementadas</h2>
+</div>
+<div id="outline-container-org9e519d2" class="outline-2">
+<h2 id="org9e519d2"><span class="section-number-2">11.</span> Colando texto de volta</h2>
+</div>
+<div id="outline-container-org9691529" class="outline-2">
+<h2 id="org9691529"><span class="section-number-2">12.</span> Loops e recursão</h2>
+</div>
+<div id="outline-container-org1688c3b" class="outline-2">
+<h2 id="org1688c3b"><span class="section-number-2">13.</span> Buscas com expressões regulares</h2>
+</div>
+<div id="outline-container-org4216e0f" class="outline-2">
+<h2 id="org4216e0f"><span class="section-number-2">14.</span> Contando via repetição e <i>regexps</i></h2>
+</div>
+<div id="outline-container-orgc8358ee" class="outline-2">
+<h2 id="orgc8358ee"><span class="section-number-2">15.</span> Contando palavras em uma <code>defun</code></h2>
+</div>
+<div id="outline-container-org98f5fc8" class="outline-2">
+<h2 id="org98f5fc8"><span class="section-number-2">16.</span> Preparando um gráfico</h2>
+</div>
+<div id="outline-container-org33ba87d" class="outline-2">
+<h2 id="org33ba87d"><span class="section-number-2">17.</span> Seu arquivo <code>.emacs</code></h2>
+<div class="outline-text-2" id="text-17">
+</div>
+<div id="outline-container-org4b4926d" class="outline-3">
+<h3 id="org4b4926d"><span class="section-number-3">17.1.</span> Mapeamento de teclas</h3>
+</div>
+</div>
+<div id="outline-container-org7ff4a49" class="outline-2">
+<h2 id="org7ff4a49"><span class="section-number-2">18.</span> Depuração</h2>
+</div>
+<div id="outline-container-org6a4e0ae" class="outline-2">
+<h2 id="org6a4e0ae"><span class="section-number-2">19.</span> Conclusão</h2>
+</div>
+<div id="outline-container-org4775002" class="outline-2">
+<h2 id="org4775002"><span class="section-number-2">20.</span> Apêndice a</h2>
+</div>
+<div id="outline-container-orgae506cd" class="outline-2">
+<h2 id="orgae506cd"><span class="section-number-2">21.</span> Apêndice b</h2>
+</div>
+<div id="outline-container-org2cb149a" class="outline-2">
+<h2 id="org2cb149a"><span class="section-number-2">22.</span> Apêndice c</h2>
+</div>
+<div id="outline-container-orga115a1c" class="outline-2">
+<h2 id="orga115a1c"><span class="section-number-2">23.</span> Apêndice d</h2>
+</div>
+<div id="outline-container-org9d658dd" class="outline-2">
+<h2 id="org9d658dd"><span class="section-number-2">24.</span> Apêndice e</h2>
+</div>
+<div id="outline-container-org07cb7af" class="outline-2">
+<h2 id="org07cb7af"><span class="section-number-2">25.</span> Index</h2>
+</div>
+<div id="outline-container-org9869d8e" class="outline-2">
+<h2 id="org9869d8e"><span class="section-number-2">26.</span> Sobre o autor</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Felipe Costa Canteiro</p>
-<p class="date">Created: 2026-06-16 ter 06:00</p>
+<p class="date">Created: 2026-06-16 ter 06:09</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
