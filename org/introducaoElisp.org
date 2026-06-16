@@ -74,6 +74,88 @@ Meus agradecimentos a todos que me ajudaram com este livro. Meus agradecimentos 
 Robert J. Chassel bob@gnu.org
 
 * Processamento de listas
+Para um olhar não treinado, o Lisp é uma linguagem de programação estranha; Em código Lisp há parenteses em todo lugar. Alguns até dizem que o nome representa "Vários Parenteses Bobos Isolados" ("/Lots of Isolated Silly Parentheses/").
+Mas dizer isso é injusto. Lisp representa Processamento de Listas (/LISt Processing/), e a linguagem de programação lida com /listas/ (e listas de listas) colocando-as entre parenteses.
+Os parenteses marcam os limites da lista. Às vezes uma lista é precedida por um apóstrofo '/'/', chamado de /aspas simples/ (/single-quote/) em Lisp. Listas são a base do Lisp.
+
++ [[*Listas Lisp][Listas Lisp]]
++ [[*Execute um Programa][Execute um Programa]]
++ [[*Gere uma Mensagem de Erro][Gere uma Mensagem de Erro]]
++ [[*Nomes Símbolos e Definições de Funções][Nomes dos Símbolos e Definições de Funções]]
++ [[*O Interpretador Lisp][O Interpretador Lisp]]
++ [[*Avaliação][Avaliação]]
++ [[*Variáveis][Variáveis]]
++ [[*Argumentos][Argumentos]]
++ [[*Assinalando o Valor de uma Variável][Assinalando o Valor de uma Variável]]
++ [[*Resumo][Resumo]]
++ [[*Exercícios][Exercícios]]
+
+** Listas Lisp
+Em Lisp, uma lista se parece com isso: ~'(rosa violeta bem-me-quer bafo-de-boi)~. Esta lista é precedida por um único apóstrofo. Ela também poderia ser escrita da forma a seguir, que se parece mais com o tipo de lista que você deve estar acostumado:
+#+begin_src emacs-lisp
+'(rosa
+  violeta
+  bem-me-quer
+  bafo-de-boi)
+#+end_src
+
+Os elementos desta lista são os nomes de 4 diferentes flores, separados um do outro por um espaço em branco e cercado por parenteses, como flores com uma parede de pedras em volta delas.
+
+*** Números, Listas dentro de Listas
+Listas também podem conter números, como nesta lista: ~(+ 2 2)~. Esta lista possui o sinal de adição '=+=', seguido de dois '2's, separados por um espaço em branco.
+
+Em Lisp, tanto dados como programas são representados da mesma forma; assim, ambos são listas de palavras, números, ou outras listas, separados por um espaço em branco e cercado por parenteses. (Se um programa se parece com dados, um programa pode facilmente servir como dado para outro; esta é uma funcionalidade muito poderosa do Lisp.) (Aliás, essas duas observações entre parenteses /não são/ listas Lisp, porque elas contém ';' e '.' como pontuação.)
+
+Aqui está uma outra lista, desta vez com uma lista dentro dela:
+
+#+begin_src emacs-lisp
+'(essa lista tem (uma lista dentro dela))
+#+end_src
+
+Os componentes desta lista são as palavras '=essa=', '=lista=', e a lista '=(uma lista dentro dela)=. A lista interior é composta das palavras '=uma=', '=lista=', '=dentro=', '=dela='. 
+
+*** Átomos Lisp
+Em Lisp, o que estávamos chamando de palavras são chamados /átomos/. Esse termo vem do significado histórico da palavra átomo, que significa "indivisível". Até onde o Lisp sabe, as palavras que nós viemos utilizando nas listas não podem ser divididas em qualquer partes menores e ainda significar a mesma coisa como parte de um programa; da mesma forma com números e símbolos de caracteres únicos como '=+='. Por outro lado, diferentemente de um átomo antigo, uma lista pode ser dividida em partes. (Veja [[*~car~, ~cdr~, ~cons~: funções fundamentais][~car~, ~cdr~, ~cons~: funções fundamentais]].)
+
+Em uma lista, átomos são separados uns dos outros por um espaço em branco. Eles podem estar colados com os parenteses.
+
+Tecnicamente, uma Lista em Lisp consiste de parenteses cercando átomos separados por espaços em branco ou cercando outras listas ou cercando os átomos e outras listas. Uma lista pode conter apenas um átomo nela ou não conter nada. Uma lista com nada se parece com isso: ~()~, e é chamada /lista vazia/. Diferentemente de todo o resto, uma lista vazia é considerada um átomo e uma lista ao mesmo tempo.
+
+As representações impressas tanto de átomos como de listas são chamadas /expressões simbólicas/ ou, de maneira mais concisa, /s-expressions/. A palavra /expressão/ por si só pode se referir tanto para a representação impressa, como ao átomo ou como a lista já que é armazenado internamente no computador. Frequentemente, pessoas usam o termo /expressão/ indiscriminadamente. (Além disso, em muitos textos, a palavra /forma/ é utilizada como sinônimo para expressão.)
+
+Aliás, os átomos que compõem nosso universo foram nomeados desta forma quando acreditavam ser indivisíveis; mas foi descoberto que átomos físicos não são indivisíveis. Partes podem se separa de um átomo ou ele pode fissionar em duas partes de mais ou menos mesmo tamanho. Átomos físicos foram nomeados prematuramente, antes que sua natureza verdadeira fosse descoberta. Em Lisp, alguns tipos de átomos, como um array, pode ser separado em partes; mas o mecanismo para fazer isso difere do mecanismo de separar uma lista. Até onde as operações em lista sabem, os átomos são indivisíveis.
+
+Como em inglês, os significados das letras componentes de um átomo Lisp são diferentes do significado que as letras fazem como uma palavra. Por exemplo, a palavra para a preguiça sul-americana, '=ai=', é completamente diferente das duas palavras '=a=' e '=i='.
+
+Existem muitos tipos de átomos na natureza mas apenas alguns em Lisp: por exemplo, /números/, como 37, 511, ou 1789, e /símbolos/, como '=+=', '=foo=' ou '~forward-line~'. As palavras que listamos nos exemplos acima são todas símbolos. Em conversas Lisp cotidianas, a palavra "átomo" não é utilizada com frequência, porque programadores geralmente tentam ser mais específicos sobre que tipo de átomo estão lidando. Programação Lisp é majoritariamente sobre símbolos (e às vezes números) dentro de listas. (Aliás, a observação precedente com três palavras entre parenteses é uma lista propriamente dita in Lisp, já que consiste de átomos, que neste caso são símbolos, separados por espaços em branco e cercados por parenteses, sem uma pontuação alheia ao Lisp.)
+
+Texto entre aspas duplas - mesmo frases ou parágrafos - é também um átomo. Aqui está um exemplo:
+#+begin_src emacs-lisp
+'(essa lista possui "texto entre aspas duplas.")
+#+end_src
+
+Em Lisp, todo o texto citado acima incluindo o ponto final e espaços é um único átomo. Esse tipo de átomo é chamado de /string/ (ou cadeia de caracteres, "/string of characters/") e é o tipo de coisa que é utilizado para mensagens que um computador pode imprimir para um ser humano ler. Strings são um tipo de átomo diferente de números ou símbolos e são usadas de forma diferente
+** Execute um Programa
+
+** Gere uma Mensagem de Erro
+
+** Nomes Símbolos e Definições de Funções
+
+** O Interpretador Lisp
+
+** Avaliação
+
+** Variáveis
+
+** Argumentos
+
+** Assinalando o Valor de uma Variável
+
+** Resumo
+
+** Exercícios
+
+
 * Praticando avaliação
 * Como escrever definições de funções
 * Algumas funções relacionadas a /buffers/
